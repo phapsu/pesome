@@ -1,0 +1,40 @@
+<%for(var i = 0; i < this.peticks.length ; i++){%>
+<li>
+    <%
+        this.peticks[i].petick.petopic_id = this.petopic_id;
+        type = this.peticks[i].petick.tick_attach_type;l(type);
+        switch(type){
+            case "PhotoAlbum":
+    %>
+            <%== $.View('//pesome/petopic_detail/peticks_list/views/photo_album.ejs', this.peticks[i].petick ) %>
+    <%
+            break;
+            case "Video":
+    %>
+            <%== $.View('//pesome/petopic_detail/peticks_list/views/video.ejs', this.peticks[i].petick ) %>
+    <%
+            break;
+            case "Link":
+    %>
+            <%== $.View('//pesome/petopic_detail/peticks_list/views/link.ejs', this.peticks[i].petick ) %>
+    <%
+            break;
+            case "ShareFile":
+    %>
+            <%== $.View('//pesome/petopic_detail/peticks_list/views/share_file.ejs', this.peticks[i].petick ) %>
+    <%
+            break;
+            case "Audio":
+    %>
+            <%== $.View('//pesome/petopic_detail/peticks_list/views/audio.ejs', this.peticks[i].petick ) %>
+    <%
+            break;
+            default:
+    %>
+            <%== $.View('//pesome/petopic_detail/peticks_list/views/text.ejs', this.peticks[i].petick ) %>
+     <%
+            break;
+        }
+    %>
+</li>
+<%}%>
