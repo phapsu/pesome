@@ -1,0 +1,28 @@
+<% d(this); %>
+
+<% 
+    if(this.link.is_link_video != null){ 
+        var url = this.link.link;
+       
+        var isYouTube = RegExp(/\.youtube\.com.+v=([\w_\-]+)/i);
+        var r = isYouTube.exec(url);
+        if (r && r[1]) {
+            this.embed_code = r[1];           
+%>
+            <%== $.View('//pesome/petick/link/views/youtube.ejs', this )%>
+<%           
+        }
+
+        var regExpVimeoURL = /http:\/\/(www\.)?vimeo.com\/(\d+)($|\/)/;
+        var match = url.match(regExpVimeoURL);
+        if (match) {
+            this.embed_code = match[2];
+%>
+            <%== $.View('//pesome/petick/link/views/vimeo.ejs', this )%> 
+<%        
+        }        
+
+%>       
+<% }else{  %>
+<%== $.View('//pesome/petick/link/views/normal_link.ejs', this )%>
+<% } %>

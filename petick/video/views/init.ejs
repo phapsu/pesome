@@ -1,0 +1,8 @@
+<% d(this); video = this.video %>
+<a href="#" title="Play Video" id="playVideo" data-url="<%= video.url %>">
+    <img alt="" src="<%= $full_base_url + video.thumb %>" id="videoPic" />
+</a>
+<div>
+    <h3 id="videoTitle"><%= video.title %></h3>
+    <p id="videoDesc"><%= video.description %></p>
+</div>

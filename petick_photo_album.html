@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <title>pesome</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <div data-role="page" id="petick_photo_album_page" data-add-back-btn="true">
+            <div data-role="header">
+                <a href="petopic_detail.html" id="petick_back_link" data-icon="arrow-l" class="ui-btn-left" data-ajax="false">Back</a>
+                <h1>Detail</h1>
+            </div>
+            <div data-role="content">
+                <div class="content-primary">
+                    <ul id="petick_photo_gallery" class="gallery"></ul>
+                    <ul id="comment_list" data-role="listview"></ul>
+                </div>
+            </div>
+        </div>
+        <script type='text/javascript' src='../steal/steal.js?pesome'></script>
+        <script type="text/javascript">            
+            document.addEventListener('deviceready', this.deviceready, false);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,5 @@
+<%for(var i = 0; i < this.length ; i++){%>
+	<li <%= this[i]%>>
+		<%== $.View('//pesome/petick/list/views/petick.ejs', this[i] )%>
+	</li>
+<%}%>

@@ -1,0 +1,11 @@
+<div id="audioPosition">
+    <input type="range" name="slider" id="slider" value="0" min="0" max="100" data-highlight="true" disabled />
+</div>
+<div data-role="controlgroup" data-type="horizontal">
+    <input type="button" id="play" data-url="<%= this.audio.url %>" data-role="button" data-icon="audio-play" data-iconpos="notext" value="Play" />
+    <input type="button" id="pause" data-role="button" data-icon="audio-pause" data-iconpos="notext" value="Pause" disabled />
+    <input type="button" id="stop" data-role="button" data-icon="audio-stop" data-iconpos="notext" value="Stop" />
+    <input type="button" id="rewind" data-url="<%= this.audio.url %>" data-role="button" data-icon="audio-rewind" data-iconpos="notext" value="Rewind" />
+    <!--<input type="button" id="record" data-role="button" data-icon="audio-record" data-iconpos="notext" value="Record">-->
+</div>
+<div id="recording"></div>

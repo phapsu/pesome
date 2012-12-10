@@ -1,0 +1,8 @@
+<%
+    for(var i = 0; i < this.photos.length ; i++){
+
+    var photo_thumb = this.photos[i].photo.thumb;
+    var photo_large = this.photos[i].photo.large;
+%>
+    <li><a rel="external" href="<%= $full_base_url+photo_large%>"><img src="<%= $full_base_url+photo_thumb%>" alt="Image 001" /></a></li>
+<%  }   %>

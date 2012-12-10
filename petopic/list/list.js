@@ -21,7 +21,7 @@ $.Controller('Pesome.Petopic.List',
 {
 	init : function(){
             $super = this;
-            Pesome.Models.Petopic.findAll({},function(res){//d(res);
+            Pesome.Models.Petopic.findAll({},function(res){
                 $super.element.html($super.view('index', res) ).listview('refresh');
             });
 	}
