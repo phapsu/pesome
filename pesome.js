@@ -22,6 +22,7 @@ steal(
     'pesome/petick/share_file',
     'pesome/petick/photo_album',
     'pesome/petick/text',        
+	'pesome/login/create',
     function(){
         // configure your application
         $('#petopics').pesome_petopic_list();
@@ -33,6 +34,7 @@ steal(
     	$('#petick_video').pesome_petick_video();
     	$('#petick_photo_gallery').pesome_petick_photo_album();
     	$('#petick_audio').pesome_petick_audio();
+		$('#login').pesome_login_create();
 }).then(
     {src : './js/jquery.mobile-1.2.0.min.js', compress : false},
     {src : './js/photoswipe.min.js', compress : false}    

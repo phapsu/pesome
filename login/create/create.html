@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+            "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+	<head>
+		<title>Pesome.Petopic.Create</title>
+        <style type='text/css'>
+            body {font-family: verdana}
+        </style>
+	</head>
+	<body>
+	    <h1>Pesome.Petopic.Create Demo</h1>
+		<form id='create' action=''></form>
+		<div id='petopics'></div>
+		<script type='text/javascript' 
+                src='../../../steal/steal.js'>
+        </script>
+		<script type='text/javascript'>
+			steal('pesome/petopic/create','pesome/fixtures',function(){
+				
+				$('#create').pesome_petopic_create();
+				Pesome.Models.Petopic.bind('created', function(ev, petopic){
+					$('<div>').html("<h3>"+petopic.name+"</h3><p>"+petopic.description+"</p>")
+					        .appendTo( $('#petopics') )
+				})
+				
+			})
+		</script>
+	</body>
+</html>
