@@ -1,20 +1,35 @@
 steal('jquery/model', function(){
 
-/**
+    /**
  * @class Pesome.Models.Login
  * @parent index
  * @inherits jQuery.Model
  * Wraps backend login services.  
  */
-$.Model('Pesome.Models.Login',
-/* @Static */
-{
+    $.Model('Pesome.Models.Login',
+    /* @Static */
+    {
         Auth : function(params, success, error){
-            d(params);
-            return 'ok';
+            data = {
+                'client_id': $client_id, 
+                'client_secret': $client_secret, 
+                'email': params.email, 
+                'password': params.password
+                };
+            return $.get($api_url.auth(),
+                data, 
+                function(res){
+                    if (data.hasOwnProperty('error')) {
+                        return data.error;                        
+                    }
+                    else{
+                        window.localStorage.setItem("access_token", res.access_token);
+                        window.location.href = 'index.html';
+                    }
+                });
         }
-},
-/* @Prototype */
-{});
+    },
+    /* @Prototype */
+    {});
 
 })

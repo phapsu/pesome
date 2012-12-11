@@ -17,15 +17,14 @@ $.Controller('Pesome.Login.Create',
 	init : function(){
 		this.element.html(this.view());
 	},
-	'#btLogin click' : function(el){
-            alert('sssssssss');
-            Pesome.Models.Login.Auth({petopic_id: 321},function(res){
-                d(res);
-            });
-            //Pesome.Models.PetopicDetail.findByTopicId({petopic_id: 321},function(res){
-
-            //});
-        }
+        submit : function(el, ev){
+		ev.preventDefault();
+		this.element.find('[type=submit]').val('Creating...')
+		new Pesome.Models.Login.Auth(el.formParams(), this.callback('saved'));
+	},
+	saved : function(res){
+		this.element.find('[type=submit]').after(res);
+	}
 })
 
 });
