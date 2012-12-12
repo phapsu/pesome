@@ -2,7 +2,7 @@ steal( 'jquery/controller',
 	   'jquery/view/ejs',
 	   'jquery/controller/view',
 	   'pesome/models' )
-.then( './views/index.ejs',
+.then( './views/init.ejs',
        './views/petopic.ejs',
        function($){
 
@@ -19,10 +19,12 @@ $.Controller('Pesome.Petopic.List',
 },
 /** @Prototype */
 {
-	init : function(){
+	init : function(callback){
             $super = this;
             Pesome.Models.Petopic.findAll({},function(res){
-                $super.element.html($super.view('index', res) ).listview('refresh');
+                $super.element.html($super.view('init', res) ).listview('refresh');
+                //Pesome.Petopic.Category.prototype.init();
+                $('#list_category').pesome_petopic_category();
             });
 	}
 //

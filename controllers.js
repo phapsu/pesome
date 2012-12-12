@@ -1,6 +1,8 @@
 // steal model files
 steal(
     'pesome/petopic/list',
+	'pesome/petopic/category',
+	'pesome/petopic/select_category',
     'pesome/petopic_detail/peticks_list',
     'pesome/petopic_detail/list',
     'pesome/petick/load_petick',
@@ -18,7 +20,11 @@ steal(
 
         //petopic
         $('#petopics').pesome_petopic_list();
-
+        //load category
+        //$('#list_category').pesome_petopic_category();
+        //select category
+        $('#select_category').pesome_petopic_select_category();
+		
         //petopic detail
         $('#petopic_details').pesome_petopic_detail_list();
         $('#petopic_peticks_list').pesome_petopic_detail_peticks_list();
@@ -37,5 +43,5 @@ steal(
 
         //login
         $('#login').pesome_login_create();
-    }
+    }    
 )

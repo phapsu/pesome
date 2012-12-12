@@ -2,17 +2,17 @@ steal( 'jquery/controller',
 	   'jquery/view/ejs',
 	   'jquery/controller/view',
 	   'pesome/models' )
-.then( './views/init.ejs',
-       './views/category.ejs',
+.then( './views/index.ejs',
+       './views/petopic.ejs',
        function($){
 
 /**
- * @class Pesome.Petopic.Category
+ * @class Pesome.Petopic.SelectCategory
  * @parent index
  * @inherits jQuery.Controller
  * Lists petopics and lets you destroy them.
  */
-$.Controller('Pesome.Petopic.Category',
+$.Controller('Pesome.Petopic.SelectCategory',
 /** @Static */
 {
 	defaults : {}
@@ -20,10 +20,11 @@ $.Controller('Pesome.Petopic.Category',
 /** @Prototype */
 {
 	init : function(){
-            $super = this;
-            Pesome.Models.Petopic.getAllCategory({},function(res){
-                $super.element.html($super.view('init', res) ).listview('refresh');
-            });
+//            var category_id = $urlUtility.getVars()["category_id"];
+//            $super = this;
+//            Pesome.Models.Petopic.findAll({'category_id': category_id},function(res){
+//                $super.element.html($super.view('index', res) ).listview('refresh');
+//            });
 	}
 //
 //	'.destroy click': function( el ){
