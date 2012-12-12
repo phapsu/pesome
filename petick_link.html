@@ -11,13 +11,17 @@
                 <h1>Detail</h1>
             </div>
             <div data-role="content">  
-                <div class="content-primary">  
+                <div id="main-petick-content" class="content-primary">  
                     <div id="petick_link"></div>
                     <br/>
-                    <div id="comment_create"></div>
+                    <div id='comment_create'></div>                    
                     <br/>
                     <ul id="comment_list" data-role="listview"></ul>
-                </div>            
+                </div>
+                <div data-role="content" id="commentContentTransition" style="display: none;">
+                   <div align="CENTER"><h4>Your comment has been sent. Please wait.</h4></div>
+                   <div align="CENTER"><img id="spin" name="spin" src="images/loader.gif"/></div>                        
+                </div>
             </div>            
         </div>       
         <script type='text/javascript' src='../steal/steal.js?pesome'></script>

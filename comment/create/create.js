@@ -14,18 +14,39 @@ steal( 'jquery/controller',
 $.Controller('Pesome.Comment.Create',
 /** @Prototype */
 {
-	init : function(){
-		this.element.html(this.view());
+	init : function(){            
+            this.element.html(this.view());
+            
 	},
-	submit : function(el, ev){
-		ev.preventDefault();
-		this.element.find('[type=submit]').val('Creating...')
-		new Pesome.Models.Comment(el.formParams()).save(this.callback('saved'));
-	},
-	saved : function(){
-		this.element.find('[type=submit]').val('Create');
-		this.element[0].reset()
-	}
+	'#btSubmitComment click' : function(){
+            var petopic_id = $urlUtility.getVars()["petopic_id"];
+            var tick_id = $urlUtility.getVars()["tick_id"];
+            var params = {'petopic_id':petopic_id, 'tick_id':tick_id, 'comment':$('#commentInput').val()};
+            
+            if($('#commentInput').val() == null || $('#commentInput').val() == EMPTY){
+                $('#commentLabel').addClass(MISSING);
+                alert('Please fill in all required fields before submitting the form.');                
+            }else{        
+                $('#main-petick-content').hide();
+                $('#commentContentTransition').show('fast', 
+                    function(){
+                        Pesome.Models.Comment.save(params, 
+                            function(res){
+                                d(res);
+                                window.location.reload();
+                            },
+                            function(e){
+                                d(e);
+                                $('#main-petick-content').show();
+                            }
+                        );
+                    }
+                );
+            }
+        },
+	'#buttonCommentErr click' : function(){
+            $('#main-petick-content').show();
+        }
 })
 
 });

@@ -89,4 +89,3 @@ function d(d){
 // Constants
 var MISSING = "missing";
 var EMPTY = "";
-var NO_STATE = "ZZ"; 

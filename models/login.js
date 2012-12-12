@@ -24,6 +24,7 @@ steal('jquery/model', function(){
                     }
                     else{
                         window.localStorage.setItem("access_token", res.access_token);
+                        $access_token = res.access_token;
                         window.location.href = 'index.html';
                     }
                 });
