@@ -16,6 +16,13 @@ $.Model('Pesome.Models.Petopic',
 		  params, 
 		  success,
 		  'jsonp');
+	},
+        getAllCategory : function(params, success, error){
+		// do the ajax request
+		return $.get($api_url.category(),
+		  params, 
+		  success,
+		  'jsonp');
 	}
 },
 /* @Prototype */
