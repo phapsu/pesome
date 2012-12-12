@@ -1,5 +1,7 @@
-<%for(var i = 0; i < this.length ; i++){%>
-	<li <%= this[i]%>>
-		<%== $.View('//pesome/petick/list/views/petick.ejs', this[i] )%>
-	</li>
+<%
+attach_files = this.attach_files
+%>
+
+<%for(var i = 0; i < attach_files.length ; i++){%>
+    <%== $.View('//pesome/petick/share_file/views/attach_file.ejs', attach_files[i].attach_file )%>
 <%}%>

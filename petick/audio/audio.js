@@ -2,8 +2,8 @@ steal( 'jquery/controller',
 	   'jquery/view/ejs',
 	   'jquery/controller/view',
 	   'pesome/models' )
-.then( './views/init.ejs', 
-       './views/petick.ejs', 
+.then( './views/init.ejs',
+       './views/petick.ejs',
 function($){
 
     /**
@@ -22,16 +22,12 @@ function($){
             init : function(){
                 var petopic_id = $urlUtility.getVars()["petopic_id"];
                 var tick_id = $urlUtility.getVars()["tick_id"];
-                var $super = this;
-                Pesome.Models.Petick.findOne({petopic_id: petopic_id, tick_id : tick_id},function(res){
-                    $super.element.html($super.view('init', res.petick));       
+                Pesome.Petick.LoadPetick.prototype.init({'petopic_id' : petopic_id, 'tick_id' : tick_id, 'controller' : this}, function($obj){
                     $('#petick_audio_page').trigger('create');
-                    $('#petick_back_link').attr('href', 'petopic_detail.html?id='+petopic_id);
                 });
             },
             '#play click' : function(el){
                 audioURL =  encodeURIComponent($.trim($full_base_url + el.attr('data-url')));
-                d(audioURL);
                 playAudio(audioURL);
                 el.button('disable');
                 $("#pause").button('enable');
@@ -52,7 +48,7 @@ function($){
             },
             '#stop click' : function(el){
                 audioURL =  encodeURIComponent($.trim($full_base_url + el.attr('data-url')));
-                
+
                 stopAudio();
                 playAudio(audioURL);
 

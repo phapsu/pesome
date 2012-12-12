@@ -1,0 +1,8 @@
+<%
+    comments = this.tick.comments;
+%>
+<%for(var i = 0; i < comments.length ; i++){%>
+	<li>
+		<%== $.View('//pesome/comment/list/views/comment.ejs', comments[i].comment )%>
+	</li>
+<%}%>

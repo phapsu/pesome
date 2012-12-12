@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+            "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+	<head>
+		<title>Pesome.Comment.Create</title>
+        <style type='text/css'>
+            body {font-family: verdana}
+        </style>
+	</head>
+	<body>
+	    <h1>Pesome.Comment.Create Demo</h1>
+		<form id='create' action=''></form>
+		<div id='comments'></div>
+		<script type='text/javascript' 
+                src='../../../steal/steal.js'>
+        </script>
+		<script type='text/javascript'>
+			steal('pesome/comment/create','pesome/fixtures',function(){
+				
+				$('#create').pesome_comment_create();
+				Pesome.Models.Comment.bind('created', function(ev, comment){
+					$('<div>').html("<h3>"+comment.name+"</h3><p>"+comment.description+"</p>")
+					        .appendTo( $('#comments') )
+				})
+				
+			})
+		</script>
+	</body>
+</html>

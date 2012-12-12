@@ -1,7 +1,5 @@
-<% d(this); %>
-
 <% 
-    if(this.link.is_link_video != null){ 
+    if(this.link.is_link_video == true){ 
         var url = this.link.link;
        
         var isYouTube = RegExp(/\.youtube\.com.+v=([\w_\-]+)/i);
@@ -11,6 +9,12 @@
 %>
             <%== $.View('//pesome/petick/link/views/youtube.ejs', this )%>
 <%           
+        }else if(url.indexOf('youtu.be') > -1){
+             arr = url.split('youtu.be');
+             this.embed_code = arr[1].substr(1,11);
+%>
+            <%== $.View('//pesome/petick/link/views/youtube.ejs', this )%>
+<%              
         }
 
         var regExpVimeoURL = /http:\/\/(www\.)?vimeo.com\/(\d+)($|\/)/;

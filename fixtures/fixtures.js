@@ -23,4 +23,11 @@ steal("jquery/dom/fixture", function(){
 			description: $.fixture.rand( descriptions , 1)[0]
 		}
 	})
+	$.fixture.make("comment", 5, function(i, comment){
+		var descriptions = ["grill fish", "make ice", "cut onions"]
+		return {
+			name: "comment "+i,
+			description: $.fixture.rand( descriptions , 1)[0]
+		}
+	})
 })
