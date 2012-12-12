@@ -4,3 +4,11 @@
 .gallery li a { display: block; margin: 5px; border: 1px solid #3c3c3c; }
 .gallery li img { display: block; width: 100%; height: auto; }
 .missing{ color: red;}
+.waiting{
+    background: url('../images/loader.gif');
+    position: absolute;
+    min-width: 32px;
+    height: 32px;
+    margin: auto;
+    margin-top: 70px;
+}
