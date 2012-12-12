@@ -20,11 +20,16 @@ $.Controller('Pesome.Petopic.SelectCategory',
 /** @Prototype */
 {
 	init : function(){
-//            var category_id = $urlUtility.getVars()["category_id"];
-//            $super = this;
-//            Pesome.Models.Petopic.findAll({'category_id': category_id},function(res){
-//                $super.element.html($super.view('index', res) ).listview('refresh');
-//            });
+            var category_id = $urlUtility.getVars()["category_id"];
+            $super = this;
+            Pesome.Models.Petopic.findAll({'category_id': category_id},function(res){                    
+                if(res[0] == null){                                           
+                    window.location.href="sorry_no_data.html";                    
+                }
+                else{
+                    $super.element.html($super.view('index', res) ).listview('refresh');                    
+                }
+            });
 	}
 //
 //	'.destroy click': function( el ){

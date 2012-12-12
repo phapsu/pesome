@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+            <title>pesome</title>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
+            <script src="js/jquery-1.8.2.min.js"></script>
+            <script src="js/jquery.mobile-1.2.0.min.js"></script>
+            <script src="cordova-2.2.0.js"></script>
+            <script type="text/javascript" charset="utf-8">
+ 
+            // Wait for PhoneGap to load
+            document.addEventListener("deviceready", onDeviceReady, false);
+ 
+            // PhoneGap is ready
+            function onDeviceReady() {
+                // Do cool things here...
+            }
+ 
+            function getImage() {
+                // Retrieve image file location from specified source
+                navigator.camera.getPicture(uploadPhoto, function(message) {
+                    alert('get picture failed');
+                    },{
+                        quality: 50,
+                        destinationType: navigator.camera.DestinationType.FILE_URI,
+                        sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
+                    }
+                ); 
+            } 
+            
+            function uploadPhoto(imageURI) {
+                var options = new FileUploadOptions();
+                options.fileKey="file";
+                options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+                options.mimeType="image/jpeg";
+ 
+                var params = new Object();
+                params.value1 = "test";
+                params.value2 = "param";
+ 
+                options.params = params;
+                options.chunkedMode = false;
+ 
+                var ft = new FileTransfer();
+                ft.upload(imageURI, "http://dev.afterclassroom.com/api/peticks/photo_albums?id=58&access_token=fdea83168f95c70c0cc11f841ec3c3fa&petopic_id=283", win, fail, options);
+            }
+ 
+            function win(r) {
+                console.log("Code = " + r.responseCode);
+                console.log("Response = " + r.response);
+                console.log("Sent = " + r.bytesSent);
+                alert(r.response);
+            }
+ 
+            function fail(error) {
+                alert("An error has occurred: Code = "+ error.code);
+            }
+        </script>
+	</head>
+	<body>
+            <!-- Home -->
+            <div data-role="page" id="page1">
+                <div data-role="content">
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="title">
+                                Select category
+                            </label>
+                            <select id="category" name="category">
+                                <option value="option1">
+                                    Option 1
+                                </option>
+                            </select>
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="title">
+                                Title
+                            </label>
+                            <input name="" id="title" placeholder="" value="" type="text">
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="title">
+                                Image
+                            </label>
+                            <a id="image" data-role="button" href="" onclick="getImage();">
+                                Select image
+                            </a>
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="description">
+                                Description
+                            </label>
+                            <textarea name="" id="description" placeholder=""></textarea>
+                        </fieldset>
+                    </div>
+                    <input id="submit" value="Submit" type="submit">
+                </div>
+            </div>
+		
+        <script type='text/javascript' src='../steal/steal.js?pesome'></script>
+	</body>
+</html>

@@ -1,8 +1,8 @@
 // steal model files
 steal(
     'pesome/petopic/list',
-	'pesome/petopic/category',
-	'pesome/petopic/select_category',
+    'pesome/petopic/category',
+    'pesome/petopic/select_category',
     'pesome/petopic_detail/peticks_list',
     'pesome/petopic_detail/list',
     'pesome/petick/load_petick',
