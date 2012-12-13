@@ -15,6 +15,7 @@ steal(
     'pesome/login/create',
     'pesome/comment/create',
     'pesome/comment/list',
+    'pesome/comment/form_warning',
     function(){
         // configure your application
 
@@ -40,6 +41,7 @@ steal(
         //comment
         $('#comment_list').pesome_comment_list();
         $('#comment_create').pesome_comment_create();
+        $('#comment_warning').pesome_comment_form_warning();
 
         //login
         $('#login').pesome_login_create();

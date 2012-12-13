@@ -25,27 +25,25 @@ $.Controller('Pesome.Comment.Create',
             
             if($('#commentInput').val() == null || $('#commentInput').val() == EMPTY){
                 $('#commentLabel').addClass(MISSING);
-                alert('Please fill in all required fields before submitting the form.');                
+                $('#main-petick-content').hide();
+                $('#commentErrorDialog').show();
             }else{        
                 $('#main-petick-content').hide();
+                $('#commentErrorDialog').hide();
                 $('#commentContentTransition').show('fast', 
-                    function(){
+                    function(){                        
                         Pesome.Models.Comment.save(params, 
                             function(res){
-                                d(res);
-                                window.location.reload();
+                                $('#commentContentTransition').hide('slow', function(){ window.location.reload(); });
                             },
                             function(e){
                                 d(e);
-                                $('#main-petick-content').show();
+                                $('#commentContentTransition').hide('slow', function(){ window.location.reload(); });
                             }
                         );
                     }
                 );
             }
-        },
-	'#buttonCommentErr click' : function(){
-            $('#main-petick-content').show();
         }
 })
 
