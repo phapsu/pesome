@@ -31,6 +31,12 @@ var $api_url  = {
     petopic : function(){
         return $full_base_url+'/api/petopics?access_token='+ $access_token;
     },
+    petopic_mypetopic : function(){
+        return $full_base_url+'/api/petopics/my_petopics?access_token='+ $access_token;
+    },
+    petopic_ismember : function(){
+        return $full_base_url+'/api/petopics/members?access_token='+ $access_token;
+    },
     petopic_detail : function(id){
         return $full_base_url+'/api/petopics/'+id+'?access_token='+ $access_token;
     },
