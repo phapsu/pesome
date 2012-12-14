@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>Pesome.Post.CreatePhoto</title>
+        <style type='text/css'>
+            body {font-family: verdana}
+            .error {border: solid 1px red;}
+            .error_text { color: red; font-size: 10px;}
+            td {padding: 3px;}
+        </style>
+	</head>
+	<body>
+	    <h1>Pesome.Post.CreatePhoto Demo</h1>
+		<div id='create_photo'></div>
+		<script type='text/javascript' 
+                src='../../../steal/steal.js'>
+        </script>
+		<script type='text/javascript'>
+			steal('pesome/post/create_photo',function(){
+				
+				$('#create_photo').pesome_post_create_photo();
+			})
+		</script>
+	</body>
+</html>

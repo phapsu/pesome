@@ -24,11 +24,7 @@ $.Controller('Pesome.Petick.Link',
 	init : function(){
             var petopic_id = $urlUtility.getVars()["petopic_id"];
             var tick_id = $urlUtility.getVars()["tick_id"];
-            var $super = this;
-            Pesome.Models.Petick.findOne({petopic_id: petopic_id, tick_id : tick_id},function(res){
-                $super.element.html($super.view('init', res.petick));
-                $('#petick_back_link').attr('href', 'petopic_detail.html?id='+petopic_id);
-            });
+            Pesome.Petick.LoadPetick.prototype.init({'petopic_id' : petopic_id, 'tick_id' : tick_id, 'controller' : this}, function(){});
 	}
 });
 

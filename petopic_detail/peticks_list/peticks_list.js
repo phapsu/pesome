@@ -4,6 +4,12 @@ steal(  'jquery/controller',
         'pesome/models' )
 .then( 
         './views/peticks.ejs',  
+        './views/photo_album.ejs',  
+        './views/video.ejs',  
+        './views/link.ejs',  
+        './views/share_file.ejs',  
+        './views/audio.ejs',  
+        './views/text.ejs',  
         function($){
 
 

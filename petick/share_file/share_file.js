@@ -3,7 +3,7 @@ steal( 'jquery/controller',
 	   'jquery/controller/view',
 	   'pesome/models' )
 .then( './views/init.ejs', 
-       './views/petick.ejs', 
+       './views/attach_file.ejs', 
        function($){
 
 /**
@@ -20,7 +20,12 @@ $.Controller('Pesome.Petick.ShareFile',
 /** @Prototype */
 {
 	init : function(){
-		this.element.html(this.view('init',Pesome.Models.Petick.findAll()) )
+            var petopic_id = $urlUtility.getVars()["petopic_id"];
+            var tick_id = $urlUtility.getVars()["tick_id"];
+            Pesome.Petick.LoadPetick.prototype.init({'petopic_id' : petopic_id, 'tick_id' : tick_id, 'controller' : this}, 
+                function($obj){
+                    $obj.find('ul').listview('refresh');
+                });
 	}	
 });
 
