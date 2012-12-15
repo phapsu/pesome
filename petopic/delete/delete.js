@@ -6,24 +6,21 @@ steal( 'jquery/controller',
 	.then('./views/init.ejs', function($){
 
 /**
- * @class Pesome.Petopic.Create
+ * @class Pesome.Petopic.Delete
  * @parent index
  * @inherits jQuery.Controller
- * Creates petopics
+ * Delete petopics
  */
-$.Controller('Pesome.Petopic.Create',
+$.Controller('Pesome.Petopic.Delete',
 /** @Prototype */
 {
 	init : function(){                
-            $super = this;
-            Pesome.Models.Petopic.getAllCategory({},function(res){
-                $super.element.html($super.view('init', res)); 
-            });
+            this.element.html(this.view());
         },
         submit : function(el, ev){
             ev.preventDefault();
             this.element.find('[type=submit]').val('Creating...')
-            new Pesome.Models.Petopic.newPetopic(el.formParams(), this.callback('saved'));
+            new Pesome.Models.Petopic.deletePetopic(el.formParams(), this.callback('saved'));
         },
         saved : function(res){
             this.element.find('[type=submit]').after(res);

@@ -1,9 +1,40 @@
-<h2>New petopic</h2>
-<p>
-	<label for='name'>Name</label> <br/>
-	<input type='input' name='name' id='name'/>
-</p>
-<p><label for='description'>Description</label><br/>
-<textarea name='description' id='description'/></textarea>
-</p>
-<p><input type='submit' value='Create'/></p>
+<div data-role="fieldcontain">
+    <fieldset data-role="controlgroup">
+        <label for="title">
+            Select category
+        </label>
+        <select id="category_id" name="category_id">
+            <% for(var i = 0; i < this.length ; i++){%>
+                <option value="<%= this[i].category_obj.id%>"><%= this[i].category_obj.name%></option>                	
+            <%}%>
+        </select>        
+    </fieldset>
+</div>
+<div data-role="fieldcontain">
+    <fieldset data-role="controlgroup">
+        <label for="title">
+            Title
+        </label>
+        <input name="title" id="title" placeholder="" value="" type="text">
+    </fieldset>
+</div>
+<div data-role="fieldcontain">
+    <fieldset data-role="controlgroup">
+        <label for="title">
+            Image
+        </label>
+        <a id="image" data-role="button" href="" onclick="getImage();">
+            Select image
+        </a>
+        <input type="text" name="img_url" id="img_url" style="display: none;" />
+    </fieldset>
+</div>
+<div data-role="fieldcontain">
+    <fieldset data-role="controlgroup">
+        <label for="description">
+            Description
+        </label>
+        <textarea name="description" id="description" placeholder=""></textarea>
+    </fieldset>
+</div>
+<input id="submit" value="Submit" type="submit">

@@ -19,8 +19,8 @@ steal('jquery/model', function(){
             return $.get($api_url.auth(),
                 data, 
                 function(res){
-                    if (data.hasOwnProperty('error')) {
-                        return data.error;                        
+                    if (res.hasOwnProperty('error')) {
+                        return res.error;                        
                     }
                     else{
                         window.localStorage.setItem("access_token", res.access_token);
