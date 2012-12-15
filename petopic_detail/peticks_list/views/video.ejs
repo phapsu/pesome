@@ -1,5 +1,22 @@
-<a href='petick_video.html?petopic_id=<%= petopic_id %>&tick_id=<%= id %>' data-ajax="false">
-    <img src="<%= $full_base_url+thumbnail %>" alt=""/>
-    <h3><%= title %></h3>
-    <p><%= content %></p>
-</a>
+<div class="pinboard">
+    <div class="pin" data-id="361273201327900284" style="border-color: rgb(204, 204, 204);">
+        <!-- Pinner element -->
+        <%== $.View('//pesome/petopic_detail/peticks_list/views/userInfo.ejs', this ) %>
+
+            <div class="image">
+                <a href='petick_video.html?petopic_id=<%= petopic_id %>&tick_id=<%= id %>' data-ajax="false">
+                <% if(typeof thumbnail === undefined){ %>
+                    <img src="images/video.png" alt="<%= title %>"/>
+                </a>
+                <% }else{ %>
+                    <img src="<%= $full_base_url+thumbnail%>" alt="<%= title %>"/>
+                <% } %>
+                </a>
+            </div>
+            <p class="pin_description"><%= title %> <small><%= content %></small></p>
+
+
+        <%== $.View('//pesome/petopic_detail/peticks_list/views/petickStats.ejs', this ) %>
+    </div>
+</div>
+

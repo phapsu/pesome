@@ -1,2 +1,25 @@
-<h3><%= this.content %></h3>
-<p><iframe style="width:auto" src="http://player.vimeo.com/video/<%= this.embed_code %>?badge=0" frameborder="0" allowfullscreen=""></iframe></p></p>
+<div class="main-pin-wrappper">
+    <div class="content-box">
+        <table width='100%'>
+            <tr>
+                <td class='center'>
+                    <h3><%= this.content %></h3>
+                    <% if(this.link.image != null){ %>
+                        <img src="<%= this.link.image %>" alt="<%= this.content %>"/>
+                    <% } %>
+                    <h3><%= this.content %></h3>
+                </td>
+            </tr>
+            <tr>
+                <td>                    
+                    <p><iframe style="width:auto" src="http://player.vimeo.com/video/<%= this.embed_code %>?badge=0" frameborder="0" allowfullscreen=""></iframe></p>
+                </td>
+            </tr>
+        </table>        
+    </div>
+    <div>
+        <div class="pin-wrapper-bottom-start"></div>
+        <div class="pin-wrapper-bottom-body"></div>
+        <div class="pin-wrapper-bottom-end"></div>
+    </div>
+</div>

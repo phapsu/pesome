@@ -1,9 +1,8 @@
 <%for(var i = 0; i < this.peticks.length ; i++){%>
-<li>
     <%
         this.peticks[i].petick.petopic_id = this.petopic_id;
         type = this.peticks[i].petick.tick_attach_type;
-        console.dir(type);
+        //console.dir(type);
         switch(type){
             case "PhotoAlbum":
     %>
@@ -37,5 +36,4 @@
             break;
         }
     %>
-</li>
 <%}%>

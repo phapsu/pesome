@@ -12,10 +12,11 @@ steal(
     'pesome/petick/share_file',
     'pesome/petick/photo_album',
     'pesome/petick/text',
+    'pesome/petick/tick_action',
     'pesome/login/create',
     'pesome/comment/create',
     'pesome/comment/list',
-    'pesome/comment/form_warning',
+//    'pesome/comment/form_warning',
     function(){
         // configure your application
 
@@ -36,12 +37,12 @@ steal(
     	$('#petick_video').pesome_petick_video();
     	$('#petick_photo_gallery').pesome_petick_photo_album();
     	$('#petick_audio').pesome_petick_audio();
-    	$('#petick_share_file').pesome_petick_share_file();
+    	$('#petick_share_file').pesome_petick_share_file();    	
         
         //comment
         $('#comment_list').pesome_comment_list();
-        $('#comment_create').pesome_comment_create();
-        $('#comment_warning').pesome_comment_form_warning();
+        //$('#comment_create').pesome_comment_create();
+        //$('#comment_warning').pesome_comment_form_warning();
 
         //login
         $('#login').pesome_login_create();

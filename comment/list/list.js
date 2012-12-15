@@ -24,8 +24,7 @@ $.Controller('Pesome.Comment.List',
             var $super = this;            
             Pesome.Models.Comment.findByTickId({'tick_id' : tick_id},function(res){
                 $super.element.html($super.view('init', res)).listview('refresh');
-            });
-            
+            });            
 	}
 //	'.destroy click': function( el ){
 //		if(confirm("Are you sure you want to destroy?")){
@@ -36,8 +35,8 @@ $.Controller('Pesome.Comment.List',
 //		comment.elements(this.element).remove();
 //	},
 //	"{Pesome.Models.Comment} created" : function(Comment, ev, comment){
-//		this.element.append(this.view('init', [comment]))
-//	},
+//            this.element.append(this.view('init', [comment]))
+//	}
 //	"{Pesome.Models.Comment} updated" : function(Comment, ev, comment){
 //		comment.elements(this.element)
 //		      .html(this.view('comment', comment) );

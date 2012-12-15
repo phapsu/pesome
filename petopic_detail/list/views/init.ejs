@@ -1,3 +1,22 @@
-<img src="<%= $full_base_url+this.petopic.thumbnail %>" alt=""/>
-<h3><%= this.petopic.title %></h3>
-<p><%= this.petopic.description %></p>
+<div class="main-pin-wrappper">
+    <div class="content-box">
+        <table width='100%'>
+            <tr>
+                <td class='center'>
+                    <img src="<%= $full_base_url+this.petopic.thumbnail %>" alt=""/>
+                    <h3><%= this.petopic.title %></h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><%= this.petopic.description %></p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <div class="pin-wrapper-bottom-start"></div>
+        <div class="pin-wrapper-bottom-body"></div>
+        <div class="pin-wrapper-bottom-end"></div>
+    </div>
+</div>

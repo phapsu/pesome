@@ -10,6 +10,8 @@ steal(  'jquery/controller',
         './views/share_file.ejs',  
         './views/audio.ejs',  
         './views/text.ejs',  
+        './views/userInfo.ejs',  
+        './views/petickStats.ejs',  
         function($){
 
 
@@ -26,7 +28,7 @@ $.Controller('Pesome.PetopicDetail.PeticksList',
             
             Pesome.Models.PetopicDetail.findAllPetick({petopic_id: petopic_id},function(res){
                 $obj = {'petopic_id':petopic_id, 'peticks':res};
-                $super.element.html($super.view('peticks', $obj)).listview('refresh');
+                $super.element.html($super.view('peticks', $obj));//.listview('refresh');
             });
             
 	}

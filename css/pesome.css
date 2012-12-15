@@ -1,3 +1,25 @@
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Droid Sans'), local('DroidSans'), url(font/droidsans.woff) format('woff');
+}
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Droid Sans Bold'), local('DroidSans-Bold'), url(font/droidsans-bold.woff) format('woff');
+}
+
+.ui-body-c,
+body{
+    font-family: 'Droid Sans', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #221919;
+}
 .gallery { list-style: none; padding: 0; margin: 0; }
 .gallery:after { clear: both; content: "."; display: block; height: 0; visibility: hidden; }
 .gallery li { float: left; width: 33.33333333%; }
@@ -11,4 +33,172 @@
     height: 32px;
     margin: auto;
     margin-top: 70px;
+}
+
+.main-pin-wrappper{
+    margin:0px;
+    background-image:url(../images/bg-wrapper.png);
+    border-style:solid;
+    border-width:1px;
+    border-color:#cccccb;
+    margin-bottom:30px!important;
+}
+.main-pin-wrappper .content-box img{
+    margin: 10px;
+    background: #005375;
+    border: 5px solid white;
+    border-radius: 7px;
+    color: white;
+    -moz-box-shadow: 0 0 2px 2px #888;
+    -webkit-box-shadow: 0 0 2px 2px #888;
+    box-shadow: 0 0 2px 2px #888;   
+}
+.main-pin-wrappper .content-box table td.center{
+    text-align: center;
+}
+
+.main-pin-wrappper .content-box h3{
+    margin: 10px auto;
+}
+.main-pin-wrappper .content-box p{
+    margin-left:20px;
+}
+
+
+.pin-wrapper-bottom-start{
+    float:left;
+    background-image:url(../images/bottom-start.png);
+    background-position-y:1px;
+    background-repeat:no-repeat;
+    background-color:transparent;
+    width:13px;
+    height:12px;
+    margin-top:0px; 
+}
+
+.pin-wrapper-bottom-body{
+    float:left;
+    background-image:url(../images/bottom-center.png);
+    background-repeat:repeat-x;
+    background-position-y:1px;
+    width:90.5%;
+    height:12px;
+    margin-top:0px;
+}
+
+.pin-wrapper-bottom-end{
+    float:left;
+    background-image:url(../images/bottom-end.png);
+    background-repeat:no-repeat;
+    background-position-y:1px;
+    width:13px;
+    height:12px;
+    margin-top:0px;
+}
+
+
+.pinboard .pin {
+        border-color: #CCC;
+        border: 1px solid #CCC;
+        background: white;
+        /*border-radius: 10px;*/
+	padding: 0 10px 10px;
+	position: relative;
+	margin: 00px;
+        margin-top: 18px;
+/*        -webkit-box-shadow: 0px 0px 2px 2px #777;
+        box-shadow: 0px 0px 2px 2px #777;        */
+}
+.pinner {
+	border-collapse: collapse;
+	width: 100%;
+}
+.pinner td {
+	vertical-align: middle;
+	padding: 10px 0;
+}
+
+.pinner .pinner_image {
+	padding-right: 10px;
+	height: 48px;
+	width: 48px;
+}
+.pinner img {
+	display: block;
+	height: 48px;
+	width: 48px;
+}
+.pinner .right {
+	text-align: right;
+}
+
+.pin div.image img:not(.video) {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    height: auto;
+}
+.pin .pin_description {
+	display: block;
+	margin-top: 5px;
+}
+.pin .pin_description a {
+	font-weight: bold;
+	color: #221919;
+}
+
+.pin_stats {
+    margin: 0 0 0px 2px;
+    overflow: hidden;
+    clear: both;
+}
+.pin_likes, .pin_comments {
+    padding-left: 3px;
+    margin: 5px 12px 0 0;
+    /*display: none;*/
+    float: left;
+}
+
+.pin_likes span, .pin_comments span {
+    font-weight: bold;
+    float: left;
+}
+
+.icon {
+    margin-right: 5px;
+    padding-top: 2px;
+    width: 20px;
+    float: left;
+}
+
+.pin_likes .icon {
+    background: url('../images/mobile_icons.png') -19px 0;
+    height: 17px;
+    width: 18px;
+}
+
+.pin_comments .icon {
+    background: url('../images/mobile_icons.png') 0px 0;
+    height: 17px;
+    width: 18px;
+}
+
+.pin_likes .icon, .pin_comments .icon {
+    margin: 3px 3px 0 -3px;
+    float: left;
+}
+
+.pin .image,
+.well {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 10px;
+  background-color: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }

@@ -1,4 +1,15 @@
-<a href='petick_link.html?petopic_id=<%= petopic_id %>&tick_id=<%= id %>' data-ajax="false">
-    <img src="" alt=""/>
-    <h3><%= content %></h3>
-</a>
+<div class="pinboard">
+    <div class="pin" data-id="361273201327900284" style="border-color: rgb(204, 204, 204);">
+        <!-- Pinner element -->
+        <%== $.View('//pesome/petopic_detail/peticks_list/views/userInfo.ejs', this ) %>
+
+        <div class="well">
+            <a href='petick_link.html?petopic_id=<%= petopic_id %>&tick_id=<%= id %>' data-ajax="false">
+                <%= content %>
+            </a>
+        </div>
+
+        <%== $.View('//pesome/petopic_detail/peticks_list/views/petickStats.ejs', this ) %>
+    </div>
+</div>
+
