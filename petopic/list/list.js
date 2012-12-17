@@ -26,7 +26,12 @@ $.Controller('Pesome.Petopic.List',
                 //call controller view list category                
                 $('#list_category').pesome_petopic_category();
             });
-	}
+	},
+        '#petopics click' : function(){
+            if($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight)  {
+               alert('this will alert only when it reaches the end');
+             }            
+        }
 //
 //	'.destroy click': function( el ){
 //		if(confirm("Are you sure you want to destroy?")){

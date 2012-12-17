@@ -1,4 +1,5 @@
 steal(
+    'pesome/sidebar_menu',
     'pesome/petopic/list',
     'pesome/petopic/category',
     'pesome/petopic/select_category',
@@ -22,6 +23,10 @@ steal(
     function(){
         // configure your application
 
+        //load left side bar menu
+        $('#sidebar_menu').pesome_sidebar_menu();
+        
+        
         //petopic
         $('#petopics').pesome_petopic_list();
         //load category

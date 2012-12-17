@@ -5,30 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
-        <div id="sidebar_menu">
-            <div id="user_profile">
-                <img src="http://placehold.it/50x50" alt="Vu Khanh Truong"/>
-                <div class="profile_info"><strong>Vu Khanh Truong</strong></div>
-            </div>
-            <div id="sidebar_menu_content">
-                <ul>
-                    <li class="active"><a href="#"><i class="icon-th icon-white"></i>&nbsp;View All</a></li>
-                    <li><a href="#"><i class="icon-heart icon-white"></i>&nbsp;I'm A Member</a></li>
-                    <li><a href="#"><i class="icon-bookmark icon-white"></i>&nbsp;My Petopic</a></li>
-                    <li><a href="#"><i class="icon-eye-open icon-white"></i>&nbsp;My Follow</a></li>
-                </ul>
-                <div class="devide"></div>
-                <ul>
-                    <li><a href="#"><i class="icon-plus-sign icon-white"></i>&nbsp;Create Petopic</a></li>
-                </ul>
-                <div class="devide"></div>
-                <ul>                    
-                    <li><a href="#"><i class="icon-question-sign icon-white"></i>&nbsp;Help Center</a></li>
-                    <li><a href="#"><i class="icon-user icon-white"></i>&nbsp;Profile</a></li>
-                    <li><a href="#"><i class="icon-off icon-white"></i>&nbsp;Logout</a></li>
-                </ul>
-            </div>
-        </div>
+        <div id="sidebar_menu"></div>
         <!-- Home -->
         <div data-role="page" id="page-petopic" class="page" data-theme="c">
 
@@ -42,10 +19,14 @@
                 </div>
             </div>
 
-            <div data-role="content">
+            <div data-role="content" id="petopics-container">
                 <ul id="petopics" data-role="listview"></ul>
+                <div id="petopics-loading" style="display: hidden">Loading...</div>
             </div>
 
+        </div>
+        <div data-role="footer" id="footer">
+            &copy; pesome.com
         </div>
         <script type='text/javascript' src='../steal/steal.js?pesome'></script>
         <script type="text/javascript">
