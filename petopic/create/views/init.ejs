@@ -1,40 +1,28 @@
-<div data-role="fieldcontain">
-    <fieldset data-role="controlgroup">
-        <label for="title">
-            Select category
-        </label>
-        <select id="category_id" name="category_id">
+<div class="ui-hide-label">
+	<span class="icone-pemo">Category:</span>
+	<select id="category_id" name="category_id" data-mini="true">
             <% for(var i = 0; i < this.length ; i++){%>
-                <option value="<%= this[i].category_obj.id%>"><%= this[i].category_obj.name%></option>                	
+            <option value="<%= this[i].category_obj.id%>"><%= this[i].category_obj.name%></option>                	
             <%}%>
-        </select>        
-    </fieldset>
+        </select>  
 </div>
-<div data-role="fieldcontain">
-    <fieldset data-role="controlgroup">
-        <label for="title">
-            Title
-        </label>
-        <input name="title" id="title" placeholder="" value="" type="text">
-    </fieldset>
+
+<div class="ui-hide-label">
+	<span class="icone-pemo">Title:</span>
+	<input type="text" name="title" id="title" placeholder="" />
 </div>
-<div data-role="fieldcontain">
-    <fieldset data-role="controlgroup">
-        <label for="title">
-            Image
-        </label>
-        <a id="image" data-role="button" href="" onclick="getImage();">
+
+<div class="ui-hide-label">
+	<span class="icone-pemo">Image:</span>
+	<a id="image" data-role="button" href="" onclick="getImage();">
             Select image
         </a>
         <input type="text" name="img_url" id="img_url" style="display: none;" />
-    </fieldset>
 </div>
-<div data-role="fieldcontain">
-    <fieldset data-role="controlgroup">
-        <label for="description">
-            Description
-        </label>
-        <textarea name="description" id="description" placeholder=""></textarea>
-    </fieldset>
+
+<div class="ui-hide-label">
+	<span class="icone-pemo">Description:</span>
+	<textarea name="description" id="description"></textarea>
 </div>
-<input id="submit" value="Submit" type="submit">
+
+<div style="padding: 20px 0"><button type="submit" value="Submit" id="btSubmit"></button></div>

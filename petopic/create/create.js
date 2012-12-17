@@ -14,11 +14,14 @@ steal( 'jquery/controller',
 $.Controller('Pesome.Petopic.Create',
 /** @Prototype */
 {
-	init : function(){                
+	init : function(){         
             $super = this;
             Pesome.Models.Petopic.getAllCategory({},function(res){
                 $super.element.html($super.view('init', res)); 
+                $('#new-petopic-page').trigger('create');
             });
+            
+            
         },
         submit : function(el, ev){
             ev.preventDefault();

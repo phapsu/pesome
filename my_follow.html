@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+    <head>
+        <title>Pesome.Petopic.MyFollow Demo</title>
+        <style type='text/css'>
+            body {font-family: verdana}
+        </style>
+    </head>
+    <body>
+        <div data-role="page" id="my-follow-page">
+            <div data-role="header">
+                
+                <h1 style="margin:0">
+                    <a style="margin:4px" href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" data-theme="e"><span class="pe-category">Category</span><span id="msg"></span></a>
+                </h1>
+                <div data-role="popup" id="popupMenu" class="popup-menu" data-theme="a" style="width:270px;background: #fff">
+                    <ul data-role="listview" data-filter="true" id="list_category" data-theme="d"></ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <ul id='my_follow' data-role="listview"></ul>
+            </div>
+        </div>
+        <script type='text/javascript' src='../steal/steal.js?pesome'></script>
+        <script type="text/javascript">
+            document.addEventListener('deviceready', this.deviceready, false);
+        </script>       
+        
+    </body>
+</html>
