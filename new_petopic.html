@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 <html lang="en">
-	<head>
-            <title>pesome</title>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-            <link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
-            <script src="js/jquery-1.8.3.min.js"></script>
-            <script src="js/jquery.mobile-1.2.0.min.js"></script>
-            <script src="cordova-2.2.0.js"></script>
-            <script type="text/javascript" charset="utf-8">
+    <head>
+        <title>pesome</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/jquery.mobile-1.2.0.min.js"></script>
+        <script src="cordova-2.2.0.js"></script>
+        <script type="text/javascript" charset="utf-8">
  
             // Wait for PhoneGap to load
             document.addEventListener("deviceready", onDeviceReady, false);
@@ -21,12 +21,12 @@
                 // Retrieve image file location from specified source
                 navigator.camera.getPicture(getImageUrl, function(message) {
                     alert('get picture failed');
-                    },{
-                        quality: 50,
-                        destinationType: navigator.camera.DestinationType.FILE_URI,
-                        sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
-                    }
-                ); 
+                },{
+                    quality: 50,
+                    destinationType: navigator.camera.DestinationType.FILE_URI,
+                    sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
+                }
+            ); 
             }
             
             function getImageUrl(imageURI){
@@ -62,55 +62,19 @@
                 alert("An error has occurred: Code = "+ error.code);
             }
         </script>
-	</head>
-	<body>
-            <!-- Home -->
-            <div data-role="page" id="page1">
-                <div data-role="content">
-                    <div data-role="fieldcontain">
-                        <fieldset data-role="controlgroup">
-                            <label for="title">
-                                Select category
-                            </label>
-                            <select id="category" name="category">
-                                <option value="option1">
-                                    Option 1
-                                </option>
-                            </select>
-                            <ul data-role="listview" data-filter="true" id="list_category" data-theme="d"></ul>
-                        </fieldset>
-                    </div>
-                    <div data-role="fieldcontain">
-                        <fieldset data-role="controlgroup">
-                            <label for="title">
-                                Title
-                            </label>
-                            <input name="" id="title" placeholder="" value="" type="text">
-                        </fieldset>
-                    </div>
-                    <div data-role="fieldcontain">
-                        <fieldset data-role="controlgroup">
-                            <label for="title">
-                                Image
-                            </label>
-                            <a id="image" data-role="button" href="" onclick="getImage();">
-                                Select image
-                            </a>
-                            <input type="text" name="img_url" id="img_url" style="display: none;" />
-                        </fieldset>
-                    </div>
-                    <div data-role="fieldcontain">
-                        <fieldset data-role="controlgroup">
-                            <label for="description">
-                                Description
-                            </label>
-                            <textarea name="" id="description" placeholder=""></textarea>
-                        </fieldset>
-                    </div>
-                    <input id="submit" value="Submit" type="submit">
-                </div>
+    </head>
+    <body>
+        <!-- Home -->
+        <div data-role="page" id="page_create_new_petopic">
+            <div data-role="header">                
             </div>
-		
-            <script type='text/javascript' src='../steal/steal.js?pesome'></script>
-	</body>
+            <div data-role="content">
+                <form id='create_new_petopic' action=''></form>
+            </div>
+        </div>
+        <script type='text/javascript' src='../steal/steal.js?pesome'></script>
+        <script type="text/javascript">
+            document.addEventListener('deviceready', this.deviceready, false);
+        </script>              
+    </body>
 </html>

@@ -2,6 +2,9 @@ steal(
     'pesome/petopic/list',
     'pesome/petopic/category',
     'pesome/petopic/select_category',
+    'pesome/petopic/is_member',
+    'pesome/petopic/my_petopic',
+    'pesome/petopic/create',
     'pesome/petopic_detail/peticks_list',
     'pesome/petopic_detail/list',
     'pesome/petick/load_petick',
@@ -25,6 +28,9 @@ steal(
         //$('#list_category').pesome_petopic_category();
         //select category
         $('#select_category').pesome_petopic_select_category();
+        $('#is_member').pesome_petopic_is_member();
+        $('#my_petopic').pesome_petopic_my_petopic();
+        $('#create_new_petopic').pesome_petopic_create();
 		
         //petopic detail
         $('#petopic_details').pesome_petopic_detail_list();

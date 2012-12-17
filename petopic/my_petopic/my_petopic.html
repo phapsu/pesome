@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+    <head>
+        <title>Pesome.Petopic.MyPetopic Demo</title>
+        <style type='text/css'>
+            body {font-family: verdana}
+        </style>
+    </head>
+    <body>
+        <h1>Pesome.Petopic.MyPetopic Demo</h1>
+        <ul id='my_petopic' data-role="listview"></ul>
+        <script type='text/javascript' src='../../js/config.js'></script>
+        <script type='text/javascript' src='../../../steal/steal.js'> </script>
+        <script type='text/javascript'>
+            steal('pesome/petopic/my_petopic','pesome/fixtures',function(){
+				
+                $('#my_petopic').pesome_petopic_my_petopic();				
+				
+            })
+        </script>
+    </body>
+</html>

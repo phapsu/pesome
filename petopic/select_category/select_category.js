@@ -27,7 +27,9 @@ $.Controller('Pesome.Petopic.SelectCategory',
                     window.location.href="sorry_no_data.html";                    
                 }
                 else{
-                    $super.element.html($super.view('index', res) ).listview('refresh');                    
+                    $super.element.html($super.view('index', res)).listview('refresh');     
+                    //call controller view list category                
+                    $('#list_category').pesome_petopic_category();
                 }
             });
 	}

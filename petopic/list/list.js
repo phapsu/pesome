@@ -23,7 +23,7 @@ $.Controller('Pesome.Petopic.List',
             $super = this;
             Pesome.Models.Petopic.findAll({},function(res){
                 $super.element.html($super.view('init', res) ).listview('refresh');
-                //Pesome.Petopic.Category.prototype.init();
+                //call controller view list category                
                 $('#list_category').pesome_petopic_category();
             });
 	}
