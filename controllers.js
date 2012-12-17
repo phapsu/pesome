@@ -5,6 +5,7 @@ steal(
     'pesome/petopic/select_category',
     'pesome/petopic/is_member',
     'pesome/petopic/my_petopic',
+    'pesome/petopic/my_follow',
     'pesome/petopic/create',
     'pesome/petopic_detail/peticks_list',
     'pesome/petopic_detail/list',
@@ -35,6 +36,7 @@ steal(
         $('#select_category').pesome_petopic_select_category();
         $('#is_member').pesome_petopic_is_member();
         $('#my_petopic').pesome_petopic_my_petopic();
+        $('#my_follow').pesome_petopic_my_follow();
         $('#create_new_petopic').pesome_petopic_create();
 		
         //petopic detail

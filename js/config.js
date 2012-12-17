@@ -40,6 +40,9 @@ var $api_url  = {
     petopic_ismember : function(){
         return $full_base_url+'/api/petopics/members?access_token='+ $access_token;
     },
+    petopic_myfollow : function(){
+        return $full_base_url+'/api/petopics/my_followings?access_token='+ $access_token;
+    },
     petopic_detail : function(id){
         return $full_base_url+'/api/petopics/'+this.replaceUnExpected(id)+'?access_token='+ $access_token;
     },

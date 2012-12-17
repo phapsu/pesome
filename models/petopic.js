@@ -31,6 +31,13 @@ $.Model('Pesome.Models.Petopic',
 		  success,
 		  'jsonp');
 	},
+        myFollow : function(params, success, error){
+		// do the ajax request
+		return $.get($api_url.petopic_myfollow(),
+		  params, 
+		  success,
+		  'jsonp');
+	},
         getAllCategory : function(params, success, error){
 		// do the ajax request
 		return $.get($api_url.category(),
@@ -56,10 +63,7 @@ $.Model('Pesome.Models.Petopic',
                 options.chunkedMode = false;
  
                 var ft = new FileTransfer();
-                ft.upload(imageURI, $api_url.petopic(), win, fail, options);
-            
-                
-                window.location.href = 'index.html';
+                ft.upload(imageURI, $api_url.petopic(), win, fail, options);  
         },
         deletePetopic: function(){
                 
