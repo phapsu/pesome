@@ -3,7 +3,6 @@ steal( 'jquery/controller',
 	   'jquery/controller/view',
 	   'pesome/models' )
 .then( './views/init.ejs',
-       './views/petick.ejs',
 function($){
 
     /**
@@ -23,7 +22,8 @@ function($){
                 var petopic_id = $urlUtility.getVars()["petopic_id"];
                 var tick_id = $urlUtility.getVars()["tick_id"];
                 Pesome.Petick.LoadPetick.prototype.init({'petopic_id' : petopic_id, 'tick_id' : tick_id, 'controller' : this}, function($obj){
-                    $('#petick_audio_page').trigger('create');
+                    $('#comment_action_button').pesome_petick_tick_action();
+                    $('#petick-audio-page').trigger('create');
                 });
             },
             '#play click' : function(el){

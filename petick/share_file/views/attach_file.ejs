@@ -1,2 +1,27 @@
-<h3><%= description %></h3>
-<p><a href="<%= $full_base_url + url %>"><%= share_file_attach_file_name %></a> (<%= share_file_attach_file_size %> KB)</p>
+<div class="main-pin-wrappper">
+    <div class="content-box">
+        <table width='100%'>
+            <tr>
+                <td class='center'>
+                    <a href="<%= $full_base_url + url %>"><img src="images/download.png" alt="<%= description %>"/></a>
+                    <h3><%= share_file_attach_file_name %> (<%= share_file_attach_file_size %> KB)</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>                    
+                    <p><%= description %></p>
+                </td>
+            </tr>
+            <tr>
+                <td class='center'>
+                   <div id="comment_action_button"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <div class="pin-wrapper-bottom-start"></div>
+        <div class="pin-wrapper-bottom-body"></div>
+        <div class="pin-wrapper-bottom-end"></div>
+    </div>
+</div>

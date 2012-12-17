@@ -26,12 +26,16 @@ steal(
         './controllers.js'		// steals all your controllers
         //'./fixtures/fixtures.js',	// sets up fixtures for your models
     ).then(
-    {
-        src : './js/jquery.mobile-1.2.0.min.js', 
-        compress : false
-    },
-    {
-        src : './js/photoswipe.min.js', 
-        compress : false
-    }
+        {
+            src : './js/jquery.mobile-1.2.0.min.js', 
+            compress : false
+        },
+        {
+            src : './js/photoswipe.min.js', 
+            compress : false
+        },
+        {
+            src : './js/side_menu.js', 
+            compress : true
+        }
 )

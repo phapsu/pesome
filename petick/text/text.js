@@ -21,7 +21,10 @@ $.Controller('Pesome.Petick.Text',
 	init : function(){
             var petopic_id = $urlUtility.getVars()["petopic_id"];
             var tick_id = $urlUtility.getVars()["tick_id"];
-            Pesome.Petick.LoadPetick.prototype.init({'petopic_id' : petopic_id, 'tick_id' : tick_id, 'controller' : this}, function(){});
+            Pesome.Petick.LoadPetick.prototype.init({'petopic_id' : petopic_id, 'tick_id' : tick_id, 'controller' : this}, function(){
+                $('#comment_action_button').pesome_petick_tick_action();
+                $('#petick-text-page').trigger('create');
+            });
 	}
 });
 

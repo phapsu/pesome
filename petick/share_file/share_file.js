@@ -25,6 +25,8 @@ $.Controller('Pesome.Petick.ShareFile',
             Pesome.Petick.LoadPetick.prototype.init({'petopic_id' : petopic_id, 'tick_id' : tick_id, 'controller' : this}, 
                 function($obj){
                     $obj.find('ul').listview('refresh');
+                    $('#comment_action_button').pesome_petick_tick_action();
+                    $('#petick-sharefile-page').trigger('create');
                 });
 	}	
 });

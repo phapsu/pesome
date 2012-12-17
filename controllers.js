@@ -1,4 +1,3 @@
-Pesome.Login.Create// steal model files
 steal(
     'pesome/petopic/list',
     'pesome/petopic/category',
