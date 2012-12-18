@@ -30,6 +30,18 @@ steal(
             src : './js/jquery.mobile-1.2.0.min.js',
             compress : false
         },
+        {
+            src : './js/photoswipe.min.js',
+            compress : false
+        },
+        {
+            src : './js/jquery.scrolldown-pagination.js',
+            compress : true
+        },
+        {
+            src : './js/side_menu.js',
+            compress : true
+        },
         function(){
             $.mobile.loading( 'show', {
                     text: 'loading...',
@@ -37,23 +49,11 @@ steal(
                     theme: 'a',
                     html: ""
             });
-        },
-        {
-            src : './js/photoswipe.min.js',
-            compress : false
-        },
-        {
-            src : './js/jquery.scrolldown-pagination.js',
-            compress : false
-        },
-        {
-            src : './js/side_menu.js',
-            compress : true
-        }        
+        }
 ).then(
-    './app_pagination.js',
+    './app_pagination.js'
+).then(
     function(){
         $.mobile.loading('hide');
-        
     }
 )
