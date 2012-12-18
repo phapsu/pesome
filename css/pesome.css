@@ -37,9 +37,13 @@ a {
     padding: 3px;
     border-bottom: 1px solid #314047;
 }
+#sidebar_menu #user_profile img{
+    max-height: 50px;
+    max-width: 50px;    
+}
 #sidebar_menu #user_profile .profile_info{
     left: 55px;
-    top: -55px;
+    top: -40px;
     position: relative;
     font-size: 14px;
     color: #FFFFFF;

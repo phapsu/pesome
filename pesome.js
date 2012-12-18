@@ -30,36 +30,30 @@ steal(
             src : './js/jquery.mobile-1.2.0.min.js',
             compress : false
         },
+        function(){
+            $.mobile.loading( 'show', {
+                    text: 'loading...',
+                    textVisible: true,
+                    theme: 'a',
+                    html: ""
+            });
+        },
         {
             src : './js/photoswipe.min.js',
             compress : false
         },
         {
-            src : './js/jquery.scrollExtend.min.js',
+            src : './js/jquery.scrolldown-pagination.js',
             compress : false
-        },function(){
-            //@see http://contextllc.com/tools/jQuery-infinite-scroll-live-scroll
-            jQuery(document).ready(
-                function() {
-                    jQuery('#petopics-container').scrollExtend(
-                    {
-                        'target': 'ul#petopics',
-                        'url': 'more_content.html',
-                        'newElementType': '<li/>',
-                        'beforeStart' : function(){
-                            $('#petopics-loading').show();
-                            return true;
-                        },
-                        'onSuccess' : function(){
-                            $('#petopics-loading').hide();
-                            $('#petopics').listview('refresh');
-                        }
-                    });
-                }
-            );
         },
         {
             src : './js/side_menu.js',
             compress : true
-        }
+        }        
+).then(
+    './app_pagination.js',
+    function(){
+        $.mobile.loading('hide');
+        
+    }
 )

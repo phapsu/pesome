@@ -8,7 +8,12 @@
         <div data-role="page" id="page2" data-add-back-btn="true">
             <div data-role="header">
                 <a href="index.html" data-icon="arrow-l" class="ui-btn-left" data-ajax="false">Back</a>
-                <h1>Detail</h1>
+                <h1 style="margin:0">
+                    <a style="margin:4px" href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" data-theme="c"><span class="pe-category">Category</span><span id="msg"></span></a>
+                </h1>
+                <div data-role="popup" id="popupMenu" class="popup-menu" data-theme="a" style="width:270px;background: #fff">
+                    <ul data-role="listview" data-filter="true" id="list_category" data-theme="d"></ul>
+                </div>
             </div>
             <div data-role="content">
                 <div class="content-primary">                    
