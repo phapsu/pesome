@@ -122,6 +122,13 @@ $.Model('Pesome.Models.Petopic',
                         }
                     });
             }
+        },
+        photo_album: function(params, success, error){
+                
+                return $.get($api_url.petopic_photo_album()+'&id='+params.petopic_id,
+		  params, 
+		  success,
+		  'jsonp');
         }
 },
 /* @Prototype */

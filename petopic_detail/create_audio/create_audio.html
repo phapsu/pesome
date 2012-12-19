@@ -13,22 +13,18 @@
                 // Do cool things here...
             }
  
-            function getImage() {
-                // Retrieve image file location from specified source
-                navigator.camera.getPicture(getImageUrl, function(message) {
-                    alert('get picture failed');
-                },{
-                    quality: 50,
-                    destinationType: navigator.camera.DestinationType.FILE_URI,
-                    sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
-                }
-            ); 
+            function getAudio() {
+                // limit capture operation to 3 media files, no longer than 10 seconds each
+                var options = { limit: 3, duration: 10 };
+                navigator.device.capture.captureAudio(getAudioUrl, function(message) {
+                    alert('get audio failed');
+                },options); 
             }
             
-            function getImageUrl(imageURI){
+            function getAudioUrl(audioURI){
                                 
-                $('#img_url').val(imageURI);
-                $('#img_url').show();
+                $('#audio_url').val(audioURI);
+                $('#audio_url').show();
             }   
  
             function win(r) {
@@ -47,12 +43,12 @@
     </head>
     <body>
         <!-- Home -->
-        <div data-role="page" id="new-petopic-page">
+        <div data-role="page" id="create-audio-page">
             <div data-role="header">  
-                create petopic
+                create audio
             </div>
             <div data-role="content">
-                <form id='create_new_petopic' action=''></form>
+                <form id='create_audio' action=''></form>
             </div>
             
         </div>
