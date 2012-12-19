@@ -15,33 +15,40 @@ var scrollRefresh = {
 
 var scroll = {
     pagination : function($data, callback){
-        $url = $data.url, $currentPage = $data.current_page;
+        $url = $data.url, $currentPage = $data.current_page, emptyDataResponse = false;
         $(window).scroll(function() {
             scrollRefresh.bottom(function(pos) {
                 $currentPage++;
                 console.log("Loading bottom. " + pos + '  ' +$currentPage);
-                $.ajax({
-                    url: $url,
-                    data: {'page':$currentPage},
-                    dataType: "jsonp",
-                    contentType: "application/json",
-                    async: false,
-                    beforeSend: function(){
-                        $.mobile.loading( 'show', {
-                                text: 'loading...',
-                                textVisible: true,
-                                theme: 'a',
-                                html: ""
-                        });
-                    },
-                    success: function(res){ 
-                       callback(res);
-                       $.mobile.loading( 'hide');
-                    },
-                    error: function(e) {
-                        l(e.message);
-                    }
-                });
+                if(!emptyDataResponse){ //check if empty respond data, so do not send request to server
+                    $.ajax({
+                        url: $url,
+                        data: {'page':$currentPage},
+                        dataType: "jsonp",
+                        contentType: "application/json",
+                        async: false,
+                        beforeSend: function(){
+                            $.mobile.loading( 'show', {
+                                    text: 'loading...',
+                                    textVisible: true,
+                                    theme: 'a',
+                                    html: ""
+                            });
+                        },
+                        success: function(res){
+                            if(res.length > 0){
+                                callback(res);
+                                emptyDataResponse = false;
+                            }else{
+                                emptyDataResponse = true;
+                            }
+                            $.mobile.loading( 'hide');
+                        },
+                        error: function(e) {
+                            l(e.message);
+                        }
+                    });
+                }
             });
         });
     }

@@ -1,7 +1,7 @@
 steal(
     'pesome/sidebar_menu',
-    'pesome/petopic/list',
-    'pesome/petopic/category',
+    'pesome/page/load_category',
+    'pesome/petopic/list',    
     'pesome/petopic/select_category',
     'pesome/petopic/is_member',
     'pesome/petopic/my_petopic',
@@ -25,13 +25,11 @@ steal(
         // configure your application
 
         //load left side bar menu
-        $('#sidebar_menu').pesome_sidebar_menu();
-        
+        $('#sidebar_menu').pesome_sidebar_menu();        
         
         //petopic
         $('#petopics').pesome_petopic_list();
-        //load category
-        //$('#list_category').pesome_petopic_category();
+        
         //select category
         $('#select_category').pesome_petopic_select_category();
         $('#is_member').pesome_petopic_is_member();
@@ -58,5 +56,13 @@ steal(
 
         //login
         $('#login').pesome_login_create();
-    }    
+    },
+    function(){
+        if($('#petopics').length > 0 || $('#my_petopic').length > 0  || $('#my_follow').length > 0 || $('#select_category').length > 0 || $('#is_member').length > 0){
+            //Don't know why the controller Pesome.Page.LoadCategory can not load the same time with Pesome.Petopic.List & MyPetopic controller'
+            //so if exist petopics do nothing
+        }else{
+            $('#list_category').pesome_page_load_category();
+        }
+    }
 )

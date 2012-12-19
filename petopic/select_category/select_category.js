@@ -2,7 +2,7 @@ steal( 'jquery/controller',
 	   'jquery/view/ejs',
 	   'jquery/controller/view',
 	   'pesome/models' )
-.then( './views/index.ejs',
+.then( './views/init.ejs',
        './views/petopic.ejs',
        function($){
 
@@ -27,9 +27,9 @@ $.Controller('Pesome.Petopic.SelectCategory',
                     window.location.href="sorry_no_data.html";                    
                 }
                 else{
-                    $super.element.html($super.view('index', res)).listview('refresh');     
+                    $super.element.html($super.view('init', res)).listview('refresh');     
                     //call controller view list category                
-                    $('#list_category').pesome_petopic_category();
+                    $('#list_category').pesome_page_load_category();
                 }
             });
 	}

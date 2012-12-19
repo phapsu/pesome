@@ -23,7 +23,7 @@ $.Controller('Pesome.Petopic.MyPetopic',
             $super = this;
             Pesome.Models.Petopic.myPetopic({},function(res){
                 $super.element.html($super.view('init', res) ).listview('refresh');
-                $('#list_category').pesome_petopic_category();
+                 $('#list_category').pesome_page_load_category();
             });
 	}
 //

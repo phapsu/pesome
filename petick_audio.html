@@ -5,11 +5,17 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
-        <div data-role="page" id="petick-audio-page" data-add-back-btn="true">
+        <div data-role="page" id="petick-audio-page" data-add-back-btn="true">            
             <div data-role="header">
+                <h2>
+                    &nbsp;
+                </h2>
                 <a href="petopic_detail.html" id="petick_back_link" data-icon="arrow-l" class="ui-btn-left" data-ajax="false">Back</a>
-                <h1>Detail</h1>
-            </div>
+                <a href="#popupPanel" data-rel="popup" data-transition="slide" data-position-to="window" data-role="button"  class="ui-btn-right">Category</a>			
+                <div data-role="popup" id="popupPanel" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
+                    <ul data-role="listview" data-filter="true" id="list_category" data-theme="a"></ul>
+                </div>
+            </div>             
             <div data-role="content">
                 <div id="main-petick-content" class="content-primary">
                     <div id="petick_audio"></div>                    

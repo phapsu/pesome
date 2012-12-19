@@ -9,13 +9,17 @@
         <!-- Home -->
         <div data-role="page" id="page-petopic" class="page" data-theme="c">
 
-            <div data-role="header" data-theme="a">
-                <a href="#" class="showMenu">Menu</a>
-                <h1 style="margin:0">
-                    <a style="margin:4px" href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" data-theme="c"><span class="pe-category">Category</span><span id="msg"></span></a>
-                </h1>
-                <div data-role="popup" id="popupMenu" class="popup-menu" data-theme="a">
-                    <ul data-role="listview" data-filter="true" id="list_category" data-theme="d"></ul>
+            <div data-role="header">
+                <h2>
+                    Pesome
+                </h2>
+                <a href="#" class="showMenu ui-btn-left">
+                    Menu
+                </a>
+                
+                <a href="#popupPanel" data-rel="popup" data-transition="slide" data-position-to="window" data-role="button"  class="ui-btn-right">Category</a>			
+                <div data-role="popup" id="popupPanel" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
+                    <ul data-role="listview" data-filter="true" id="list_category" data-theme="a"></ul>
                 </div>
             </div>
 

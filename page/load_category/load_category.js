@@ -12,7 +12,7 @@ steal( 'jquery/controller',
  * @inherits jQuery.Controller
  * Lists petopics and lets you destroy them.
  */
-$.Controller('Pesome.Petopic.Category',
+$.Controller('Pesome.Page.LoadCategory',
 /** @Static */
 {
 	defaults : {}

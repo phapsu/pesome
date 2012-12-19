@@ -19,12 +19,12 @@ $.Controller('Pesome.Petopic.List',
 },
 /** @Prototype */
 {
-	init : function(callback){
+	init : function(){
             $super = this;
             Pesome.Models.Petopic.findAll({},function(res){
                 $super.element.html($super.view('init', res) ).listview('refresh');
                 //call controller view list category                
-                $('#list_category').pesome_petopic_category();
+                $('#list_category').pesome_page_load_category();
             });
 	}
         

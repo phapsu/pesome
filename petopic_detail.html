@@ -5,14 +5,18 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
+        <div id="sidebar_menu"></div>
         <div data-role="page" id="page2" data-add-back-btn="true">
             <div data-role="header">
-                <a href="index.html" data-icon="arrow-l" class="ui-btn-left" data-ajax="false">Back</a>
-                <h1 style="margin:0">
-                    <a style="margin:4px" href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" data-theme="c"><span class="pe-category">Category</span><span id="msg"></span></a>
-                </h1>
-                <div data-role="popup" id="popupMenu" class="popup-menu" data-theme="a" style="width:270px;background: #fff">
-                    <ul data-role="listview" data-filter="true" id="list_category" data-theme="d"></ul>
+                <h2>
+                    &nbsp;
+                </h2>
+                <a href="#" class="showMenu ui-btn-left">
+                    Menu
+                </a>
+                <a href="#popupPanel" data-rel="popup" data-transition="slide" data-position-to="window" data-role="button"  class="ui-btn-right">Category</a>			
+                <div data-role="popup" id="popupPanel" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
+                    <ul data-role="listview" data-filter="true" id="list_category" data-theme="a"></ul>
                 </div>
             </div>
             <div data-role="content">

@@ -23,7 +23,7 @@ $.Controller('Pesome.Petopic.IsMember',
             $super = this;
             Pesome.Models.Petopic.isMember({},function(res){
                 $super.element.html($super.view('init', res) ).listview('refresh');
-                $('#list_category').pesome_petopic_category();
+                $('#list_category').pesome_page_load_category();
             });
 	}
 //

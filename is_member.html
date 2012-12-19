@@ -8,8 +8,16 @@
         <div id="sidebar_menu"></div>
         <div data-role="page" id="page_is_member">
             <div data-role="header">
-                <a href="#" class="showMenu">Menu</a>
-                <h3>I'm a member</h3>
+                <h2>
+                    &nbsp;
+                </h2>
+                <a href="#" class="showMenu ui-btn-left">
+                    Menu
+                </a>
+                <a href="#popupPanel" data-rel="popup" data-transition="slide" data-position-to="window" data-role="button"  class="ui-btn-right">Category</a>			
+                <div data-role="popup" id="popupPanel" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
+                    <ul data-role="listview" data-filter="true" id="list_category" data-theme="a"></ul>
+                </div>
             </div>
             <div data-role="content">
                 <ul id='is_member' data-role="listview"></ul>

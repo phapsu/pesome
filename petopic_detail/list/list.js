@@ -24,7 +24,7 @@ $.Controller('Pesome.PetopicDetail.List',
             var $super = this;
             Pesome.Models.PetopicDetail.findByTopicId({petopic_id: petopic_id},function(res){
                 $super.element.html($super.view('init', res));
-                $('#list_category').pesome_petopic_category();
+                //$('#list_category').pesome_petopic_category();
             });            
 	}
 

@@ -22,8 +22,8 @@ steal(
         './js/video.js'
 ).then(
         './js/config.js',		// config app
-        './models/models.js',		// steals all your models
-        './controllers.js'		// steals all your controllers
+        './models/models.js',		// steals all your models             
+        './controllers.js'		// steals all your controllers        
         //'./fixtures/fixtures.js',	// sets up fixtures for your models
 ).then(
         {
@@ -55,5 +55,13 @@ steal(
 ).then(
     function(){
         $.mobile.loading('hide');
+        
+        $( "#popupPanel" ).on({
+            popupbeforeposition: function() {
+                var h = $( window ).height();
+
+                $( "#popupPanel" ).css( "height", h );
+            }
+        });
     }
 )
