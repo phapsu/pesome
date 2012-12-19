@@ -9,6 +9,11 @@ steal(
     'pesome/petopic/create',
     'pesome/petopic_detail/peticks_list',
     'pesome/petopic_detail/list',
+    'pesome/petopic_detail/create_video',
+    'pesome/petopic_detail/create_audio',
+    'pesome/petopic_detail/create_photo',
+    'pesome/petopic_detail/create_sharefile',
+    'pesome/petopic_detail/create_text',
     'pesome/petick/load_petick',
     'pesome/petick/link',
     'pesome/petick/video',
@@ -40,6 +45,11 @@ steal(
         //petopic detail
         $('#petopic_details').pesome_petopic_detail_list();
         $('#petopic_peticks_list').pesome_petopic_detail_peticks_list();
+        $('#create_video').pesome_petopic_detail_create_video();
+        $('#create_audio').pesome_petopic_detail_create_audio();
+        $('#create_photo').pesome_petopic_detail_create_photo();
+        $('#create_sharefile').pesome_petopic_detail_create_sharefile();
+        $('#create_text').pesome_petopic_detail_create_text();
 
         //petick detail
     	$('#petick_link').pesome_petick_link();

@@ -43,6 +43,21 @@ var $api_url  = {
     petopic_myfollow : function(){
         return $full_base_url+'/api/petopics/my_followings?access_token='+ $access_token;
     },
+    petopic_post_video : function(){
+        return $full_base_url+'/api/petopics/create_video?access_token='+ $access_token;
+    },
+    petopic_post_audio : function(){
+        return $full_base_url+'/api/petopics/create_audio?access_token='+ $access_token;
+    },
+    petopic_post_photo : function(){
+        return $full_base_url+'/api/petopics/create_photo?access_token='+ $access_token;
+    },
+    petopic_post_sharefile : function(){
+        return $full_base_url+'/api/petopics/create_sharefile?access_token='+ $access_token;
+    },
+    petopic_photo_album : function(){
+        return $full_base_url+'/api/peticks/photo_albums?access_token='+ $access_token;
+    },
     petopic_detail : function(id){
         return $full_base_url+'/api/petopics/'+this.replaceUnExpected(id)+'?access_token='+ $access_token;
     },
@@ -61,6 +76,9 @@ var $api_url  = {
     },
     petopic_getlist_friend : function(){
         return $full_base_url+'/api/petopics/members?access_token='+$access_token;
+    },
+    petick : function(){
+        return $full_base_url+'/api/petick?access_token='+ $access_token;
     },
     petick_detail : function(petopic_id, tick_id){
         return $full_base_url+'/api/petopics/get_petick?id='+this.replaceUnExpected(petopic_id)+'&tick_id='+this.replaceUnExpected(tick_id)+'&access_token='+ $access_token;

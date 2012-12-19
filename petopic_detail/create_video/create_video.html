@@ -13,22 +13,22 @@
                 // Do cool things here...
             }
  
-            function getImage() {
+            function getVideo() {
                 // Retrieve image file location from specified source
-                navigator.camera.getPicture(getImageUrl, function(message) {
-                    alert('get picture failed');
+                navigator.camera.getPicture(getVideoUrl, function(message) {
+                    alert('get video failed');
                 },{
                     quality: 50,
                     destinationType: navigator.camera.DestinationType.FILE_URI,
-                    sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
-                }
-            ); 
+                    sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY,
+                    mediaType: navigator.camera.MediaType.ALLMEDIA 
+                }); 
             }
             
-            function getImageUrl(imageURI){
+            function getVideoUrl(videoURI){
                                 
-                $('#img_url').val(imageURI);
-                $('#img_url').show();
+                $('#video_url').val(videoURI);
+                $('#video_url').show();
             }   
  
             function win(r) {
@@ -47,12 +47,12 @@
     </head>
     <body>
         <!-- Home -->
-        <div data-role="page" id="new-petopic-page">
+        <div data-role="page" id="create-video-page">
             <div data-role="header">  
-                create petopic
+                create video
             </div>
             <div data-role="content">
-                <form id='create_new_petopic' action=''></form>
+                <form id='create_video' action=''></form>
             </div>
             
         </div>
