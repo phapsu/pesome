@@ -43,18 +43,18 @@ steal(
             compress : true
         },
         function(){
-            $.mobile.loading( 'show', {
-                    text: 'loading...',
-                    textVisible: true,
-                    theme: 'a',
-                    html: ""
-            });
+//            $.mobile.loading( 'show', {
+//                    text: 'loading...',
+//                    textVisible: true,
+//                    theme: 'a',
+//                    html: ""
+//            });
         }
 ).then(
     './app_pagination.js'
 ).then(
     function(){
-        $.mobile.loading('hide');
+//        $.mobile.loading('hide');
         
         $( "#popupPanel" ).on({
             popupbeforeposition: function() {

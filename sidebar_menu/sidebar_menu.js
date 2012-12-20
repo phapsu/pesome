@@ -16,7 +16,7 @@ $.Controller('Pesome.SidebarMenu',
             var $super = this;            
             Pesome.Models.User.userInfo(function(res){                
                 $super.element.html("//pesome/sidebar_menu/views/sidebar_menu.ejs", res, function(){
-                    index = (typeof(index)=='undefined') ? 1 : index;
+                    index = (typeof(index)=='undefined') ? '' : index;
                     $super.find('li').removeClass('active');
                     $super.find('#menu'+index).addClass('active');                
                 });

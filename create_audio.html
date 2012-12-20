@@ -4,64 +4,60 @@
         <title>pesome</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <script type="text/javascript" charset="utf-8">
- 
+
             // Wait for PhoneGap to load
             document.addEventListener("deviceready", onDeviceReady, false);
- 
+
             // PhoneGap is ready
             function onDeviceReady() {
                 // Do cool things here...
             }
- 
+
             function getAudio() {
                 // limit capture operation to 3 media files, no longer than 10 seconds each
                 var options = { limit: 3, duration: 10 };
                 navigator.device.capture.captureAudio(getAudioUrl, function(message) {
                     alert('get audio failed');
-                },options); 
+                },options);
             }
-            
+
             function getAudioUrl(audioURI){
-                                
+
                 $('#audio_url').val(audioURI);
                 $('#audio_url').show();
-            }   
- 
+            }
+
             function win(r) {
                 console.log("'-------------------------------------'Code = " + r.responseCode);
                 console.log("'-------------------------------------'Response = " + r.response);
                 console.log("'-------------------------------------'Sent = " + r.bytesSent);
                 alert('--------------------------'+r.response+'-------------------------------------');
                 //window.location.href='petopic_detail.html?id='+r.petopic.id;
-                
+
             }
- 
+
             function fail(error) {
                 alert("An error has occurred: Code = "+ error.code);
             }
         </script>
     </head>
     <body>
-        <div id="sidebar_menu"></div>
         <!-- Home -->
         <div data-role="page" id="create-audio-page">
-            <div data-role="header">  
+            <div data-role="header">
+                <a href="#" data-rel="back" class="ui-btn-left" data-role="button">Back</a>
                 <h2>
                     Create Audio
-                </h2>
-                <a href="#" class="showMenu ui-btn-left">
-                    Menu
-                </a>  
-                <a href="#popupPanel" data-rel="popup" data-transition="slide" data-position-to="window" data-role="button"  class="ui-btn-right">Post</a>
+                </h2>                
             </div>
             <div data-role="content">
                 <form id='create_audio' action=''></form>
             </div>
-            
+
         </div>
         <script type='text/javascript' src='../steal/steal.js?pesome'></script>
         <script type="text/javascript">
             document.addEventListener('deviceready', this.deviceready, false);
-        </script>              
+        </script>
     </body>
 </html>

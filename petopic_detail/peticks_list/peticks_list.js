@@ -26,7 +26,7 @@ $.Controller('Pesome.PetopicDetail.PeticksList',
             var petopic_id = $urlUtility.getVars()["id"];
             var $super = this;            
             
-            Pesome.Models.PetopicDetail.findAllPetick({petopic_id: petopic_id},function(res){
+            Pesome.Models.PetopicDetail.findAllPetick({petopic_id: petopic_id},function(res){d(res);
                 $obj = {'petopic_id':petopic_id, 'peticks':res};
                 $super.element.html($super.view('peticks', $obj));//.listview('refresh');
             });

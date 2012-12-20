@@ -6,23 +6,26 @@
     </head>
     <body>
         <div id="sidebar_menu"></div>
-        <div data-role="page" id="page2" data-add-back-btn="true">
-            <div data-role="header">
-                <h2>
-                    &nbsp;
-                </h2>
+        <div data-role="page" id="petopic-detail-page">
+            <div data-role="header" data-position="fixed" >
+                <div id="postPetickButton" class="center-wrapper"></div>
                 <a href="#" class="showMenu ui-btn-left">
                     Menu
                 </a>
-                <a href="#popupPanel" data-rel="popup" data-transition="slide" data-position-to="window" data-role="button"  class="ui-btn-right">Category</a>			
+                <a href="#popupPanel" data-rel="popup" data-transition="slide" data-position-to="window" data-role="button"  class="ui-btn-right">Category</a>
                 <div data-role="popup" id="popupPanel" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
-                    <ul data-role="listview" data-filter="true" id="list_category" data-theme="a"></ul>
+                    <ul data-role="listview" data-filter="true" data-iscroll="enable" id="list_category" data-theme="a"></ul>
                 </div>
             </div>
             <div data-role="content">
-                <div class="content-primary">                    
+                <div class="content-primary">
                     <div id="petopic_details"></div>
                     <div id="petopic_peticks_list"></div>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" class="ui-bar">
+                <div data-role="controlgroup" data-type="horizontal">
+                    <div id="settingButton"></div>
                 </div>
             </div>
         </div>

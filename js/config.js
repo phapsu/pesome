@@ -5,13 +5,13 @@ var $local = 1;
  */
 var $full_base_url = 'http://dev.afterclassroom.com';
 /**
- *  Config app client 
+ *  Config app client
  */
 var $client_id = 'dbbe827bca7ec697fce46f22749fa5d3';
 var $client_secret = '28ca8adcf596eb543bfec576ea397cd3';
 
 /**
- * Access token 
+ * Access token
  */
 var $access_token = ($local == 0) ? window.localStorage.getItem("access_token") : 'c75d3fd6194cf87c552877d7c6cddf22';
 
@@ -72,8 +72,8 @@ var $api_url  = {
     },
     petopic_getpeticks : function(id){
         return $full_base_url+'/api/petopics/get_peticks?id='+this.replaceUnExpected(id)+'&access_token='+ $access_token;
-    },    
-    
+    },
+
     petopic_getlink : function(link_id){
         return $full_base_url+'/api/peticks/get_link?link_id='+this.replaceUnExpected(link_id)+'&access_token='+ $access_token;
     },
@@ -91,7 +91,7 @@ var $api_url  = {
     },
     petick_detail : function(petopic_id, tick_id){
         return $full_base_url+'/api/petopics/get_petick?id='+this.replaceUnExpected(petopic_id)+'&tick_id='+this.replaceUnExpected(tick_id)+'&access_token='+ $access_token;
-    },    
+    },
     petick_postcomment : function(petopic_id){
         return $full_base_url+'/api/peticks/create_comment?id='+this.replaceUnExpected(petopic_id)+'&access_token='+ $access_token;
     },
@@ -111,9 +111,10 @@ var $urlUtility  = {
         {
             hash = hashes[i].split('=');
             vars.push(hash[0]);
-            vars[hash[0]] = hash[1];
+            vars[hash[0]] = $api_url.replaceUnExpected(hash[1]);
         }
-        return vars;        
+        
+        return vars;
     }
 };
 
