@@ -1,6 +1,9 @@
 <div id="user_profile">
     <img src="<%= $full_base_url+this.user.image %>" alt="<%= this.user.name %>"/>
-    <div class="profile_info"><strong><%= this.user.name %></strong></div>
+    <div class="profile_info">
+        <strong><%= this.user.name %></strong><br/>
+        <a href="logout.html" data-ajax="false" style="color:#fff">Logout</a>
+    </div>
 </div>
 <div id="sidebar_menu_content">
     <ul>

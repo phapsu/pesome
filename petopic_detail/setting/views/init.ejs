@@ -1,0 +1,211 @@
+<% if(this.petopic.setting.class_viewer_setting==1){ %>
+<div>
+    <legend>Who do you want to access this PeTopic?</legend>
+    <input type="radio" name="class_viewer_setting" id="radio-choice-1" value="1" checked="checked" />
+    <label class="radio-setting" for="radio-choice-1">Public</label>
+
+    <input type="radio" name="class_viewer_setting" id="radio-choice-2" value="2"  />
+    <label class="radio-setting" for="radio-choice-2">Member only</label>
+
+    <input type="radio" name="class_viewer_setting" id="radio-choice-3" value="3"  />
+    <label class="radio-setting" for="radio-choice-3">Member and follower</label>
+</div>
+<%}else if(this.petopic.setting.class_viewer_setting==2){ %>
+<div>
+    <legend>Who do you want to access this PeTopic?</legend>
+    <input type="radio" name="class_viewer_setting" id="radio-choice-1" value="1"  />
+    <label class="radio-setting" for="radio-choice-1">Public</label>
+
+    <input type="radio" name="class_viewer_setting" id="radio-choice-2" value="2" checked="checked" />
+    <label class="radio-setting" for="radio-choice-2">Member only</label>
+
+    <input type="radio" name="class_viewer_setting" id="radio-choice-3" value="3"  />
+    <label class="radio-setting" for="radio-choice-3">Member and follower</label>
+</div>
+<%}else{%>
+<div>
+    <legend>Who do you want to access this PeTopic?</legend>
+    <input type="radio" name="class_viewer_setting" id="radio-choice-1" value="1"  />
+    <label class="radio-setting" for="radio-choice-1">Public</label>
+
+    <input type="radio" name="class_viewer_setting" id="radio-choice-2" value="2" />
+    <label class="radio-setting" for="radio-choice-2">Member only</label>
+
+    <input type="radio" name="class_viewer_setting" id="radio-choice-3" value="3" checked="checked" />
+    <label class="radio-setting" for="radio-choice-3">Member and follower</label>
+</div>
+<%}%>
+
+<% if(this.petopic.setting.class_video_setting==1){ %>
+<div>
+    <legend>Who do you want to view video for this PeTopic?</legend>
+    <input type="radio" name="class_video_setting" value="1" id="radio-choice-4" checked="checked" />
+    <label class="radio-setting" for="radio-choice-4">Public</label>
+
+    <input type="radio" name="class_video_setting" value="2" id="radio-choice-5" />
+    <label class="radio-setting" for="radio-choice-5">Member only</label>
+
+    <input type="radio" name="class_video_setting" value="3"  id="radio-choice-6"/>
+    <label class="radio-setting" for="radio-choice-6">Member and follower</label>
+</div>
+<%}else if(this.petopic.setting.class_video_setting==2){ %>
+<div>
+    <legend>Who do you want to view video for this PeTopic?</legend>
+    <input type="radio" name="class_video_setting" value="1" id="radio-choice-4"  />
+    <label class="radio-setting" for="radio-choice-4">Public</label>
+
+    <input type="radio" name="class_video_setting" value="2" id="radio-choice-5" checked="checked" />
+    <label class="radio-setting" for="radio-choice-5">Member only</label>
+
+    <input type="radio" name="class_video_setting" value="3"  id="radio-choice-6"/>
+    <label class="radio-setting" for="radio-choice-6">Member and follower</label>
+</div>
+<%}else{%>
+<div>
+    <legend>Who do you want to view video for this PeTopic?</legend>
+    <input type="radio" name="class_video_setting" value="1" id="radio-choice-4"  />
+    <label class="radio-setting" for="radio-choice-4">Public</label>
+
+    <input type="radio" name="class_video_setting" value="2" id="radio-choice-5" />
+    <label class="radio-setting" for="radio-choice-5">Member only</label>
+
+    <input type="radio" name="class_video_setting" value="3"  id="radio-choice-6" checked="checked" />
+    <label class="radio-setting" for="radio-choice-6">Member and follower</label>
+</div>
+<%}%>
+
+<% if(this.petopic.setting.class_photo_setting==1){ %>
+<div>
+    <legend>Who do you want to view photo for this PeTopic?</legend>
+    <input type="radio" name="class_photo_setting" value="1" id="radio-choice-7" checked="checked" />
+    <label class="radio-setting" for="radio-choice-7">Public</label>
+
+    <input type="radio" name="class_photo_setting" value="2" id="radio-choice-8" />
+    <label class="radio-setting" for="radio-choice-8">Member only</label>
+
+    <input type="radio" name="class_photo_setting" value="3" id="radio-choice-9" />
+    <label class="radio-setting" for="radio-choice-9">Member and follower</label>
+</div>
+<%}else if(this.petopic.setting.class_photo_setting==2){ %>
+<div>
+    <legend>Who do you want to view photo for this PeTopic?</legend>
+    <input type="radio" name="class_photo_setting" value="1" id="radio-choice-7" />
+    <label class="radio-setting" for="radio-choice-7">Public</label>
+
+    <input type="radio" name="class_photo_setting" value="2" id="radio-choice-8" checked="checked" />
+    <label class="radio-setting" for="radio-choice-8">Member only</label>
+
+    <input type="radio" name="class_photo_setting" value="3" id="radio-choice-9" />
+    <label class="radio-setting" for="radio-choice-9">Member and follower</label>
+</div>
+<%}else{%>
+<div>
+    <legend>Who do you want to view photo for this PeTopic?</legend>
+    <input type="radio" name="class_photo_setting" value="1" id="radio-choice-7" />
+    <label class="radio-setting" for="radio-choice-7">Public</label>
+
+    <input type="radio" name="class_photo_setting" value="2" id="radio-choice-8" />
+    <label class="radio-setting" for="radio-choice-8">Member only</label>
+
+    <input type="radio" name="class_photo_setting" value="3" id="radio-choice-9" checked="checked" />
+    <label class="radio-setting" for="radio-choice-9">Member and follower</label>
+</div>
+<%}%>
+
+<% if(this.petopic.setting.class_audio_setting==1){ %>
+<div>
+    <legend>Who do you want to listen audio for this PeTopic?</legend>
+    <input type="radio" name="class_audio_setting" value="1" id="radio-choice-10" checked="checked" />
+    <label class="radio-setting" for="radio-choice-10">Public</label>
+
+    <input type="radio" name="class_audio_setting" value="2" id="radio-choice-11" />
+    <label class="radio-setting" for="radio-choice-11">Member only</label>
+
+    <input type="radio" name="class_audio_setting" value="3" id="radio-choice-12" />
+    <label class="radio-setting" for="radio-choice-12">Member and follower</label>
+</div>
+<%}else if(this.petopic.setting.class_audio_setting==2){ %>
+<div>
+    <legend>Who do you want to listen audio for this PeTopic?</legend>
+    <input type="radio" name="class_audio_setting" value="1" id="radio-choice-10" />
+    <label class="radio-setting" for="radio-choice-10">Public</label>
+
+    <input type="radio" name="class_audio_setting" value="2" id="radio-choice-11" checked="checked"/>
+    <label class="radio-setting" for="radio-choice-11">Member only</label>
+
+    <input type="radio" name="class_audio_setting" value="3" id="radio-choice-12" />
+    <label class="radio-setting" for="radio-choice-12">Member and follower</label>
+</div>
+<%}else{%>
+<div>
+    <legend>Who do you want to listen audio for this PeTopic?</legend>
+    <input type="radio" name="class_audio_setting" value="1" id="radio-choice-10" />
+    <label class="radio-setting" for="radio-choice-10">Public</label>
+
+    <input type="radio" name="class_audio_setting" value="2" id="radio-choice-11"/>
+    <label class="radio-setting" for="radio-choice-11">Member only</label>
+
+    <input type="radio" name="class_audio_setting" value="3" id="radio-choice-12" checked="checked" />
+    <label class="radio-setting" for="radio-choice-12">Member and follower</label>
+</div>
+<%}%>
+
+<% if(this.petopic.setting.class_file_setting==1){ %>
+<div>
+    <legend>Who do you want to view file for this PeTopic?</legend>
+    <input type="radio" name="class_file_setting" value="1" id="radio-choice-13" checked="checked"/>
+    <label class="radio-setting" for="radio-choice-13">Public</label>
+
+    <input type="radio" name="class_file_setting" value="2" id="radio-choice-14" />
+    <label class="radio-setting" for="radio-choice-14">Member only</label>
+
+    <input type="radio" name="class_file_setting" value="3" id="radio-choice-15" />
+    <label class="radio-setting" for="radio-choice-15">Member and follower</label>
+</div>
+<%}else if(this.petopic.setting.class_file_setting==2){ %>
+<div>
+    <legend>Who do you want to view file for this PeTopic?</legend>
+    <input type="radio" name="class_file_setting" value="1" id="radio-choice-13" />
+    <label class="radio-setting" for="radio-choice-13">Public</label>
+
+    <input type="radio" name="class_file_setting" value="2" id="radio-choice-14" checked="checked"/>
+    <label class="radio-setting" for="radio-choice-14">Member only</label>
+
+    <input type="radio" name="class_file_setting" value="3" id="radio-choice-15" />
+    <label class="radio-setting" for="radio-choice-15">Member and follower</label>
+</div>
+<%}else{%>
+<div>
+    <legend>Who do you want to view file for this PeTopic?</legend>
+    <input type="radio" name="class_file_setting" value="1" id="radio-choice-13" />
+    <label class="radio-setting" for="radio-choice-13">Public</label>
+
+    <input type="radio" name="class_file_setting" value="2" id="radio-choice-14" />
+    <label class="radio-setting" for="radio-choice-14">Member only</label>
+
+    <input type="radio" name="class_file_setting" value="3" id="radio-choice-15" checked="checked"/>
+    <label class="radio-setting" for="radio-choice-15">Member and follower</label>
+</div>
+<%}%>
+
+<% if(this.petopic.setting.admin_verify_add_member==1){ %>
+<div>
+    <legend>Do you want member automatically Add to this PeTopic with your approval?</legend>
+    <input type="radio" name="admin_verify_add_member" value="1" id="radio-choice-16" checked="checked" />
+    <label class="radio-setting" for="radio-choice-16">No</label>
+
+    <input type="radio" name="admin_verify_add_member" value="2" id="radio-choice-17" />
+    <label class="radio-setting" for="radio-choice-17">Yes</label>
+</div>
+<%}else{%>
+<div>
+    <legend>Do you want member automatically Add to this PeTopic with your approval?</legend>
+    <input type="radio" name="admin_verify_add_member" value="1" id="radio-choice-16" />
+    <label class="radio-setting" for="radio-choice-16">No</label>
+
+    <input type="radio" name="admin_verify_add_member" value="2" id="radio-choice-17" checked="checked"/>
+    <label class="radio-setting" for="radio-choice-17">Yes</label>
+</div>
+<%}%>
+
+<div style="padding: 20px 0"><button type="submit" value="Submit" id="btSubmit"></button></div>

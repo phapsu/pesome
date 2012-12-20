@@ -61,6 +61,12 @@ var $api_url  = {
     petopic_detail : function(id){
         return $full_base_url+'/api/petopics/'+this.replaceUnExpected(id)+'?access_token='+ $access_token;
     },
+    petopic_detail_get_setting : function(id){
+        return $full_base_url+'/api/petopics/get_setting?id='+this.replaceUnExpected(id)+'&access_token='+ $access_token;
+    },
+    petopic_detail_save_setting : function(){
+        return $full_base_url+'/api/petopics/save_setting?access_token='+ $access_token;
+    },
     petopic_getpeticks : function(id){
         return $full_base_url+'/api/petopics/get_peticks?id='+this.replaceUnExpected(id)+'&access_token='+ $access_token;
     },    

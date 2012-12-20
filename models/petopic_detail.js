@@ -116,6 +116,29 @@ steal('jquery/model', function(){
                 function(res){
                     window.location.href = 'petopic_detail.html?petopic_id='+petopic_id;
                 });
+        },
+        get_setting : function(params, success, error){
+            // do the ajax request
+            var petopic_id = params.petopic_id;
+            return $.get($api_url.petopic_detail_get_setting(petopic_id), params, success, 'jsonp');
+        },
+        save_setting : function(params, success, error){
+            var petopic_id = $urlUtility.getVars()["petopic_id"];
+            
+            data = {                
+                'id': petopic_id,
+                'class_viewer_setting': params.class_viewer_setting, 
+                'class_video_setting': params.class_video_setting, 
+                'class_photo_setting': params.class_photo_setting, 
+                'class_audio_setting': params.class_audio_setting, 
+                'class_file_setting': params.class_file_setting, 
+                'admin_verify_add_member': params.admin_verify_add_member                
+                };
+            return $.get($api_url.petopic_detail_save_setting(),
+                data, 
+                function(res){
+                    window.location.href = 'petopic_detail.html?petopic_id='+petopic_id;
+                });
         }
 
     },

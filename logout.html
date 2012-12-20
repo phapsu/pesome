@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <title>Logout</title>        
+        <script src="cordova-2.2.0.js"></script>
+        <script type="text/javascript" charset="utf-8">
+ 
+            // Wait for PhoneGap to load
+            document.addEventListener("deviceready", onDeviceReady, false);
+ 
+            // PhoneGap is ready
+            function onDeviceReady() {
+                // Do cool things here...
+                logout();
+            }
+ 
+            function logout() {
+                window.localStorage.setItem("access_token", "");
+                window.location.href="login.html";             
+            }
+ 
+        </script>
+    </head>
+    <body>
+        <div>Logout</div>
+    </body>
+</html>

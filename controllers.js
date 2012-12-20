@@ -14,6 +14,7 @@ steal(
     'pesome/petopic_detail/create_photo',
     'pesome/petopic_detail/create_sharefile',
     'pesome/petopic_detail/create_text',
+    'pesome/petopic_detail/setting',
     'pesome/petick/load_petick',
     'pesome/petick/link',
     'pesome/petick/video',
@@ -50,6 +51,7 @@ steal(
         $('#create_photo').pesome_petopic_detail_create_photo();
         $('#create_sharefile').pesome_petopic_detail_create_sharefile();
         $('#create_text').pesome_petopic_detail_create_text();
+        $('#petopic_setting').pesome_petopic_detail_setting();
 
         //petick detail
     	$('#petick_link').pesome_petick_link();
