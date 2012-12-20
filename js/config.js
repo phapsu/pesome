@@ -58,6 +58,9 @@ var $api_url  = {
     petopic_photo_album : function(){
         return $full_base_url+'/api/peticks/photo_albums?access_token='+ $access_token;
     },
+    petopic_is_viewable : function(id){
+        return $full_base_url+'/api/petopics/is_viewable?id='+this.replaceUnExpected(id)+'&access_token='+ $access_token;
+    },
     petopic_detail : function(id){
         return $full_base_url+'/api/petopics/'+this.replaceUnExpected(id)+'?access_token='+ $access_token;
     },

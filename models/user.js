@@ -28,6 +28,13 @@ $.Model('Pesome.Models.User',
 
 
             return true;
+        },
+        is_viewable : function(params, success, error){
+            // do the ajax request            
+            return $.get($api_url.petopic_is_viewable(params.petopic_id),
+              params, 
+              success,
+              'jsonp');
         }
 },
 /* @Prototype */
