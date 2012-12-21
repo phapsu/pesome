@@ -21,6 +21,24 @@ $.Controller('Pesome.PetopicDetail.List',
 {
 	init : function(){
             var petopic_id = $urlUtility.getVars()["id"];
+            
+            /*Pesome.Models.User.is_viewable({petopic_id: petopic_id},function(res){                
+                if(res.code==1){
+                    var $super = this;
+                    Pesome.Models.PetopicDetail.findByTopicId({petopic_id: petopic_id},function(res){
+                        $super.element.html($super.view('init', res));                        
+                    });  
+                }else{
+                    alert(res.result);
+                    var previousPage =$.mobile.activePage.data('ui.prevPage');
+                    if(typeof previousPage.prevObject[0]!='undefined'){	
+                        $.mobile.changePage(previousPage.prevObject[0].id, 'slide', true, true);
+                    }
+                }
+            });*/
+            
+            
+            
             var $super = this;
             Pesome.Models.PetopicDetail.findByTopicId({petopic_id: petopic_id},function(res){
                 $super.element.html($super.view('init', res));
