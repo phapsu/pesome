@@ -38,12 +38,15 @@ var $api_url  = {
         return $full_base_url+'/api/petopics?access_token='+ $access_token;
     },
     petopic_mypetopic : function(){
+        //list petopic that user is current admin
         return $full_base_url+'/api/petopics/my_petopics?access_token='+ $access_token;
     },
     petopic_ismember : function(){
+        //list petopic that user is current is_member
         return $full_base_url+'/api/petopics/members?access_token='+ $access_token;
     },
     petopic_myfollow : function(){
+        //list petopic that user is current follow
         return $full_base_url+'/api/petopics/my_followings?access_token='+ $access_token;
     },
     petopic_post_video : function(){
@@ -61,8 +64,25 @@ var $api_url  = {
     petopic_photo_album : function(){
         return $full_base_url+'/api/peticks/photo_albums?access_token='+ $access_token;
     },
-    petopic_is_viewable : function(id){
+    petopic_user_is_viewable : function(id){
+        //return a petopic is viewable with current user?
         return $full_base_url+'/api/petopics/is_viewable?id='+this.replaceUnExpected(id)+'&access_token='+ $access_token;
+    },
+    petopic_user_is_membership : function(id){
+        //return a petopic is membership with current user?
+        return $full_base_url+'/api/petopics/membership?id='+this.replaceUnExpected(id)+'&access_token='+ $access_token;
+    },
+    petopic_user_is_follow : function(id){
+        //return a petopic is follow with current user?
+        return $full_base_url+'/api/petopics/isfollower?id='+this.replaceUnExpected(id)+'&access_token='+ $access_token;
+    },
+    petopic_add_me_in : function(id){
+        //add current user into member petopic
+        return $full_base_url+'/api/petopics/add_me_in?petopic_id='+this.replaceUnExpected(id)+'&access_token='+ $access_token;
+    },
+    petopic_follow : function(id){
+        //add current user into follow petopic
+        return $full_base_url+'/api/petopics/follow?petopic_id='+this.replaceUnExpected(id)+'&access_token='+ $access_token;
     },
     petopic_detail : function(id){
         return $full_base_url+'/api/petopics/'+this.replaceUnExpected(id)+'?access_token='+ $access_token;

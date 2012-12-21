@@ -139,6 +139,18 @@ steal('jquery/model', function(){
                 function(res){
                     window.location.href = 'petopic_detail.html?petopic_id='+petopic_id;
                 });
+        },
+        add_me_in : function(params, success, error){
+            var petopic_id = $urlUtility.getVars()["petopic_id"];
+            return $.get($api_url.petopic_add_me_in(petopic_id), params, function(res){
+                    window.location.href = 'petopic_detail.html?petopic_id='+petopic_id;
+                });
+        },
+        follow : function(params, success, error){
+            var petopic_id = $urlUtility.getVars()["petopic_id"];
+            return $.get($api_url.petopic_follow(petopic_id), params, function(res){
+                    window.location.href = 'petopic_detail.html?petopic_id='+petopic_id;
+                });
         }
 
     },

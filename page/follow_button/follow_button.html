@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>Pesome.Page.Follow</title>
+        <style type='text/css'>
+            body {font-family: verdana}
+            .error {border: solid 1px red;}
+            .error_text { color: red; font-size: 10px;}
+            td {padding: 3px;}
+        </style>
+	</head>
+	<body>
+	    <h1>Pesome.Page.Follow Demo</h1>
+		<div id='add_me_in_button'></div>
+		<script type='text/javascript' 
+                src='../../../steal/steal.js'>
+        </script>
+		<script type='text/javascript'>
+			steal('pesome/page/follow_button',function(){
+				
+				$('#follow_button').pesome_page_follow_button();
+			})
+		</script>
+	</body>
+</html>

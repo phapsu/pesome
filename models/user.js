@@ -31,7 +31,21 @@ $.Model('Pesome.Models.User',
         },
         is_viewable : function(params, success, error){
             // do the ajax request            
-            return $.get($api_url.petopic_is_viewable(params.petopic_id),
+            return $.get($api_url.petopic_user_is_viewable(params.petopic_id),
+              params, 
+              success,
+              'jsonp');
+        },
+        is_membership : function(params, success, error){
+            // do the ajax request            
+            return $.get($api_url.petopic_user_is_membership(params.petopic_id),
+              params, 
+              success,
+              'jsonp');
+        },
+        is_follow : function(params, success, error){
+            // do the ajax request            
+            return $.get($api_url.petopic_user_is_follow(params.petopic_id),
               params, 
               success,
               'jsonp');
