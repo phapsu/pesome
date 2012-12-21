@@ -20,7 +20,10 @@ var $access_token = ($local == 0) ? window.localStorage.getItem("access_token") 
  */
 var $api_url  = {
     replaceUnExpected : function(str){
-        return str.split('#').join('');
+        if(typeof(str) != 'undefined' && str.indexOf( "#" ) !== -1){
+            return str.split('#').join('');
+        }
+        return str;
     },
     auth : function(){
         return $full_base_url+'/oauth/token';

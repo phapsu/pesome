@@ -1,6 +1,6 @@
 <div class="main-pin-wrappper">
     <div class="content-box">
-        <table width='100%'>
+        <table width='100%' cellspacing="5">
             <tr>
                 <td class='center'>
                     <img src="<%= $full_base_url+this.petopic.thumbnail %>" alt=""/>
@@ -10,6 +10,12 @@
             <tr>
                 <td>
                     <p><%= this.petopic.description %></p>
+                </td>
+            </tr>
+            <tr>
+                <td class='center'>
+                    <a href="javascript:;;" class="btn" id="followButton"><i class="icon-fire"></i> Follow</a>
+                    <a href="javascript:;;" class="btn" id="followAddmein"><i class="icon-plus"></i> Add me in</a>
                 </td>
             </tr>
         </table>
