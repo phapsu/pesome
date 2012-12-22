@@ -1,39 +1,1 @@
-<!DOCTYPE HTML>
-<html lang="en">
-    <head>
-        <title>pesome</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    </head>
-    <body>
-        <div id="sidebar_menu"></div>
-        <!-- Home -->
-        <div data-role="page" id="page-petopic" class="page" data-theme="c">
-
-            <div data-role="header">
-                <h2>
-                    Pesome
-                </h2>
-                <a href="#" class="showMenu ui-btn-left">
-                    Menu
-                </a>
-                
-                <a href="#popupPanel" data-rel="popup" data-transition="slide" data-position-to="window" data-role="button"  class="ui-btn-right">Category</a>			
-                <div data-role="popup" id="popupPanel" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
-                    <ul data-role="listview" data-filter="true" id="list_category" data-theme="a"></ul>
-                </div>
-            </div>
-
-            <div data-role="content" id="petopics-container">
-                <ul id="petopics" data-role="listview"></ul>                
-            </div>
-
-        </div>
-        <div data-role="footer" id="footer">
-            &copy; pesome.com
-        </div>
-        <script type='text/javascript' src='../steal/steal.js?pesome'></script>
-        <script type="text/javascript">
-            document.addEventListener('deviceready', this.deviceready, false);
-        </script>
-    </body>
-</html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>    <head>        <title>Check Internet</title>                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" href="production.css" type="text/css"><script type='text/javascript' src='cordova.js'></script>        <script type="text/javascript" charset="utf-8">             // Wait for PhoneGap to load            document.addEventListener("deviceready", onDeviceReady, false);			            // PhoneGap is ready            function onDeviceReady() {                // Do cool things here...                checkConnection();            }             function checkConnection() {                var networkState = navigator.network.connection.type;                                if(networkState==Connection.NONE){                    window.location.href="connection_error.html";                }                else{                                        var value = window.localStorage.getItem("access_token");		                    if(!value){                            window.location.href="login.html";                    }                    else{                            window.location.href="petopics.html";                    }                }                            }         </script>    </head>    <body>	<div><h1 style="margin: 20 auto;">Loading...</h1></div>	<script type='text/javascript' src='steal.production.js'></script><script type='text/javascript' src='production.js'></script>    </body></html>

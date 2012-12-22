@@ -12,8 +12,8 @@ $.Controller('Pesome.Page.FollowButton',
 /** @Prototype */
 {
 	init : function(){
-            Pesome.Models.PetopicDetail.follow({},function(res){                
-            });                
+            Pesome.Models.PetopicDetail.follow({},function(res){
+            });
 	}
 })
 

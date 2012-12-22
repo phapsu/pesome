@@ -72,7 +72,7 @@ $.Model('Pesome.Models.Petopic',
 		  function(res){
                       var result = res.status.result;
                       if(result=='Petopic has been deleted successfully'){
-                          window.location.href = 'index.html';
+                          window.location.href = 'petopics.html';
                       }else{
                           return result;
                       }
@@ -100,7 +100,7 @@ $.Model('Pesome.Models.Petopic',
                 ft.upload(imageURI, $api_url.petopic(), win, fail, options);
             
                 
-                window.location.href = 'index.html';
+                window.location.href = 'petopics.html';
             }
             else{
                 data = {
@@ -118,7 +118,7 @@ $.Model('Pesome.Models.Petopic',
                         else{
                             window.localStorage.setItem("access_token", res.access_token);
                             $access_token = res.access_token;
-                            window.location.href = 'index.html';
+                            window.location.href = 'petopics.html';
                         }
                     });
             }

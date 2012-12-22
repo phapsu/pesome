@@ -21,11 +21,10 @@ $.Controller('Pesome.PetopicDetail.List',
 {
 	init : function(){
             var petopic_id = $urlUtility.getVars()["id"];
-            
+            var $super = this;
                Pesome.Models.User.is_viewable({petopic_id: petopic_id},function(res){                
                 if(res.status.code=='pesome_1'){
-                    //duoc phep view petopic
-                    var $super = this;
+                    //duoc phep view petopic                    
                     Pesome.Models.PetopicDetail.findByTopicId({petopic_id: petopic_id},function(res){
                         if(res.petopic.membership.code=='pesome_1'){
                             //current user is Admin cua petopic

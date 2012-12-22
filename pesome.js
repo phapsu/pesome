@@ -9,7 +9,6 @@ steal(
         src : './js/jquery-1.8.3.min.js',
         compress : false
     },
-
     {
         src : './js/klass.min.js',
         compress : false
@@ -18,7 +17,10 @@ steal(
         './css/pesome.css',
         './css/photoswipe.css',
         './css/audio.css',
-        './css/jquery.mobile.simpledialog.min.css'
+        {
+            src : './css/jquery.mobile.simpledialog.min.css',
+            compress : false
+        }        
 ).then(
         './js/video.js'
 ).then(
@@ -53,17 +55,20 @@ steal(
         }
 ).then(
     './app_pagination.js',
-    './js/jquery.mobile.simpledialog2.min.js'
+    {
+            src : './js/jquery.mobile.simpledialog2.min.js',
+            compress : false
+    }    
 ).then(
     function(){
 //        $.mobile.loading('hide');
         
-        $( "#popupPanel" ).on({
-            popupbeforeposition: function() {
-                var h = $( window ).height();
-
-                $( "#popupPanel" ).css( "height", h );
-            }
-        });
+//        $( "#popupPanel" ).on({
+//            popupbeforeposition: function() {
+//                var h = $( window ).height();
+//
+//                $( "#popupPanel" ).css( "height", h );
+//            }
+//        });
     }
 )

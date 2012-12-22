@@ -12,8 +12,8 @@ $.Controller('Pesome.Page.AddMeInButton',
 /** @Prototype */
 {
 	init : function(){
-            Pesome.Models.PetopicDetail.add_me_in({},function(res){                
-            });                
+            Pesome.Models.PetopicDetail.add_me_in({},function(res){
+            });
 	}
 })
 

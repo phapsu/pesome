@@ -5,24 +5,31 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
-        <div data-role="page" id="petick-link-page" data-add-back-btn="true">
+        <div id="sidebar_menu"></div>
+        <!-- Home -->
+        <div data-role="page" id="page-petopic" class="page" data-theme="c">
+
             <div data-role="header">
                 <h2>
-                    &nbsp;
+                    Pesome
                 </h2>
-                <a href="#" id="petick_back_link" data-icon="arrow-l" class="ui-btn-left" data-rel="back">Back</a>
+                <a href="#" class="showMenu ui-btn-left">
+                    Menu
+                </a>
+                
                 <a href="#popupPanel" data-rel="popup" data-transition="slide" data-position-to="window" data-role="button"  class="ui-btn-right">Category</a>			
                 <div data-role="popup" id="popupPanel" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
                     <ul data-role="listview" data-filter="true" id="list_category" data-theme="a"></ul>
                 </div>
             </div>
-            <div data-role="content">
-                <div id="main-petick-content" class="content-primary">
-                    <div id="petick_link"></div>                    
-                    <br/>
-                    <ul id="comment_list" data-role="listview"></ul>
-                </div>
+
+            <div data-role="content" id="petopics-container">
+                <ul id="petopics" data-role="listview"></ul>                
             </div>
+
+        </div>
+        <div data-role="footer" id="footer">
+            &copy; pesome.com
         </div>
         <script type='text/javascript' src='../steal/steal.js?pesome'></script>
         <script type="text/javascript">
