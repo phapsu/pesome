@@ -76,13 +76,13 @@ var $api_url  = {
         //return a petopic is follow with current user?
         return $full_base_url+'/api/petopics/isfollower?id='+this.replaceUnExpected(id)+'&access_token='+ $access_token;
     },
-    petopic_add_me_in : function(id){
+    petopic_add_me_in : function(){
         //add current user into member petopic
-        return $full_base_url+'/api/petopics/add_me_in?petopic_id='+this.replaceUnExpected(id)+'&access_token='+ $access_token;
+        return $full_base_url+'/api/petopics/add_me_in?access_token='+ $access_token;
     },
-    petopic_follow : function(id){
+    petopic_follow : function(){
         //add current user into follow petopic
-        return $full_base_url+'/api/petopics/follow?petopic_id='+this.replaceUnExpected(id)+'&access_token='+ $access_token;
+        return $full_base_url+'/api/petopics/follow?access_token='+ $access_token;
     },
     petopic_detail : function(id){
         return $full_base_url+'/api/petopics/'+this.replaceUnExpected(id)+'?access_token='+ $access_token;
