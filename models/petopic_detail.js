@@ -141,15 +141,17 @@ steal('jquery/model', function(){
                 });
         },
         add_me_in : function(params, success, error){
-            var petopic_id = $urlUtility.getVars()["petopic_id"];
-            return $.get($api_url.petopic_add_me_in(petopic_id), params, function(res){
-                    window.location.href = 'petopic_detail.html?petopic_id='+petopic_id;
+            var petopic_id = params.petopic_id;
+            return $.get($api_url.petopic_add_me_in()+'&petopic_id='+petopic_id, function(res){
+                    $('#AddmeinButton').attr('disabled', 'disabled');
+                    alert(res.status.result);     
                 });
         },
         follow : function(params, success, error){
-            var petopic_id = $urlUtility.getVars()["petopic_id"];
-            return $.get($api_url.petopic_follow(petopic_id), params, function(res){
-                    window.location.href = 'petopic_detail.html?petopic_id='+petopic_id;
+            var petopic_id = params.petopic_id;
+            return $.get($api_url.petopic_follow()+'&petopic_id='+petopic_id, function(res){
+                    $('#FollowButton').attr('disabled', 'disabled');
+                    alert(res.status.result);                    
                 });
         }
 
