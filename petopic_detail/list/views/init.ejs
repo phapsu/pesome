@@ -14,8 +14,17 @@
             </tr>
             <tr>
                 <td class='center'>
-                    <a href="javascript:;;" class="btn" id="followButton"><i class="icon-fire"></i> Follow</a>
-                    <a href="javascript:;;" class="btn" id="followAddmein"><i class="icon-plus"></i> Add me in</a>
+                    <% if(this.is_follow=='pesome_1'){ %>
+                    <a href=""  disabled class="btn" id="followButton"><i class="icon-fire"></i> Follow</a>
+                    <%}else{%> 
+                    <a href="follow_button.html?petopic_id=<%= this.petopic.id %>" class="btn" id="followButton"><i class="icon-fire"></i> Follow</a>
+                    <%}%> 
+                    
+                    <% if(this.is_membership=='pesome_1'){ %>
+                    <a href="" disabled class="btn" id="followAddmein" ><i class="icon-plus"></i> Add me in</a>
+                    <%}else{%> 
+                    <a href="add_me_in_button.html?petopic_id=<%= this.petopic.id %>" <% if(this.is_membership!='pesome_1'){ %> disabled <%}%> class="btn" id="followAddmein" ><i class="icon-plus"></i> Add me in</a>
+                    <%}%>     
                 </td>
             </tr>
         </table>
