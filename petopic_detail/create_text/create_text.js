@@ -20,7 +20,7 @@ $.Controller('Pesome.PetopicDetail.CreateText',
 	'#btSubmit click' : function(el){
 		el.val('Creating...');
                 var petopic_id = $urlUtility.getVars()["petopic_id"];
-                var params = {title : $('#title').val(), petopic_id : petopic_id};
+                var params = {'title' : $('#title').val(), 'petopic_id' : petopic_id};
 		Pesome.Models.PetopicDetail.create_text(params ,function(){
                         window.location.href = 'petopic_detail.html?id='+petopic_id;
                     },

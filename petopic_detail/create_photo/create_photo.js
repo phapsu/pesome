@@ -23,15 +23,38 @@ steal( 'jquery/controller',
                 $('#create-photo-page').trigger('create');
             });
         },
-        submit : function(el, ev){
-            ev.preventDefault();
-            this.element.find('[type=submit]').val('Creating...')
-            new Pesome.Models.PetopicDetail.create_photo(el.formParams()).save(this.callback('saved'));
-        },
-        saved : function(){
-            this.element.find('[type=submit]').val('Create');
-            this.element[0].reset()
-        }
+	'#btSubmit click' : function(el){
+                $.mobile.loading( 'show', {
+                        text: 'loading...',
+                        textVisible: true,
+                        theme: 'a',
+                        html: ""
+                });                
+                var petopic_id = $urlUtility.getVars()["petopic_id"];                
+                var params = {'photo_album_id' : $('#photo_album_id').val(), 'img_url' : $('#img_url').val(), 'title' : $('#title').val(), 'petopic_id' : petopic_id};
+		Pesome.Models.PetopicDetail.create_photo(params ,
+                    function(res){
+                        d(res);
+                        $.mobile.loading('hide');
+                        window.location.href = 'petopic_detail.html?id='+petopic_id;
+                    },
+                    function(res){
+                        l('error');
+                        d(res);
+                        $.mobile.loading('hide');
+                        window.location.href = 'petopic_detail.html?id='+petopic_id;
+                    }
+                );
+	}        
+//        submit : function(el, ev){
+//            ev.preventDefault();
+//            this.element.find('[type=submit]').val('Creating...')
+//            new Pesome.Models.PetopicDetail.create_photo(el.formParams()).save(this.callback('saved'));
+//        },
+//        saved : function(){
+//            this.element.find('[type=submit]').val('Create');
+//            this.element[0].reset()
+//        }
     })
 
 });
