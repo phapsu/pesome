@@ -103,19 +103,27 @@ steal('jquery/model', function(){
                 ft.upload(fileURI, $api_url.petopic_post_sharefile(), win, fail, options);  
         },
         create_text : function(params, success, error){
-            var petopic_id = $urlUtility.getVars()["petopic_id"];
-            
-            data = {                
+            $data = {                
                 'title': params.title, 
-                'petopic_ids': petopic_id,
+                'petopic_ids': params.petopic_id,
                 'link': '',
                 'tag': ''
                 };
-            return $.get($api_url.petick(),
-                data, 
-                function(res){
-                    window.location.href = 'petopic_detail.html?petopic_id='+petopic_id;
+            
+            return $.ajax({
+                    type: 'POST',
+                    url: $api_url.petick(),
+                    data: $data,
+                    crossDomain: true,
+                    async: false,
+                    success: function (res) {
+                       success(res);
+                    },
+                    error: function(e) {
+                        error(e);
+                    }
                 });
+                
         },
         get_setting : function(params, success, error){
             // do the ajax request
@@ -137,7 +145,7 @@ steal('jquery/model', function(){
             return $.get($api_url.petopic_detail_save_setting(),
                 data, 
                 function(res){
-                    window.location.href = 'petopic_detail.html?petopic_id='+petopic_id;
+                    window.location.href = 'petopic_detail.html?id='+petopic_id;
                 });
         },
         add_me_in : function(params, success, error){

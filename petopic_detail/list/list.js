@@ -12,33 +12,6 @@ steal(  'jquery/controller',
  * @inherits jQuery.Controller
  * Lists petopic_details and lets you destroy them.
  */
-<<<<<<< HEAD
-$.Controller('Pesome.PetopicDetail.List',
-/** @Static */
-{
-	defaults : {}
-},
-/** @Prototype */
-{
-	init : function(){
-            var petopic_id = $urlUtility.getVars()["id"];
-            var $super = this;
-               Pesome.Models.User.is_viewable({petopic_id: petopic_id},function(res){                
-                if(res.status.code=='pesome_1'){
-                    //duoc phep view petopic                    
-                    Pesome.Models.PetopicDetail.findByTopicId({petopic_id: petopic_id},function(res){
-                        if(res.petopic.membership.code=='pesome_1'){
-                            //current user is Admin cua petopic
-                            res.is_membership   = 'pesome_1';
-                            res.is_follow       = 'pesome_1';
-                        }
-                        else{
-                            //current user is Guest cua petopic                    
-                            var is_membership;
-                            Pesome.Models.User.is_membership({petopic_id: petopic_id},function(res){
-                                is_membership = res.status.code;                
-                            });
-=======
         $.Controller('Pesome.PetopicDetail.List',
         /** @Static */
         {
@@ -71,7 +44,6 @@ $.Controller('Pesome.PetopicDetail.List',
                                 },function(res){
                                     is_membership = res.status.code;                
                                 });
->>>>>>> b35665d14363efc2d619256a8b43a08e9a56de2b
 
                                 var is_follow;
                                 Pesome.Models.User.is_follow({

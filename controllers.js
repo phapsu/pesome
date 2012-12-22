@@ -2,9 +2,7 @@ steal(
     'pesome/sidebar_menu',
     'pesome/page/load_category',
     'pesome/page/post_petick_button',
-    'pesome/page/setting_button',
-    'pesome/page/add_me_in_button',
-    'pesome/page/follow_button',
+    'pesome/page/setting_button',  
     'pesome/petopic/list',    
     'pesome/petopic/select_category',
     'pesome/petopic/is_member',
@@ -56,8 +54,6 @@ steal(
         $('#create_sharefile').pesome_petopic_detail_create_sharefile();
         $('#create_text').pesome_petopic_detail_create_text();
         $('#petopic_setting').pesome_petopic_detail_setting();
-        $('#add_me_in_button').pesome_page_add_me_in_button();
-        $('#follow_button').pesome_page_follow_button();
 
         //petick detail
     	$('#petick_link').pesome_petick_link();
