@@ -119,7 +119,9 @@ a {
 .icon-th {
     background-position: -240px 0;
 }
-
+.icon-comment {
+    background-position: -240px -120px;
+}
 .icon-heart {
     background-position: -96px 0;
 }

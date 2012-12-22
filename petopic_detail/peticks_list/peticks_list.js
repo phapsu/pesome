@@ -26,13 +26,50 @@ $.Controller('Pesome.PetopicDetail.PeticksList',
             var petopic_id = $urlUtility.getVars()["id"];
             var $super = this;            
             
-            Pesome.Models.PetopicDetail.findAllPetick({petopic_id: petopic_id},function(res){d(res);
+            Pesome.Models.PetopicDetail.findAllPetick({petopic_id: petopic_id},function(res){                
                 $obj = {'petopic_id':petopic_id, 'peticks':res};
-                $super.element.html($super.view('peticks', $obj));//.listview('refresh');
+                $super.element.html($super.view('peticks', $obj));
             });
             
-	}
+	},
+        '.open-petick-detail click' : function(el){
 
+            var url = el.attr('data-href');
+//            $.mobile.changePage( url, { transition: "slideup"} );
+                                
+            $('<div>').simpledialog2({
+                    mode: 'blank',
+                    headerText: el.html(),
+                    headerClose: true,
+                    fullScreen: true,
+                    fullScreenForce: true,
+                    blankContent : '<iframe src="'+url+'" style="width:100%; height:100%"></iframe>'
+                }); 
+            
+//            $.mobile.loading('show');
+//            Pesome.Models.Petick.findOne({'petopic_id': petopic_id, 'tick_id' : tick_id},function(res){
+//                
+//                $.mobile.loading('hide');
+//                $('#petick-content').html('//pesome/petick/link/views/init.ejs', res.petick, function(){ 
+//                    //$('#comment_action_form').pesome_comment_create();               
+//                    
+//                    Pesome.Models.Comment.findByTickId({'tick_id' : tick_id},function(res){
+//                        $('#comment_list').html('//pesome/comment/list/views/init.ejs', res).listview('refresh');
+//                        $('#petick-link-page').trigger('create');
+//                    });
+//                    
+//                    $('<div>').simpledialog2({
+//                        mode: 'blank',
+//                        headerText: 'Some Stuff',
+//                        headerClose: true,
+//                        fullScreen: true,
+//                        fullScreenForce: true,
+//                        blankContent : $('#petick-content').html()
+//                    });                   
+//                    
+//                });
+//            });
+        }
 });
 
 });

@@ -17,7 +17,8 @@ steal(
 ).then(
         './css/pesome.css',
         './css/photoswipe.css',
-        './css/audio.css'
+        './css/audio.css',
+        './css/jquery.mobile.simpledialog.min.css'
 ).then(
         './js/video.js'
 ).then(
@@ -51,7 +52,8 @@ steal(
 //            });
         }
 ).then(
-    './app_pagination.js'
+    './app_pagination.js',
+    './js/jquery.mobile.simpledialog2.min.js'
 ).then(
     function(){
 //        $.mobile.loading('hide');

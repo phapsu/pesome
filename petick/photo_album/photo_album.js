@@ -23,7 +23,7 @@ $.Controller('Pesome.Petick.PhotoAlbum',
             var tick_id = $urlUtility.getVars()["tick_id"];
             Pesome.Petick.LoadPetick.prototype.init({'petopic_id' : petopic_id, 'tick_id' : tick_id, 'controller' : this}, function($obj){                
                 $obj.element.find('a').photoSwipe({ enableMouseWheel: false , enableKeyboard: false });
-                $('#comment_action_button').pesome_petick_tick_action();
+                $('#petick_comment_and_like_button').pesome_petick_tick_action();
                 $('#petick-photoalbum-page').trigger('create');
             });
 //            var $super = this;

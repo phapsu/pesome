@@ -73,7 +73,7 @@ steal(
         
         //button
         $('#postPetickButton').pesome_page_post_petick_button();
-        $('#settingButton').pesome_page_setting_button();
+        $('#settingButton').pesome_page_setting_button();        
     },
     function(){
         if($('#petopics').length > 0 || $('#my_petopic').length > 0  || $('#my_follow').length > 0 || $('#select_category').length > 0 || $('#is_member').length > 0){
@@ -81,6 +81,6 @@ steal(
             //so if exist petopics do nothing
         }else{
             $('#list_category').pesome_page_load_category();
-        }
+        }        
     }
 )

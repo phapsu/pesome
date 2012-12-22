@@ -7,7 +7,7 @@
     <body>
         <div id="sidebar_menu"></div>
         <div data-role="page" id="petopic-detail-page">
-            <div data-role="header" data-position="fixed" >
+            <div data-role="header">
                 <div id="postPetickButton" class="center-wrapper"></div>
                 <a href="#" class="showMenu ui-btn-left">
                     Menu
@@ -25,10 +25,11 @@
             </div>
             <div data-role="footer" data-position="fixed" class="ui-bar">
                 <div data-role="controlgroup" data-type="horizontal">
-                    <div id="settingButton"></div>
+                    <div id="settingButton"></div>                    
                 </div>
             </div>
         </div>
+        <div id="petick-content" style="display: block"></div>
         <script type='text/javascript' src='../steal/steal.js?pesome'></script>
         <script type="text/javascript">
             document.addEventListener('deviceready', this.deviceready, false);
