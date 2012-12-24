@@ -19,7 +19,7 @@ steal('jquery/model', function(){
             var petopic_id = params.petopic_id;
             return $.get($api_url.petopic_getpeticks(petopic_id), params, success, 'jsonp');
         },
-        create_video : function(params_post, success, error){
+        create_video : function(params_post, success, errorCallback){
             // do the ajax request
             var videoURI = params_post.video_url;
 
@@ -37,7 +37,7 @@ steal('jquery/model', function(){
             options.chunkedMode = false;
 
             var ft = new FileTransfer();
-            ft.upload(videoURI, $api_url.petopic_post_video(), 
+            ft.upload(videoURI, $api_url.petopic_post_video(),
                 function(r){
                     console.log("Code = " + r.responseCode);
                     console.log("Response = " + r.response);
@@ -46,10 +46,10 @@ steal('jquery/model', function(){
                 },
                 function(error){
                     console.log("An error has occurred: Code = " + error.code);
-                    error();
+                    errorCallback();
                 }, options);
         },
-        create_audio : function(params_post, success, error){
+        create_audio : function(params_post, success, errorCallback){
             // do the ajax request
             var audioURI = params_post.audio_url;
 
@@ -67,7 +67,7 @@ steal('jquery/model', function(){
             options.chunkedMode = false;
 
             var ft = new FileTransfer();
-            ft.upload(audioURI, $api_url.petopic_post_audio(), 
+            ft.upload(audioURI, $api_url.petopic_post_audio(),
                 function(r){
                     console.log("Code = " + r.responseCode);
                     console.log("Response = " + r.response);
@@ -76,10 +76,10 @@ steal('jquery/model', function(){
                 },
                 function(error){
                     console.log("An error has occurred: Code = " + error.code);
-                    error();
+                    errorCallback();
                 }, options);
         },
-        create_photo : function(params_post, success, error){
+        create_photo : function(params_post, success, errorCallback){
             // do the ajax request
             var imageURI = params_post.img_url;
 
@@ -106,10 +106,10 @@ steal('jquery/model', function(){
                 },
                 function(error){
                     console.log("An error has occurred: Code = " + error.code);
-                    error();
+                    errorCallback();
                 }, options);
         },
-        create_sharefile : function(params_post, success, error){
+        create_sharefile : function(params_post, success, errorCallback){
             // do the ajax request
             var fileURI = params_post.file_url;
 
@@ -135,10 +135,10 @@ steal('jquery/model', function(){
                 },
                 function(error){
                     console.log("An error has occurred: Code = " + error.code);
-                    error();
+                    errorCallback();
                 }, options);
         },
-        create_text : function(params, success, error){
+        create_text : function(params, successCallback, errorCallback){
             $data = {
                 'title': params.title,
                 'petopic_ids': params.petopic_id,
@@ -153,10 +153,14 @@ steal('jquery/model', function(){
                     crossDomain: true,
                     async: false,
                     success: function (res) {
-                       success(res);
+                        console.log('------------Thanh cong------------');
+                        console.dir(res);
+                        successCallback(res);
                     },
                     error: function(e) {
-                        error(e);
+                        console.log('------------Khong Thanh cong------------');
+                        console.dir(e);                        
+                        errorCallback(e);
                     }
                 });
 

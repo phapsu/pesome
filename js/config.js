@@ -110,7 +110,7 @@ var $api_url  = {
         return $full_base_url+'/api/petopics/members?access_token='+$access_token;
     },
     petick : function(){
-        return $full_base_url+'/api/petick?access_token='+ $access_token;
+        return $full_base_url+'/api/peticks?access_token='+ $access_token;
     },
     petick_detail : function(petopic_id, tick_id){
         return $full_base_url+'/api/petopics/get_petick?id='+this.replaceUnExpected(petopic_id)+'&tick_id='+this.replaceUnExpected(tick_id)+'&access_token='+ $access_token;
