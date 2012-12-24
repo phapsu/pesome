@@ -21,7 +21,6 @@ steal('jquery/model', function(){
         },
         create_video : function(params_post, success, error){
             // do the ajax request
-            var petopic_id = $urlUtility.getVars()["petopic_id"];
             var videoURI = params_post.video_url;
 
             var options = new FileUploadOptions();
@@ -30,7 +29,7 @@ steal('jquery/model', function(){
             options.mimeType="video/mpeg";
 
             var params = new Object();
-            params.id = petopic_id;
+            params.id = params_post.petopic_id;
             params.title = params_post.title;
             params.description = params_post.description;
 
@@ -38,11 +37,20 @@ steal('jquery/model', function(){
             options.chunkedMode = false;
 
             var ft = new FileTransfer();
-            ft.upload(videoURI, $api_url.petopic_post_video(), win, fail, options);
+            ft.upload(videoURI, $api_url.petopic_post_video(), 
+                function(r){
+                    console.log("Code = " + r.responseCode);
+                    console.log("Response = " + r.response);
+                    console.log("Sent = " + r.bytesSent);
+                    success();
+                },
+                function(error){
+                    console.log("An error has occurred: Code = " + error.code);
+                    error();
+                }, options);
         },
         create_audio : function(params_post, success, error){
             // do the ajax request
-            var petopic_id = $urlUtility.getVars()["petopic_id"];
             var audioURI = params_post.audio_url;
 
             var options = new FileUploadOptions();
@@ -51,7 +59,7 @@ steal('jquery/model', function(){
             options.mimeType="audio/mp3";
 
             var params = new Object();
-            params.id = petopic_id;
+            params.id = params_post.petopic_id;
             params.title = params_post.title;
             params.description = params_post.description;
 
@@ -59,11 +67,20 @@ steal('jquery/model', function(){
             options.chunkedMode = false;
 
             var ft = new FileTransfer();
-            ft.upload(audioURI, $api_url.petopic_post_audio(), win, fail, options);
+            ft.upload(audioURI, $api_url.petopic_post_audio(), 
+                function(r){
+                    console.log("Code = " + r.responseCode);
+                    console.log("Response = " + r.response);
+                    console.log("Sent = " + r.bytesSent);
+                    success();
+                },
+                function(error){
+                    console.log("An error has occurred: Code = " + error.code);
+                    error();
+                }, options);
         },
         create_photo : function(params_post, success, error){
             // do the ajax request
-            var petopic_id = params_post.petopic_id;
             var imageURI = params_post.img_url;
 
             var options = new FileUploadOptions();
@@ -72,7 +89,7 @@ steal('jquery/model', function(){
                 options.mimeType="image/jpeg";
 
                 var params = new Object();
-                params.id = petopic_id;
+                params.id = params_post.petopic_id;
                 params.photo_album_id = params_post.photo_album_id;
                 params.title = params_post.title;
 
@@ -94,7 +111,6 @@ steal('jquery/model', function(){
         },
         create_sharefile : function(params_post, success, error){
             // do the ajax request
-            var petopic_id = $urlUtility.getVars()["petopic_id"];
             var fileURI = params_post.file_url;
 
             var options = new FileUploadOptions();
@@ -103,7 +119,7 @@ steal('jquery/model', function(){
                 options.mimeType="multipart/form-data";
 
                 var params = new Object();
-                params.id = petopic_id;
+                params.id = params_post.petopic_id;
                 params.content = params_post.content;
 
                 options.params = params;

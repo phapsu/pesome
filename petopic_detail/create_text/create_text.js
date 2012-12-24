@@ -18,14 +18,22 @@ $.Controller('Pesome.PetopicDetail.CreateText',
 		this.element.html(this.view());
 	},
 	'#btSubmit click' : function(el){
-		el.val('Creating...');
-                var petopic_id = $urlUtility.getVars()["petopic_id"];
+                $.mobile.loading( 'show', {
+                        text: 'loading...',
+                        textVisible: true,
+                        theme: 'a',
+                        html: ""
+                });                
+                var petopic_id = $urlUtility.getVars()["petopic_id"];                
                 var params = {'title' : $('#title').val(), 'petopic_id' : petopic_id};
-		Pesome.Models.PetopicDetail.create_text(params ,function(){
+		Pesome.Models.PetopicDetail.create_text(params ,
+                    function(){                       
+                        $.mobile.loading('hide');
                         window.location.href = 'petopic_detail.html?id='+petopic_id;
                     },
-                    function(){
-                        l('error');
+                    function(){                        
+                        $.mobile.loading('hide');
+                        window.location.href = 'petopic_detail.html?id='+petopic_id;
                     }
                 );
 	}

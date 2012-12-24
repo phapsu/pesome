@@ -17,15 +17,35 @@ $.Controller('Pesome.PetopicDetail.CreateSharefile',
 	init : function(){
 		this.element.html(this.view());
 	},
-	submit : function(el, ev){
-		ev.preventDefault();
-		this.element.find('[type=submit]').val('Creating...')
-		new Pesome.Models.PetopicDetail.create_sharefile(el.formParams()).save(this.callback('saved'));
-	},
-	saved : function(){
-		this.element.find('[type=submit]').val('Create');
-		this.element[0].reset()
-	}
+        '#btSubmit click' : function(el){
+                $.mobile.loading( 'show', {
+                        text: 'loading...',
+                        textVisible: true,
+                        theme: 'a',
+                        html: ""
+                });                
+                var petopic_id = $urlUtility.getVars()["petopic_id"];                
+                var params = {'file_url' : $('#file_url').val(), 'content' : $('#content').val(), 'petopic_id' : petopic_id};
+		Pesome.Models.PetopicDetail.create_sharefile(params ,
+                    function(){                       
+                        $.mobile.loading('hide');
+                        window.location.href = 'petopic_detail.html?id='+petopic_id;
+                    },
+                    function(){                        
+                        $.mobile.loading('hide');
+                        window.location.href = 'petopic_detail.html?id='+petopic_id;
+                    }
+                );
+	} 
+//	submit : function(el, ev){
+//		ev.preventDefault();
+//		this.element.find('[type=submit]').val('Creating...')
+//		new Pesome.Models.PetopicDetail.create_sharefile(el.formParams()).save(this.callback('saved'));
+//	},
+//	saved : function(){
+//		this.element.find('[type=submit]').val('Create');
+//		this.element[0].reset()
+//	}
 })
 
 });
