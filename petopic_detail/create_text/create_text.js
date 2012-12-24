@@ -29,11 +29,37 @@ $.Controller('Pesome.PetopicDetail.CreateText',
 		Pesome.Models.PetopicDetail.create_text(params ,
                     function(){                       
                         $.mobile.loading('hide');
-                        window.location.href = 'petopic_detail.html?id='+petopic_id;
+                        
+                        $('<div>').simpledialog2({
+                        mode: 'button',
+                        headerText: 'Pesome',
+                        headerClose: true,
+                        buttonPrompt: 'Upload successful.',
+                        buttons : {
+                          'OK': {
+                            click: function () { 
+                                 window.location.href = 'petopic_detail.html?id='+petopic_id;
+                            }
+                          }
+                        }
+                      })
                     },
                     function(){                        
                         $.mobile.loading('hide');
-                        window.location.href = 'petopic_detail.html?id='+petopic_id;
+                        
+                        $('<div>').simpledialog2({
+                        mode: 'button',
+                        headerText: 'Pesome',
+                        headerClose: true,
+                        buttonPrompt: 'Upload was not successful.',
+                        buttons : {
+                          'OK': {
+                            click: function () { 
+                                 window.location.href = 'petopic_detail.html?id='+petopic_id;
+                            }
+                          }
+                        }
+                      })
                     }
                 );
 	}
