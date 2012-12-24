@@ -28,7 +28,11 @@ $.Controller('Pesome.PetopicDetail.PeticksList',
             
             Pesome.Models.PetopicDetail.findAllPetick({petopic_id: petopic_id},function(res){                
                 $obj = {'petopic_id':petopic_id, 'peticks':res};
-                $super.element.html($super.view('peticks', $obj));
+                $super.element.html($super.view('peticks', $obj)).find("img").lazyload({
+                    effect : "fadeIn",
+                    threshold : 200
+                });
+                
             });
             
 	},

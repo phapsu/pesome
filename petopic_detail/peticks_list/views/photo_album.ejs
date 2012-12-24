@@ -1,3 +1,4 @@
+<% d(this) %>
 <div class="pinboard">
     <div class="pin" data-id="361273201327900284" style="border-color: rgb(204, 204, 204);">
         <!-- Pinner element -->
@@ -5,7 +6,7 @@
 
             <div class="image">
                 <a href='petick_photo_album.html?petopic_id=<%= petopic_id %>&tick_id=<%= id %>' data-ajax="false">
-                    <img src="<%= $full_base_url+thumbnail %>" alt="<%= content %>"/>
+                    <img src="images/lazy-load.gif" data-original="<%= $full_base_url+thumbnail %>" alt="<%= content %>"/>
                 </a>
             </div>
             <p class="pin_description"><%= name %> <small><%= content %></small></p>

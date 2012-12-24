@@ -20,13 +20,13 @@ steal(
         {
             src : './css/jquery.mobile.simpledialog.min.css',
             compress : false
-        }        
+        }
 ).then(
         './js/video.js'
 ).then(
         './js/config.js',		// config app
-        './models/models.js',		// steals all your models             
-        './controllers.js'		// steals all your controllers        
+        './models/models.js',		// steals all your models
+        './controllers.js'		// steals all your controllers
         //'./fixtures/fixtures.js',	// sets up fixtures for your models
 ).then(
         {
@@ -58,11 +58,15 @@ steal(
     {
             src : './js/jquery.mobile.simpledialog2.min.js',
             compress : false
-    }    
+    },
+    {
+            src : './js/jquery.lazyload.min.js',
+            compress : false
+    }
 ).then(
     function(){
 //        $.mobile.loading('hide');
-        
+
 //        $( "#popupPanel" ).on({
 //            popupbeforeposition: function() {
 //                var h = $( window ).height();
@@ -70,5 +74,16 @@ steal(
 //                $( "#popupPanel" ).css( "height", h );
 //            }
 //        });
+
+        
+        
+//        $("#petick-photoalbum-page").live('pageinit', function() {
+//            $("#petick-photoalbum-page").find("img.lazy").lazyload({
+//                event : "click",
+//                effect : "fadeIn"
+//            });
+//            l('hohoh');
+//        });
+
     }
 )

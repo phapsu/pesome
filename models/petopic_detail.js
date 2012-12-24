@@ -80,7 +80,7 @@ steal('jquery/model', function(){
                 options.chunkedMode = false;
 
                 var ft = new FileTransfer();
-                ft.upload(imageURI, $api_url.petopic_post_photo(), 
+                ft.upload(imageURI, $api_url.petopic_post_photo(),
                 function(r){
                     console.log("Code = " + r.responseCode);
                     console.log("Response = " + r.response);
@@ -110,7 +110,7 @@ steal('jquery/model', function(){
                 options.chunkedMode = false;
 
                 var ft = new FileTransfer();
-                ft.upload(fileURI, $api_url.petopic_post_sharefile(), 
+                ft.upload(fileURI, $api_url.petopic_post_sharefile(),
                 function(r){
                     console.log("Code = " + r.responseCode);
                     console.log("Response = " + r.response);
@@ -170,17 +170,37 @@ steal('jquery/model', function(){
         },
         add_me_in : function(params, success, error){
             var petopic_id = params.petopic_id;
-            return $.get($api_url.petopic_add_me_in()+'&petopic_id='+petopic_id, function(res){
+            l($api_url.petopic_add_me_in()+'&petopic_id='+petopic_id);
+            return $.get($api_url.petopic_add_me_in()+'&id='+petopic_id, function(res){
                     $('#AddmeinButton').attr('disabled', 'disabled');
-                    alert(res.status.result);
-                });
+                    msg = res.result.message;
+                    $('<div>').simpledialog2({
+                        mode: 'blank',
+                        headerText: '',
+                        headerClose: true,
+                        fullScreen: false,
+                        fullScreenForce: false,
+                        'useModal':true,
+                        blankContent : '<div class="popupMsgCotainer">'+msg+'</div>'
+                    });
+                }, 'jsonp');
         },
         follow : function(params, success, error){
             var petopic_id = params.petopic_id;
-            return $.get($api_url.petopic_follow()+'&petopic_id='+petopic_id, function(res){
+            l($api_url.petopic_follow()+'&petopic_id='+petopic_id);
+            return $.get($api_url.petopic_follow()+'&id='+petopic_id, function(res){
                     $('#FollowButton').attr('disabled', 'disabled');
-                    alert(res.status.result);
-                });
+                    msg = res.result.message;
+                    $('<div>').simpledialog2({
+                        mode: 'blank',
+                        headerText: '',
+                        headerClose: true,
+                        fullScreen: false,
+                        fullScreenForce: false,
+                        'useModal':true,
+                        blankContent : '<div class="popupMsgCotainer">'+msg+'</div>'
+                    });
+                }, 'jsonp');
         }
 
     },

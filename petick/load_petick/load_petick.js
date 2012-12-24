@@ -17,7 +17,7 @@ $.Controller('Pesome.Petick.LoadPetick',
             var $super = params.controller;
             Pesome.Models.Petick.findOne({petopic_id: petopic_id, tick_id : tick_id},function(res){
                 $super.element.html($super.view('init', res.petick));
-                $('#petick_back_link').attr('href', 'petopic_detail.html?id='+petopic_id);
+                $('#petick_back_link').attr('href', 'petopic_detail.html?id='+petopic_id);                
                 callback($super);
             });
 	}
