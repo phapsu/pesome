@@ -17,8 +17,7 @@ steal( 'jquery/controller',
         init : function(){
             $super = this;
             var petopic_id = $urlUtility.getVars()["petopic_id"];
-            Pesome.Models.Petopic.photo_album({'petopic_id': petopic_id},function(res){
-                
+            Pesome.Models.Petopic.photo_album({'petopic_id': petopic_id},function(res){                
                 $super.element.html($super.view('init', res)); 
                 $('#create-photo-page').trigger('create');
             });
@@ -33,14 +32,11 @@ steal( 'jquery/controller',
                 var petopic_id = $urlUtility.getVars()["petopic_id"];                
                 var params = {'photo_album_id' : $('#photo_album_id').val(), 'img_url' : $('#img_url').val(), 'title' : $('#title').val(), 'petopic_id' : petopic_id};
 		Pesome.Models.PetopicDetail.create_photo(params ,
-                    function(res){
-                        d(res);
+                    function(){                       
                         $.mobile.loading('hide');
                         window.location.href = 'petopic_detail.html?id='+petopic_id;
                     },
-                    function(res){
-                        l('error');
-                        d(res);
+                    function(){                        
                         $.mobile.loading('hide');
                         window.location.href = 'petopic_detail.html?id='+petopic_id;
                     }

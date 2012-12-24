@@ -80,7 +80,17 @@ steal('jquery/model', function(){
                 options.chunkedMode = false;
 
                 var ft = new FileTransfer();
-                ft.upload(imageURI, $api_url.petopic_post_photo(), success, error, options);
+                ft.upload(fileURI, $api_url.petopic_post_photo(), 
+                function(r){
+                    console.log("Code = " + r.responseCode);
+                    console.log("Response = " + r.response);
+                    console.log("Sent = " + r.bytesSent);
+                    success();
+                },
+                function(error){
+                    console.log("An error has occurred: Code = " + error.code);
+                    error();
+                }, options);
         },
         create_sharefile : function(params_post, success, error){
             // do the ajax request
@@ -100,7 +110,17 @@ steal('jquery/model', function(){
                 options.chunkedMode = false;
 
                 var ft = new FileTransfer();
-                ft.upload(fileURI, $api_url.petopic_post_sharefile(), win, fail, options);
+                ft.upload(fileURI, $api_url.petopic_post_sharefile(), 
+                function(r){
+                    console.log("Code = " + r.responseCode);
+                    console.log("Response = " + r.response);
+                    console.log("Sent = " + r.bytesSent);
+                    success();
+                },
+                function(error){
+                    console.log("An error has occurred: Code = " + error.code);
+                    error();
+                }, options);
         },
         create_text : function(params, success, error){
             $data = {
