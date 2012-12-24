@@ -27,7 +27,7 @@ $.Controller('Pesome.PetopicDetail.CreateText',
                 var petopic_id = $urlUtility.getVars()["petopic_id"];                
                 var params = {'title' : $('#title').val(), 'petopic_id' : petopic_id};
 		Pesome.Models.PetopicDetail.create_text(params ,
-                    function(){                       
+                    function(r){                       
                         $.mobile.loading('hide');
                         
                         $('<div>').simpledialog2({
@@ -38,13 +38,13 @@ $.Controller('Pesome.PetopicDetail.CreateText',
                         buttons : {
                           'OK': {
                             click: function () { 
-                                 window.location.href = 'petopic_detail.html?id='+petopic_id;
+                                 window.location.href = 'petopic_detail.html?id='+petopic_id+'&tick_id='+r.petick.id;
                             }
                           }
                         }
                       })
                     },
-                    function(){                        
+                    function(e){                        
                         $.mobile.loading('hide');
                         
                         $('<div>').simpledialog2({
