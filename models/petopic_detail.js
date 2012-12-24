@@ -80,7 +80,7 @@ steal('jquery/model', function(){
                 options.chunkedMode = false;
 
                 var ft = new FileTransfer();
-                ft.upload(fileURI, $api_url.petopic_post_photo(), 
+                ft.upload(imageURI, $api_url.petopic_post_photo(), 
                 function(r){
                     console.log("Code = " + r.responseCode);
                     console.log("Response = " + r.response);
