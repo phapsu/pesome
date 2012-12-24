@@ -38,7 +38,7 @@ $.Controller('Pesome.PetopicDetail.CreateVideo',
                         buttons : {
                           'OK': {
                             click: function () { 
-                                 window.location.href = 'petopic_detail.html?id='+petopic_id+'&tick_id='+r.petick.tick_attach_id;
+                                 window.location.href = 'petick_video.html?petopic_id='+petopic_id+'&tick_id='+r.petick.tick_attach_id;
                             }
                           }
                         }

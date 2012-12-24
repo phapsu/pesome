@@ -38,7 +38,7 @@ $.Controller('Pesome.PetopicDetail.CreateSharefile',
                         buttons : {
                           'OK': {
                             click: function () { 
-                                 window.location.href = 'petopic_detail.html?id='+petopic_id+'&tick_id='+r.petick.tick_attach_id;
+                                 window.location.href = 'petick_share_file.html?petopic_id='+petopic_id+'&tick_id='+r.petick.tick_attach_id;
                             }
                           }
                         }

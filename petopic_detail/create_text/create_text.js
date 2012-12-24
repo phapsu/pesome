@@ -34,11 +34,11 @@ $.Controller('Pesome.PetopicDetail.CreateText',
                         mode: 'button',
                         headerText: 'Pesome',
                         headerClose: true,
-                        buttonPrompt: 'Upload successful.',
+                        buttonPrompt: 'Post successful.',
                         buttons : {
                           'OK': {
                             click: function () { 
-                                 window.location.href = 'petopic_detail.html?id='+petopic_id+'&tick_id='+r.petick.id;
+                                 window.location.href = 'petick_text.html?petopic_id='+petopic_id+'&tick_id='+r.petick.id;
                             }
                           }
                         }
@@ -51,7 +51,7 @@ $.Controller('Pesome.PetopicDetail.CreateText',
                         mode: 'button',
                         headerText: 'Pesome',
                         headerClose: true,
-                        buttonPrompt: 'Upload was not successful.',
+                        buttonPrompt: 'Post was not successful.',
                         buttons : {
                           'OK': {
                             click: function () { 
