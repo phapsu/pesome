@@ -27,13 +27,39 @@ $.Controller('Pesome.PetopicDetail.CreateSharefile',
                 var petopic_id = $urlUtility.getVars()["petopic_id"];                
                 var params = {'file_url' : $('#file_url').val(), 'content' : $('#content').val(), 'petopic_id' : petopic_id};
 		Pesome.Models.PetopicDetail.create_sharefile(params ,
-                    function(){                       
+                    function(r){                       
                         $.mobile.loading('hide');
-                        window.location.href = 'petopic_detail.html?id='+petopic_id;
+                        
+                        $('<div>').simpledialog2({
+                        mode: 'button',
+                        headerText: 'Pesome',
+                        headerClose: true,
+                        buttonPrompt: 'Upload successful.',
+                        buttons : {
+                          'OK': {
+                            click: function () { 
+                                 window.location.href = 'petopic_detail.html?id='+petopic_id+'&tick_id='+r.petick.tick_attach_id;
+                            }
+                          }
+                        }
+                      })
                     },
-                    function(){                        
+                    function(e){                        
                         $.mobile.loading('hide');
-                        window.location.href = 'petopic_detail.html?id='+petopic_id;
+                        
+                        $('<div>').simpledialog2({
+                        mode: 'button',
+                        headerText: 'Pesome',
+                        headerClose: true,
+                        buttonPrompt: 'Upload was not successful.',
+                        buttons : {
+                          'OK': {
+                            click: function () { 
+                                 window.location.href = 'petopic_detail.html?id='+petopic_id;
+                            }
+                          }
+                        }
+                      })
                     }
                 );
 	} 

@@ -19,7 +19,7 @@ steal('jquery/model', function(){
             var petopic_id = params.petopic_id;
             return $.get($api_url.petopic_getpeticks(petopic_id), params, success, 'jsonp');
         },
-        create_video : function(params_post, success, errorCallback){
+        create_video : function(params_post, success, error){
             // do the ajax request
             var videoURI = params_post.video_url;
 
@@ -37,19 +37,19 @@ steal('jquery/model', function(){
             options.chunkedMode = false;
 
             var ft = new FileTransfer();
-            ft.upload(videoURI, $api_url.petopic_post_video(),
+            ft.upload(videoURI, $api_url.petopic_post_video(), 
                 function(r){
                     console.log("Code = " + r.responseCode);
                     console.log("Response = " + r.response);
                     console.log("Sent = " + r.bytesSent);
-                    success();
+                    success(r);
                 },
-                function(error){
-                    console.log("An error has occurred: Code = " + error.code);
-                    errorCallback();
+                function(e){
+                    console.log("An error has occurred: Code = " + e.code);
+                    error(e);
                 }, options);
         },
-        create_audio : function(params_post, success, errorCallback){
+        create_audio : function(params_post, success, error){
             // do the ajax request
             var audioURI = params_post.audio_url;
 
@@ -67,19 +67,19 @@ steal('jquery/model', function(){
             options.chunkedMode = false;
 
             var ft = new FileTransfer();
-            ft.upload(audioURI, $api_url.petopic_post_audio(),
+            ft.upload(audioURI, $api_url.petopic_post_audio(), 
                 function(r){
                     console.log("Code = " + r.responseCode);
                     console.log("Response = " + r.response);
                     console.log("Sent = " + r.bytesSent);
-                    success();
+                    success(r);
                 },
-                function(error){
-                    console.log("An error has occurred: Code = " + error.code);
-                    errorCallback();
+                function(e){
+                    console.log("An error has occurred: Code = " + e.code);
+                    error(e);
                 }, options);
         },
-        create_photo : function(params_post, success, errorCallback){
+        create_photo : function(params_post, success, error){
             // do the ajax request
             var imageURI = params_post.img_url;
 
@@ -97,19 +97,19 @@ steal('jquery/model', function(){
                 options.chunkedMode = false;
 
                 var ft = new FileTransfer();
-                ft.upload(imageURI, $api_url.petopic_post_photo(),
+                ft.upload(imageURI, $api_url.petopic_post_photo(), 
                 function(r){
                     console.log("Code = " + r.responseCode);
                     console.log("Response = " + r.response);
                     console.log("Sent = " + r.bytesSent);
-                    success();
+                    success(r);
                 },
-                function(error){
-                    console.log("An error has occurred: Code = " + error.code);
-                    errorCallback();
+                function(e){
+                    console.log("An error has occurred: Code = " + e.code);
+                    error(e);
                 }, options);
         },
-        create_sharefile : function(params_post, success, errorCallback){
+        create_sharefile : function(params_post, success, error){
             // do the ajax request
             var fileURI = params_post.file_url;
 
@@ -126,19 +126,19 @@ steal('jquery/model', function(){
                 options.chunkedMode = false;
 
                 var ft = new FileTransfer();
-                ft.upload(fileURI, $api_url.petopic_post_sharefile(),
+                ft.upload(fileURI, $api_url.petopic_post_sharefile(), 
                 function(r){
                     console.log("Code = " + r.responseCode);
                     console.log("Response = " + r.response);
                     console.log("Sent = " + r.bytesSent);
-                    success();
+                    success(r);
                 },
-                function(error){
-                    console.log("An error has occurred: Code = " + error.code);
-                    errorCallback();
+                function(e){
+                    console.log("An error has occurred: Code = " + e.code);
+                    error(e);
                 }, options);
         },
-        create_text : function(params, successCallback, errorCallback){
+        create_text : function(params, success, error){
             $data = {
                 'title': params.title,
                 'petopic_ids': params.petopic_id,
@@ -153,14 +153,10 @@ steal('jquery/model', function(){
                     crossDomain: true,
                     async: false,
                     success: function (res) {
-                        console.log('------------Thanh cong------------');
-                        console.dir(res);
-                        successCallback(res);
+                       success(res);
                     },
                     error: function(e) {
-                        console.log('------------Khong Thanh cong------------');
-                        console.dir(e);                        
-                        errorCallback(e);
+                        error(e);
                     }
                 });
 
@@ -171,6 +167,13 @@ steal('jquery/model', function(){
             return $.get($api_url.petopic_detail_get_setting(petopic_id), params, success, 'jsonp');
         },
         save_setting : function(params, success, error){
+            $.mobile.loading( 'show', {
+                        text: 'loading...',
+                        textVisible: true,
+                        theme: 'a',
+                        html: ""
+                }); 
+            
             var petopic_id = $urlUtility.getVars()["petopic_id"];
 
             data = {
@@ -185,8 +188,40 @@ steal('jquery/model', function(){
             return $.get($api_url.petopic_detail_save_setting(),
                 data,
                 function(res){
-                    window.location.href = 'petopic_detail.html?id='+petopic_id;
-                });
+                    $.mobile.loading('hide');
+                        
+                    $('<div>').simpledialog2({
+                    mode: 'button',
+                    headerText: 'Pesome',
+                    headerClose: true,
+                    buttonPrompt: 'Update setting successful.',
+                    buttons : {
+                      'OK': {
+                        click: function () { 
+                            window.location.href = 'petopic_detail.html?id='+petopic_id;
+                        }
+                      }
+                    }
+                  })                    
+                },
+                function (e){
+                    $.mobile.loading('hide');
+                        
+                        $('<div>').simpledialog2({
+                        mode: 'button',
+                        headerText: 'Pesome',
+                        headerClose: true,
+                        buttonPrompt: 'Update setting was not successful.',
+                        buttons : {
+                          'OK': {
+                            click: function () { 
+                                 window.location.href = 'petopic_detail.html?id='+petopic_id;
+                            }
+                          }
+                        }
+                      })
+                }
+            );
         },
         add_me_in : function(params, success, error){
             var petopic_id = params.petopic_id;
