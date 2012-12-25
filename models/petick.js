@@ -19,8 +19,9 @@ $.Model('Pesome.Models.Petick',
                 type: 'POST',
                 url: $api_url.petick_postlike(params.id, params.tick_id),
                 data: params,
-//                crossDomain: true,
-                async: false,
+                headers: {
+                    'Authorization': 'Bearer ' + $access_token
+                },
                 success: function (res) {
                     l('Like thanh cong');
                     success(res);

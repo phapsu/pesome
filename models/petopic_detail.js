@@ -150,8 +150,9 @@ steal('jquery/model', function(){
                 type: 'POST',
                 url: $api_url.petick(),
                 data: $data,
-                crossDomain: true,
-                async: false,
+                headers: {
+                    'Authorization': 'Bearer ' + $access_token
+                },
                 success: function (res) {
                     successCallback(res);
                 },
@@ -171,8 +172,9 @@ steal('jquery/model', function(){
                 type: 'POST',
                 url: $api_url.petopic_detail_save_setting(),
                 data: params,
-                crossDomain: true,
-                async: false,
+                headers: {
+                    'Authorization': 'Bearer ' + $access_token
+                },
                 success: function (res) {
                     success(res);
                 },
