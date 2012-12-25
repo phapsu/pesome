@@ -23,15 +23,69 @@ $.Controller('Pesome.PetopicDetail.Setting',
                     $('#petopic-setting-page').trigger('create');
                 });
 	},
-	submit : function(el, ev){
-		ev.preventDefault();
-		this.element.find('[type=submit]').val('Creating...')
-		new Pesome.Models.PetopicDetail.save_setting(el.formParams()).save(this.callback('saved'));
-	},
-	saved : function(){
-		this.element.find('[type=submit]').val('Create');
-		this.element[0].reset()
-	}
+        '#btSubmit click' : function(el){
+                $.mobile.loading( 'show', {
+                        text: 'loading...',
+                        textVisible: true,
+                        theme: 'a',
+                        html: ""
+                });                
+                var petopic_id = $urlUtility.getVars()["petopic_id"];                
+                var params = {
+                    'id' : petopic_id, 
+                    'class_viewer_setting' : $('input:radio[name=class_viewer_setting]:checked').val(), 
+                    'class_video_setting' : $('input:radio[name=class_video_setting]:checked').val(), 
+                    'class_photo_setting' : $('input:radio[name=class_photo_setting]:checked').val(), 
+                    'class_audio_setting' : $('input:radio[name=class_audio_setting]:checked').val(), 
+                    'class_file_setting' : $('input:radio[name=class_file_setting]:checked').val(), 
+                    'admin_verify_add_member' : $('input:radio[name=admin_verify_add_member]:checked').val()
+                }
+		Pesome.Models.PetopicDetail.save_setting(params ,
+                    function(r){                       
+                        $.mobile.loading('hide');
+                        
+                        $('<div>').simpledialog2({
+                        mode: 'button',
+                        headerText: 'Pesome',
+                        headerClose: true,
+                        buttonPrompt: 'Update setting successful.',
+                        buttons : {
+                          'OK': {
+                            click: function () { 
+                                 window.location.href = 'petopic_detail.html?id='+petopic_id;
+                            }
+                          }
+                        }
+                      })
+                    },
+                    function(e){                        
+                        $.mobile.loading('hide');
+                        
+                        $('<div>').simpledialog2({
+                        mode: 'button',
+                        headerText: 'Pesome',
+                        headerClose: true,
+                        buttonPrompt: 'Update setting was not successful.',
+                        buttons : {
+                          'OK': {
+                            click: function () { 
+                                 window.location.href = 'petopic_detail.html?id='+petopic_id;
+                            }
+                          }
+                        }
+                      })
+                    }
+                );
+	} 
+//	submit : function(el, ev){
+//		ev.preventDefault();
+//		this.element.find('[type=submit]').val('Creating...')
+//		new Pesome.Models.PetopicDetail.save_setting(el.formParams()).save(this.callback('saved'));
+//	},
+//	saved : function(){
+//		this.element.find('[type=submit]').val('Create');
+//		this.element[0].reset()
+//	}
 })
 
 });
