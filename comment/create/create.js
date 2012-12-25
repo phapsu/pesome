@@ -18,7 +18,7 @@ steal( 'jquery/controller',
             this.element.html(this.view());
 
         },
-        '#btSubmitComment click' : function(){
+        '#btSubmitComment click' : function(el){
             var petopic_id = $urlUtility.getVars()["petopic_id"];
             var tick_id = $urlUtility.getVars()["tick_id"];
             var params = {
@@ -27,21 +27,24 @@ steal( 'jquery/controller',
                 'comment':$('#commentInput').val()
                 };
             var $userInfo = null;
+            el.attr('disabled', true);
 
 
             if($('#commentInput').val() == null || $('#commentInput').val() == EMPTY){
                 $('#commentLabel').addClass(MISSING);
-            }else{               
+                el.attr('disabled', false);
+            }else{
                 Pesome.Models.Comment.create(params,
-                    function(commentRes){                        
-                        Pesome.Models.User.userInfo(function(userInfo){                            
+                    function(commentRes){
+                        el.attr('disabled', false);
+                        Pesome.Models.User.userInfo(function(userInfo){
                             $('#comment_list').append('<li><img src="'+$full_base_url+userInfo.user.image+'" alt="'+userInfo.user.name+'"><h3>'+commentRes.comment.comment+'</h3><p><small>'+userInfo.user.name+'</small></p></li>').listview('refresh');
-                            $('#popupCommentClose').trigger('click');
                             $('#commentInput').val('');
                             $('#popupCommentClose').trigger('click');
                         });
                     },
                     function(e){
+                        el.attr('disabled', false);
                         $('#commentInput').val('');
                         $('#popupCommentClose').trigger('click');
                     }

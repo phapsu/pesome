@@ -22,11 +22,9 @@ $.Model('Pesome.Models.Petick',
 //                crossDomain: true,
                 async: false,
                 success: function (res) {
-                    l('Like thanh cong');
                     success(res);
                 },
                 error: function(e) {
-                    l('Like khong duoc roi');
                     error(e);
                 }
             });

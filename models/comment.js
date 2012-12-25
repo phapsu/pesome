@@ -26,7 +26,7 @@ $.Model('Pesome.Models.Comment',
                     type: 'POST',
                     url: $api_url.petick_postcomment(petopic_id),
                     data: {'tick_id' : tick_id, 'comment' : comment},
-                    crossDomain: true,
+                    //crossDomain: true,
                     async: false,
                     success: function (res) {
                        success(res);
