@@ -19,12 +19,14 @@ $.Model('Pesome.Models.Petick',
                 type: 'POST',
                 url: $api_url.petick_postlike(params.id, params.tick_id),
                 data: params,
-                crossDomain: true,
+//                crossDomain: true,
                 async: false,
                 success: function (res) {
+                    l('Like thanh cong');
                     success(res);
                 },
                 error: function(e) {
+                    l('Like khong duoc roi');
                     error(e);
                 }
             });

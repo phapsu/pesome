@@ -153,10 +153,10 @@ steal('jquery/model', function(){
                 crossDomain: true,
                 async: false,
                 success: function (res) {
-                    success(res);
+                    successCallback(res);
                 },
                 error: function(e) {
-                    error(e);
+                    errorCallback(e);
                 }
             });
 
