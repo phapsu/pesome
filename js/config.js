@@ -84,6 +84,10 @@ var $api_url  = {
         //add current user into follow petopic
         return $full_base_url+'/api/petopics/follow?access_token='+ $access_token;
     },
+    petopic_unfollow : function(){
+        //unfollow current user
+        return $full_base_url+'/api/petopics/unfollow?access_token='+ $access_token;
+    },
     petopic_detail : function(id){
         return $full_base_url+'/api/petopics/'+this.replaceUnExpected(id)+'?access_token='+ $access_token;
     },
@@ -152,3 +156,7 @@ function d(d){
 // Constants
 var MISSING = "missing";
 var EMPTY = "";
+var AUTH_NORMAL = "pesome_0";
+var AUTH_ADMIN = "pesome_1";
+var AUTH_MEMBER = "pesome_2";
+var AUTH_FOLLOWER = "pesome_3";

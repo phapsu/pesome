@@ -2,7 +2,6 @@ steal(
     'pesome/sidebar_menu',
     'pesome/page/load_category',
     'pesome/page/post_petick_button',
-    'pesome/page/setting_button',  
     'pesome/petopic/list',    
     'pesome/petopic/select_category',
     'pesome/petopic/is_member',
@@ -72,8 +71,7 @@ steal(
         $('#login').pesome_login_create();
         
         //button
-        $('#postPetickButton').pesome_page_post_petick_button();
-        $('#settingButton').pesome_page_setting_button();        
+        $('#postPetickButton').pesome_page_post_petick_button(); //header bar button
     },
     function(){
         if($('#petopics').length > 0 || $('#my_petopic').length > 0  || $('#my_follow').length > 0 || $('#select_category').length > 0 || $('#is_member').length > 0){

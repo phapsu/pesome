@@ -14,17 +14,31 @@
             </tr>
             <tr>
                 <td class='center'>
-                    <% if(this.is_follow=='pesome_1'){ %>
-                    <a href=""  disabled class="btn" id="FollowButton" petopic_id="<%= this.petopic.id %>" ><i class="icon-fire"></i> Follow</a>
-                    <%}else{%> 
-                    <a href="" class="btn" id="FollowButton" petopic_id="<%= this.petopic.id %>" ><i class="icon-fire"></i> Follow</a>
-                    <%}%> 
-                    
-                    <% if(this.is_membership=='pesome_1'){ %>
-                    <a href="" disabled class="btn" id="AddmeinButton" petopic_id="<%= this.petopic.id %>" ><i class="icon-plus"></i> Add me in</a>
-                    <%}else{%> 
-                    <a href="" class="btn" id="AddmeinButton" petopic_id="<%= this.petopic.id %>" ><i class="icon-plus"></i> Add me in</a>
-                    <%}%>     
+                    <%
+                        $auth_code = this.petopic.membership.code;
+
+                        switch($auth_code){
+                            case AUTH_NORMAL :
+                    %>
+                             <a href="" class="btn" id="FollowButton" petopic_id="<%= this.petopic.id %>" ><i class="icon-fire"></i> Follow</a>
+                             <a href="" class="btn" id="AddMeInButton" petopic_id="<%= this.petopic.id %>" ><i class="icon-plus"></i> Add me in</a>
+                    <%
+                                break;
+                            case AUTH_ADMIN:
+                                break;
+                            case AUTH_MEMBER:
+                    %>
+                             <a href="" class="btn" id="RemoveMeOutButton" petopic_id="<%= this.petopic.id %>" ><i class="icon-minus"></i> Remove Me Out</a>
+                    <%
+                                break;
+                            case AUTH_FOLLOWER:
+                    %>
+                             <a href="" class="btn" id="UnFollowButton" petopic_id="<%= this.petopic.id %>" ><i class="icon-minus"></i> UnFollow</a>
+                             <a href="" class="btn" id="AddMeInButton" petopic_id="<%= this.petopic.id %>" ><i class="icon-plus"></i> Add me in</a>
+                    <%                                
+                                break;
+                        }
+                    %>                  
                 </td>
             </tr>
         </table>

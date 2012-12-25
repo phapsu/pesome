@@ -25,7 +25,7 @@ steal(  'jquery/controller',
                 Pesome.Models.User.is_viewable({
                     petopic_id: petopic_id
                 },function(res){
-                    
+
                     /**
                      * pesome 1: is follower
                      * pesome 2: is not follower
@@ -36,31 +36,10 @@ steal(  'jquery/controller',
                         Pesome.Models.PetopicDetail.findByTopicId({
                             petopic_id: petopic_id
                         },function(res){
-                            if(res.petopic.membership.code=='pesome_1'){
-                                //current user is Admin cua petopic
-                                res.is_membership   = 'pesome_1';
-                                res.is_follow       = 'pesome_1';
+                            $auth_code = res.petopic.membership.code;
+                            if($auth_code != AUTH_ADMIN){                                
+                                $('#setting-link').find('a').addClass('ui-disabled');
                             }
-                            else{
-                                //current user is Guest cua petopic
-                                var is_membership;
-                                Pesome.Models.User.is_membership({
-                                    petopic_id: petopic_id
-                                },function(res){
-                                    is_membership = res.status.code;
-                                });
-
-                                var is_follow;
-                                Pesome.Models.User.is_follow({
-                                    petopic_id: petopic_id
-                                },function(res){
-                                    is_follow = res.status.code;
-                                });
-
-                                res.is_membership   = is_membership;
-                                res.is_follow       = is_follow;
-                            }
-
                             $super.element.html($super.view('init', res)).find("img").lazyload({
                                 effect : "fadeIn"
                             });
@@ -75,11 +54,57 @@ steal(  'jquery/controller',
             },
             "#FollowButton click" : function() {
                 var petopic_id = $('#FollowButton').attr('petopic_id');
-                Pesome.Models.PetopicDetail.follow({'petopic_id': petopic_id});
+                Pesome.Models.PetopicDetail.follow({'petopic_id': petopic_id},
+                    function(res){
+                        $('#FollowButton').attr('disabled', 'disabled');
+                        msg = res.result.message;
+                        $('<div>').simpledialog2({
+                            mode: 'blank',
+                            headerText: '',
+                            headerClose: true,
+                            fullScreen: false,
+                            fullScreenForce: false,
+                            'useModal':true,
+                            blankContent : '<div class="popupMsgContainer">'+msg+'</div>'
+                        });
+                    }
+                );
             },
-            "#AddmeinButton click" : function() {
-                var petopic_id = $('#AddmeinButton').attr('petopic_id');
-                Pesome.Models.PetopicDetail.add_me_in({'petopic_id': petopic_id});
+            "#UnFollowButton click" : function() {
+                var petopic_id = $('#UnFollowButton').attr('petopic_id');
+                Pesome.Models.PetopicDetail.unfollow({'petopic_id': petopic_id},
+                    function(res){
+                        $('#UnFollowButton').attr('disabled', 'disabled');
+                        msg = res.result.message;
+                        $('<div>').simpledialog2({
+                            mode: 'blank',
+                            headerText: '',
+                            headerClose: true,
+                            fullScreen: false,
+                            fullScreenForce: false,
+                            'useModal':true,
+                            blankContent : '<div class="popupMsgContainer">'+msg+'</div>'
+                        });
+                    }
+                );
+            },
+            "#AddMeInButton click" : function() {
+                var petopic_id = $('#AddMeInButton').attr('petopic_id');
+                Pesome.Models.PetopicDetail.add_me_in({'petopic_id': petopic_id},
+                    function(res){
+                        $('#AddMeInButton').attr('disabled', 'disabled');
+                        msg = res.result.message;
+                        $('<div>').simpledialog2({
+                            mode: 'blank',
+                            headerText: '',
+                            headerClose: true,
+                            fullScreen: false,
+                            fullScreenForce: false,
+                            'useModal':true,
+                            blankContent : '<div class="popupMsgContainer">'+msg+'</div>'
+                        });
+                    }
+                );
             }
 
 

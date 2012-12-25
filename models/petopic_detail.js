@@ -138,7 +138,7 @@ steal('jquery/model', function(){
                     error(e);
                 }, options);
         },
-        create_text : function(params, success, error){
+        create_text : function(params, successCallback, errorCallback){
             $data = {
                 'title': params.title,
                 'petopic_ids': params.petopic_id,
@@ -153,10 +153,10 @@ steal('jquery/model', function(){
                     crossDomain: true,
                     async: false,
                     success: function (res) {
-                       success(res);
+                       successCallback(res);
                     },
                     error: function(e) {
-                        error(e);
+                        errorCallback(e);
                     }
                 });
 
@@ -223,39 +223,18 @@ steal('jquery/model', function(){
                 }
             );
         },
-        add_me_in : function(params, success, error){
+        add_me_in : function(params, callbackFunc){
             var petopic_id = params.petopic_id;
-            l($api_url.petopic_add_me_in()+'&petopic_id='+petopic_id);
-            return $.get($api_url.petopic_add_me_in()+'&id='+petopic_id, function(res){
-                    $('#AddmeinButton').attr('disabled', 'disabled');
-                    msg = res.result.message;
-                    $('<div>').simpledialog2({
-                        mode: 'blank',
-                        headerText: '',
-                        headerClose: true,
-                        fullScreen: false,
-                        fullScreenForce: false,
-                        'useModal':true,
-                        blankContent : '<div class="popupMsgCotainer">'+msg+'</div>'
-                    });
-                }, 'jsonp');
+            return $.get($api_url.petopic_add_me_in()+'&id='+petopic_id, callbackFunc, 'jsonp');
         },
-        follow : function(params, success, error){
+        follow : function(params, callbackFunc){
             var petopic_id = params.petopic_id;
-            l($api_url.petopic_follow()+'&petopic_id='+petopic_id);
-            return $.get($api_url.petopic_follow()+'&id='+petopic_id, function(res){
-                    $('#FollowButton').attr('disabled', 'disabled');
-                    msg = res.result.message;
-                    $('<div>').simpledialog2({
-                        mode: 'blank',
-                        headerText: '',
-                        headerClose: true,
-                        fullScreen: false,
-                        fullScreenForce: false,
-                        'useModal':true,
-                        blankContent : '<div class="popupMsgCotainer">'+msg+'</div>'
-                    });
-                }, 'jsonp');
+            l($api_url.petopic_follow()+'&id='+petopic_id);
+            return $.get($api_url.petopic_follow()+'&id='+petopic_id, callbackFunc, 'jsonp');
+        },
+        unfollow : function(params, callbackFunc){
+            var petopic_id = params.petopic_id;            
+            return $.get($api_url.petopic_unfollow()+'&id='+petopic_id, callbackFunc, 'jsonp');
         }
 
     },
