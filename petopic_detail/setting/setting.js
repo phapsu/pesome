@@ -41,7 +41,8 @@ $.Controller('Pesome.PetopicDetail.Setting',
                     'admin_verify_add_member' : $('input:radio[name=admin_verify_add_member]:checked').val()
                 }
 		Pesome.Models.PetopicDetail.save_setting(params ,
-                    function(r){                       
+                    function(r){          
+                        d(r);
                         $.mobile.loading('hide');
                         
                         $('<div>').simpledialog2({
@@ -58,7 +59,8 @@ $.Controller('Pesome.PetopicDetail.Setting',
                         }
                       })
                     },
-                    function(e){                        
+                    function(e){         
+                        d(e);
                         $.mobile.loading('hide');
                         
                         $('<div>').simpledialog2({

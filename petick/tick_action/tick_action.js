@@ -33,17 +33,7 @@ $.Controller('Pesome.Petick.TickAction',
                     function(r){                       
                         $.mobile.loading('hide');
                         
-                        $('<div>').simpledialog2({
-                        mode: 'button',
-                        headerText: 'Pesome',
-                        headerClose: true,
-                        buttonPrompt: r.status.result,
-                        buttons : {
-                          'OK': {
-                            click: function () {}
-                          }
-                        }
-                      })
+                        $('#btLike').attr('class', 'ui-disabled');
                     },
                     function(e){                        
                         $.mobile.loading('hide');
