@@ -14,11 +14,15 @@
             }
 
             function getAudio() {
-                // limit capture operation to 3 media files, no longer than 10 seconds each
-                var options = { limit: 3, duration: 10 };
-                navigator.device.capture.captureAudio(getAudioUrl, function(message) {
+                // Retrieve image file location from specified source
+                navigator.camera.getPicture(getAudioUrl, function(message) {
                     alert('get audio failed');
-                },options);
+                },{
+                    quality: 50,
+                    destinationType: navigator.camera.DestinationType.FILE_URI,
+                    sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY,
+                    mediaType: navigator.camera.MediaType.ALLMEDIA
+                });
             }
 
             function getAudioUrl(audioURI){

@@ -46,9 +46,20 @@ steal(  'jquery/controller',
                             
                         });
                     }else{
-                        alert(res.status.message);
-                        history.back();
-                        return false;
+                        $('<div>').simpledialog2({
+                        mode: 'button',
+                        headerText: 'Pesome',
+                        headerClose: true,
+                        buttonPrompt: res.status.message,
+                        buttons : {
+                          'OK': {
+                            click: function () { 
+                                 history.back();
+                                return false;
+                            }
+                          }
+                        }
+                      })
                     }
                 });
             },

@@ -124,6 +124,9 @@ var $api_url  = {
     },
     petick_getcomment : function(tick_id){
         return $full_base_url+'/api/peticks/get_comment?tick_id='+this.replaceUnExpected(tick_id)+'&access_token='+ $access_token;
+    },
+    petick_postlike : function(petopic_id, tick_id){
+        return $full_base_url+'/api/peticks/create_like?id='+this.replaceUnExpected(petopic_id)+'&tick_id='+this.replaceUnExpected(tick_id)+'&access_token='+ $access_token;
     }
 };
 
