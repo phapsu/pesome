@@ -187,13 +187,45 @@ steal('jquery/model', function(){
             var petopic_id = params.petopic_id;
             return $.get($api_url.petopic_add_me_in()+'&id='+petopic_id, callbackFunc, 'jsonp');
         },
+        remove_me_out : function(params, callbackSuccess, callbackError){
+            var petopic_id = params.petopic_id;            
+            
+            return $.ajax({
+                url: $api_url.petopic_remove_me_out()+'&id='+petopic_id,
+                headers: {
+                    'Authorization': 'Bearer ' + $access_token
+                },
+                success: function (res) {
+                    callbackSuccess(res);
+                },
+                error: function(e) {
+                    callbackError(e);
+                }
+            });   
+            
+            //return $.get($api_url.petopic_remove_me_out()+'&id='+petopic_id, callbackSuccess, callbackError, 'jsonp');
+        },
         follow : function(params, callbackFunc){
             var petopic_id = params.petopic_id;           
             return $.get($api_url.petopic_follow()+'&id='+petopic_id, callbackFunc, 'jsonp');
         },
-        unfollow : function(params, callbackFunc){
+        unfollow : function(params, callbackSuccess, callbackError){
             var petopic_id = params.petopic_id;            
-            return $.get($api_url.petopic_unfollow()+'&id='+petopic_id, callbackFunc, 'jsonp');
+            
+            return $.ajax({
+                url: $api_url.petopic_unfollow()+'&id='+petopic_id,
+                headers: {
+                    'Authorization': 'Bearer ' + $access_token
+                },
+                success: function (res) {
+                    callbackSuccess(res);
+                },
+                error: function(e) {
+                    callbackError(e);
+                }
+            });            
+            
+            //return $.get($api_url.petopic_unfollow()+'&id='+petopic_id, callbackSuccess, callbackError, 'jsonp');
         }
 
     },

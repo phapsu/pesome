@@ -86,7 +86,7 @@ steal(  'jquery/controller',
                 Pesome.Models.PetopicDetail.unfollow({'petopic_id': petopic_id},
                     function(res){
                         $('#UnFollowButton').attr('disabled', 'disabled');
-                        msg = res.result.message;
+                        msg = res.status.message;
                         $('<div>').simpledialog2({
                             mode: 'blank',
                             headerText: '',
@@ -95,6 +95,17 @@ steal(  'jquery/controller',
                             fullScreenForce: false,
                             'useModal':true,
                             blankContent : '<div class="popupMsgContainer">'+msg+'</div>'
+                        });
+                    },
+                    function(e){
+                        $('<div>').simpledialog2({
+                            mode: 'blank',
+                            headerText: '',
+                            headerClose: true,
+                            fullScreen: false,
+                            fullScreenForce: false,
+                            'useModal':true,
+                            blankContent : '<div class="popupMsgContainer">UnFollow was not successful.</div>'
                         });
                     }
                 );
@@ -113,6 +124,35 @@ steal(  'jquery/controller',
                             fullScreenForce: false,
                             'useModal':true,
                             blankContent : '<div class="popupMsgContainer">'+msg+'</div>'
+                        });
+                    }
+                );
+            },
+            "#RemoveMeOutButton click" : function() {
+                var petopic_id = $('#RemoveMeOutButton').attr('petopic_id');
+                Pesome.Models.PetopicDetail.remove_me_out({'petopic_id': petopic_id},
+                    function(res){                        
+                        $('#RemoveMeOutButton').attr('disabled', 'disabled');
+                        msg = res.status.message;
+                        $('<div>').simpledialog2({
+                            mode: 'blank',
+                            headerText: '',
+                            headerClose: true,
+                            fullScreen: false,
+                            fullScreenForce: false,
+                            'useModal':true,
+                            blankContent : '<div class="popupMsgContainer">'+msg+'</div>'
+                        });
+                    },
+                    function(e){
+                        $('<div>').simpledialog2({
+                            mode: 'blank',
+                            headerText: '',
+                            headerClose: true,
+                            fullScreen: false,
+                            fullScreenForce: false,
+                            'useModal':true,
+                            blankContent : '<div class="popupMsgContainer">Remove was not successful.</div>'
                         });
                     }
                 );
