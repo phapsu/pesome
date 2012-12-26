@@ -674,7 +674,7 @@ input[type="submit"].btn.btn-mini {
     text-align: center;
 }
 
-/*Header Category Menu*/
+Header Category Menu
 #popupCategoryMenu{
     width:270px;     
     right: -38px;
@@ -692,7 +692,7 @@ input[type="submit"].btn.btn-mini {
     height:100%;
 }
 #popupPanel .ui-btn {
-    /*margin: 2em 15px;*/
+    margin: 2em 15px;
 }
 
 .popupMsgContainer{

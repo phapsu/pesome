@@ -13,7 +13,7 @@ var $client_secret = '28ca8adcf596eb543bfec576ea397cd3';
 /**
  * Access token
  */
-var $access_token = ($local == 0) ? window.localStorage.getItem("access_token") : 'c75d3fd6194cf87c552877d7c6cddf22';
+var $access_token = ($local == 0) ? window.localStorage.getItem("access_token") : 'fdea83168f95c70c0cc11f841ec3c3fa';
 
 /**
  *  API URL list
@@ -79,6 +79,10 @@ var $api_url  = {
     petopic_add_me_in : function(){
         //add current user into member petopic
         return $full_base_url+'/api/petopics/add_me_in?access_token='+ $access_token;
+    },
+    petopic_remove_me_out : function(){
+        //add current user into member petopic
+        return $full_base_url+'/api/petopics/remove_me_out?access_token='+ $access_token;
     },
     petopic_follow : function(){
         //add current user into follow petopic
