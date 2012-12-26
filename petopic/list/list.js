@@ -27,6 +27,9 @@ steal( 'jquery/controller',
                     }
                     else{
                         $super.element.html($super.view('init', res) ).listview('refresh');
+                        $super.element.find("img").lazyload({
+                                effect : "fadeIn"
+                            });
                         //call controller view list category                
                         $('#list_category').pesome_page_load_category();
                     }

@@ -10,6 +10,9 @@ steal(
                     scroll.pagination($data, function(res){
                         $("#petopics").append('//pesome/petopic/list/views/init.ejs', res);
                         $("#petopics").listview('refresh');
+                        $("#petopics").find("img").lazyload({
+                                effect : "fadeIn"
+                            });
                     });
                 }
              }
@@ -27,6 +30,9 @@ steal(
                   scroll.pagination($data, function(res){
                       $obj = {'petopic_id':petopic_id, 'peticks':res};
                       $("#petopic_peticks_list").append('//pesome/petopic_detail/peticks_list/views/peticks.ejs',$obj);
+                      $("#petopic_peticks_list").find("img").lazyload({
+                                effect : "fadeIn"
+                            });
                   });
                }
             }
@@ -43,6 +49,9 @@ steal(
                   $data = {'url': $api_url.petopic()+"&category_id="+category_id, 'current_page':1}
                   scroll.pagination($data, function(res){
                       $("#select_category").append('//pesome/petopic/select_category/views/init.ejs',res).listview('refresh');
+                      $("#select_category").find("img").lazyload({
+                                effect : "fadeIn"
+                            });
                   });
                }
             }
@@ -58,6 +67,9 @@ steal(
                   $data = {'url': $api_url.petopic_mypetopic(), 'current_page':1}
                   scroll.pagination($data, function(res){
                       $("#my_petopic").append('//pesome/petopic/my_petopic/views/init.ejs',res).listview('refresh');
+                      $("#my_petopic").find("img").lazyload({
+                                effect : "fadeIn"
+                            });
                   });
                }
             }
@@ -73,6 +85,9 @@ steal(
                   $data = {'url': $api_url.petopic_myfollow(), 'current_page':1}
                   scroll.pagination($data, function(res){
                       $("#my_follow").append('//pesome/petopic/my_follow/views/init.ejs',res).listview('refresh');
+                      $("#my_follow").find("img").lazyload({
+                                effect : "fadeIn"
+                            });
                   });
                }
             }
@@ -88,6 +103,9 @@ steal(
                   $data = {'url': $api_url.petopic_ismember(), 'current_page':1}
                   scroll.pagination($data, function(res){
                       $("#is_member").append('//pesome/petopic/is_member/views/init.ejs',res).listview('refresh');
+                      $("#is_member").find("img").lazyload({
+                                effect : "fadeIn"
+                            });
                   });
                }
             }

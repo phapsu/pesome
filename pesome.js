@@ -15,6 +15,10 @@ steal(
     }
 ).then(
         './css/pesome.css',
+//        {
+//            src : './css/jquery.mobile.iscrollview.css',
+//            compress : true
+//        }        
         './css/photoswipe.css',
         './css/audio.css',
         {
@@ -41,10 +45,15 @@ steal(
             src : './js/jquery.scrolldown-pagination.js',
             compress : true
         },
+//        {
+//            src : './js/iscroll.js',
+//            compress : true
+//        },       
+             
         {
             src : './js/side_menu.js',
             compress : true
-        },
+        },        
         function(){
 //            $.mobile.loading( 'show', {
 //                    text: 'loading...',
@@ -54,6 +63,10 @@ steal(
 //            });
         }
 ).then(
+//    {
+//        src : './js/jquery.mobile.iscrollview.js',
+//        compress : true
+//    },       
     './app_pagination.js',
     {
             src : './js/jquery.mobile.simpledialog2.min.js',
@@ -63,8 +76,10 @@ steal(
             src : './js/jquery.lazyload.min.js',
             compress : false
     }
-).then(
+).then(     
     function(){
+
+
 //        $.mobile.loading('hide');
 
 //        $( "#popupPanel" ).on({
@@ -74,16 +89,5 @@ steal(
 //                $( "#popupPanel" ).css( "height", h );
 //            }
 //        });
-
-        
-        
-//        $("#petick-photoalbum-page").live('pageinit', function() {
-//            $("#petick-photoalbum-page").find("img.lazy").lazyload({
-//                event : "click",
-//                effect : "fadeIn"
-//            });
-//            l('hohoh');
-//        });
-
     }
 )
