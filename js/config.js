@@ -14,6 +14,7 @@ var $client_secret = '28ca8adcf596eb543bfec576ea397cd3';
  * Access token
  */
 var $access_token = ($local == 0) ? window.localStorage.getItem("access_token") : 'fdea83168f95c70c0cc11f841ec3c3fa';
+console.log('ACCESS TOKEN:' +$access_token);
 
 /**
  *  API URL list

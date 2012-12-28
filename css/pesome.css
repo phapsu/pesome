@@ -691,9 +691,7 @@ Header Category Menu
     min-width: 220px;
     height:100%;
 }
-#popupPanel .ui-btn {
-    margin: 2em 15px;
-}
+
 
 .popupMsgContainer{
     min-height: 50px;

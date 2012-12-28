@@ -18,7 +18,7 @@ steal(
 //        {
 //            src : './css/jquery.mobile.iscrollview.css',
 //            compress : true
-//        }        
+//        },    
         './css/photoswipe.css',
         './css/audio.css',
         {
