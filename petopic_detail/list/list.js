@@ -114,7 +114,8 @@ steal(  'jquery/controller',
                 var petopic_id = $('#AddMeInButton').attr('petopic_id');
                 Pesome.Models.PetopicDetail.add_me_in({'petopic_id': petopic_id},
                     function(res){
-                        $('#AddMeInButton').attr('disabled', 'disabled');
+                        $('#AddMeInButton').html('Waiting for verify');
+                        $('#AddMeInButton').attr('disabled', 'disabled');                        
                         msg = res.result.message;
                         $('<div>').simpledialog2({
                             mode: 'blank',
@@ -131,7 +132,8 @@ steal(  'jquery/controller',
             "#RemoveMeOutButton click" : function() {
                 var petopic_id = $('#RemoveMeOutButton').attr('petopic_id');
                 Pesome.Models.PetopicDetail.remove_me_out({'petopic_id': petopic_id},
-                    function(res){                        
+                    function(res){   
+                        l(res);
                         $('#RemoveMeOutButton').attr('disabled', 'disabled');
                         msg = res.status.message;
                         $('<div>').simpledialog2({
@@ -145,6 +147,7 @@ steal(  'jquery/controller',
                         });
                     },
                     function(e){
+                        l(e);
                         $('<div>').simpledialog2({
                             mode: 'blank',
                             headerText: '',

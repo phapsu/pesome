@@ -19,9 +19,9 @@ steal('jquery/model', function(){
             var petopic_id = params.petopic_id;
             return $.get($api_url.petopic_getpeticks(petopic_id), params, success, 'jsonp');
         },
-        create_video : function(params_post, success, error){
+        create_video : function(params_post, successCallback, errorCallback){
             // do the ajax request
-            var videoURI = params_post.video_url;
+            /*var videoURI = params_post.video_url;
 
             var options = new FileUploadOptions();
             options.fileKey="video";
@@ -48,10 +48,27 @@ steal('jquery/model', function(){
                     console.log("An error has occurred: Code = " + e.code);
                     error(e);
                 }, options);
+              */  
+                
+            return $.ajax({
+                type: 'POST',
+                url: $api_url.petopic_post_video(),
+                data: params_post,
+                headers: {
+                    'Authorization': 'Bearer ' + $access_token
+                },
+                success: function (res) {
+                    successCallback(res);
+                },
+                error: function(e) {
+                    errorCallback(e);
+                }
+            });    
+                
         },
-        create_audio : function(params_post, success, error){
+        create_audio : function(params_post, successCallback, errorCallback){
             // do the ajax request
-            var audioURI = params_post.audio_url;
+         /*   var audioURI = params_post.audio_url;
 
             var options = new FileUploadOptions();
             options.fileKey="audio";
@@ -77,11 +94,26 @@ steal('jquery/model', function(){
                 function(e){
                     console.log("An error has occurred: Code = " + e.code);
                     error(e);
-                }, options);
+                }, options);  */
+            
+            return $.ajax({
+                type: 'POST',
+                url: $api_url.petopic_post_audio(),
+                data: params_post,
+                headers: {
+                    'Authorization': 'Bearer ' + $access_token
+                },
+                success: function (res) {
+                    successCallback(res);
+                },
+                error: function(e) {
+                    errorCallback(e);
+                }
+            });  
         },
-        create_photo : function(params_post, success, error){
+        create_photo : function(params_post, successCallback, errorCallback){
             // do the ajax request
-            var imageURI = params_post.img_url;
+         /*   var imageURI = params_post.img_url;
 
             var options = new FileUploadOptions();
             options.fileKey="photo";
@@ -107,11 +139,27 @@ steal('jquery/model', function(){
                 function(e){
                     console.log("An error has occurred: Code = " + e.code);
                     error(e);
-                }, options);
+                }, options);  */
+            
+            
+            return $.ajax({
+                type: 'POST',
+                url: $api_url.petopic_post_photo(),
+                data: params_post,
+                headers: {
+                    'Authorization': 'Bearer ' + $access_token
+                },
+                success: function (res) {
+                    successCallback(res);
+                },
+                error: function(e) {
+                    errorCallback(e);
+                }
+            });              
         },
-        create_sharefile : function(params_post, success, error){
+        create_sharefile : function(params_post, successCallback, errorCallback){
             // do the ajax request
-            var fileURI = params_post.file_url;
+        /*    var fileURI = params_post.file_url;
 
             var options = new FileUploadOptions();
             options.fileKey="files[]";
@@ -136,7 +184,22 @@ steal('jquery/model', function(){
                 function(e){
                     console.log("An error has occurred: Code = " + e.code);
                     error(e);
-                }, options);
+                }, options); */
+            
+            return $.ajax({
+                type: 'POST',
+                url: $api_url.petopic_post_sharefile(),
+                data: params_post,
+                headers: {
+                    'Authorization': 'Bearer ' + $access_token
+                },
+                success: function (res) {
+                    successCallback(res);
+                },
+                error: function(e) {
+                    errorCallback(e);
+                }
+            });
         },
         create_text : function(params, successCallback, errorCallback){
             $data = {
@@ -168,20 +231,34 @@ steal('jquery/model', function(){
             return $.get($api_url.petopic_detail_get_setting(petopic_id), params, success, 'jsonp');
         },
         save_setting : function(params, success, error){
-            return $.ajax({
-                type: 'POST',
-                url: $api_url.petopic_detail_save_setting(),
-                data: params,
-                headers: {
-                    'Authorization': 'Bearer ' + $access_token
-                },
-                success: function (res) {
-                    success(res);
-                },
-                error: function(e) {
-                    error(e);
+            var $data = {
+                    'id'                      : params.id, 
+                    'class_viewer_setting'    : params.class_viewer_setting, 
+                    'class_video_setting'     : params.class_video_setting, 
+                    'class_photo_setting'     : params.class_photo_setting, 
+                    'class_audio_setting'     : params.class_audio_setting, 
+                    'class_file_setting'      : params.class_file_setting, 
+                    'admin_verify_add_member' : params.admin_verify_add_member
                 }
-            });
+            
+//            return $.ajax({
+//                type: 'POST',
+//                url: $api_url.petopic_detail_save_setting(),
+//                data: params,
+//                //dataType: 'jsonp',
+//                headers: {
+//                    'Authorization': 'Bearer ' + $access_token
+//                },
+//                crossDomain: true,
+//                success: function (res) {
+//                    success(res);
+//                },
+//                error: function(e) {
+//                    error(e);
+//                }
+//            });
+            
+            return $.post($api_url.petopic_detail_save_setting(), params, success, error);
         },
         add_me_in : function(params, callbackFunc){
             var petopic_id = params.petopic_id;
@@ -190,7 +267,7 @@ steal('jquery/model', function(){
         remove_me_out : function(params, callbackSuccess, callbackError){
             var petopic_id = params.petopic_id;            
             
-            return $.ajax({
+            /*return $.ajax({
                 url: $api_url.petopic_remove_me_out()+'&id='+petopic_id,
                 headers: {
                     'Authorization': 'Bearer ' + $access_token
@@ -201,9 +278,9 @@ steal('jquery/model', function(){
                 error: function(e) {
                     callbackError(e);
                 }
-            });   
+            });*/   
             
-            //return $.get($api_url.petopic_remove_me_out()+'&id='+petopic_id, callbackSuccess, callbackError, 'jsonp');
+            return $.get($api_url.petopic_remove_me_out()+'&id='+petopic_id, callbackSuccess, callbackError, 'jsonp');
         },
         follow : function(params, callbackFunc){
             var petopic_id = params.petopic_id;           
@@ -212,7 +289,7 @@ steal('jquery/model', function(){
         unfollow : function(params, callbackSuccess, callbackError){
             var petopic_id = params.petopic_id;            
             
-            return $.ajax({
+            /*return $.ajax({
                 url: $api_url.petopic_unfollow()+'&id='+petopic_id,
                 headers: {
                     'Authorization': 'Bearer ' + $access_token
@@ -223,9 +300,9 @@ steal('jquery/model', function(){
                 error: function(e) {
                     callbackError(e);
                 }
-            });            
+            });*/            
             
-            //return $.get($api_url.petopic_unfollow()+'&id='+petopic_id, callbackSuccess, callbackError, 'jsonp');
+            return $.get($api_url.petopic_unfollow()+'&id='+petopic_id, callbackSuccess, callbackError, 'jsonp');
         }
 
     },

@@ -24,9 +24,47 @@ $.Controller('Pesome.Petopic.Create',
             
         },
         submit : function(el, ev){
+            $.mobile.loading( 'show', {
+                        text: 'loading...',
+                        textVisible: true,
+                        theme: 'a',
+                        html: ""
+                });
+            
             ev.preventDefault();
             this.element.find('[type=submit]').val('Creating...')
-            new Pesome.Models.Petopic.newPetopic(el.formParams(), this.callback('saved'));
+            new Pesome.Models.Petopic.newPetopic(el.formParams(), 
+            function(r){
+                        $.mobile.loading('hide');
+                        
+                        $('<div>').simpledialog2({
+                        mode: 'button',
+                        headerText: 'Pesome',
+                        headerClose: true,
+                        buttonPrompt: 'Create successful.',
+                        buttons : {
+                          'OK': {
+                            click: function () { 
+                                 window.location.href = 'petopic_detail.html?id='+r.petopic.id;
+                            }
+                          }
+                        }
+                      })
+                    },
+                    function(e){
+                        $.mobile.loading('hide');
+                        
+                        $('<div>').simpledialog2({
+                            mode: 'blank',
+                            headerText: '',
+                            headerClose: true,
+                            fullScreen: false,
+                            fullScreenForce: false,
+                            'useModal':true,
+                            blankContent : '<div class="popupMsgContainer">Create was not successful.</div>'
+                        });
+                    }
+            );
         },
         saved : function(res){
             this.element.find('[type=submit]').after(res);
