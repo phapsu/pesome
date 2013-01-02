@@ -15,10 +15,10 @@ steal(
     }
 ).then(
         './css/pesome.css',
-//        {
-//            src : './css/jquery.mobile.iscrollview.css',
-//            compress : true
-//        },    
+        {
+            src : './css/jquery.mobile.iscrollview.css',
+            compress : true
+        },    
         './css/photoswipe.css',
         './css/audio.css',
         {
@@ -45,10 +45,14 @@ steal(
             src : './js/jquery.scrolldown-pagination.js',
             compress : true
         },
-//        {
-//            src : './js/iscroll.js',
-//            compress : true
-//        },       
+        {
+            src : './js/jquery.iscroll-pagination.js',
+            compress : true
+        },
+        {
+            src : './js/iscroll.js',
+            compress : true
+        },       
              
         {
             src : './js/side_menu.js',
@@ -63,10 +67,10 @@ steal(
 //            });
         }
 ).then(
-//    {
-//        src : './js/jquery.mobile.iscrollview.js',
-//        compress : true
-//    },       
+    {
+        src : './js/jquery.mobile.iscrollview.js',
+        compress : false
+    },       
     './app_pagination.js',
     {
             src : './js/jquery.mobile.simpledialog2.min.js',
