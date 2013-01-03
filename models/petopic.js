@@ -45,9 +45,9 @@ $.Model('Pesome.Models.Petopic',
 		  success,
 		  'jsonp');
 	},
-        newPetopic : function(params_post, success, error){
+        newPetopic : function(params_post, successCallback, errorCallback){
             
-            var imageURI = params_post.img_url;
+         /*   var imageURI = params_post.img_url;
             
             var options = new FileUploadOptions();
                 options.fileKey="classroom_image";
@@ -63,7 +63,22 @@ $.Model('Pesome.Models.Petopic',
                 options.chunkedMode = false;
  
                 var ft = new FileTransfer();
-                ft.upload(imageURI, $api_url.petopic(), win, fail, options);  
+                ft.upload(imageURI, $api_url.petopic(), win, fail, options);  */
+            
+             return $.ajax({
+                type: 'POST',
+                url: $api_url.petopic(),
+                data: params_post,
+                headers: {
+                    'Authorization': 'Bearer ' + $access_token
+                },
+                success: function (res) {
+                    successCallback(res);
+                },
+                error: function(e) {
+                    errorCallback(e);
+                }
+            });
         },
         deletePetopic: function(){
                 

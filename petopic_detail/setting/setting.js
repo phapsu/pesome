@@ -42,7 +42,8 @@ $.Controller('Pesome.PetopicDetail.Setting',
                 }
 		Pesome.Models.PetopicDetail.save_setting(params ,
                     function(r){          
-                        d(r);
+                        l('successful');
+                        l(r);
                         $.mobile.loading('hide');
                         
                         $('<div>').simpledialog2({
@@ -59,8 +60,9 @@ $.Controller('Pesome.PetopicDetail.Setting',
                         }
                       })
                     },
-                    function(e){         
-                        d(e);
+                    function(e){   
+                        l('error');
+                        l(e);
                         $.mobile.loading('hide');
                         
                         $('<div>').simpledialog2({
