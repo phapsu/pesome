@@ -5,20 +5,25 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
-        <div data-role="page" id="petick-audio-page" data-add-back-btn="true">            
+        <div data-role="page" id="petick-audio-page" data-add-back-btn="true">
             <div data-role="header">
                 <h2>
                     &nbsp;
                 </h2>
                 <a href="petopic_detail.html" id="petick_back_link" data-icon="arrow-l" class="ui-btn-left" data-ajax="false">Back</a>
-                <a href="#popupPanel" data-rel="popup" data-transition="slide" data-position-to="window" data-role="button"  class="ui-btn-right">Category</a>			
-                <div data-role="popup" id="popupPanel" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
-                    <ul data-role="listview" data-filter="true" id="list_category" data-theme="a"></ul>
+                <a href="#popupPanel" data-rel="popup" data-transition="slide" data-position-to="window" data-role="button" id="category-button" class="ui-btn-right">Category</a>
+                <div id="icontacts-popover-bound">
+                    <div class="icontacts-popover"></div>
+                    <div id="icontacts-popover">
+                        <div class="scroller">
+                            <ul data-role="listview" data-filter="true" data-iscroll="" id="list_category" class="list_category" data-theme="a"></ul>
+                        </div>
+                    </div>
                 </div>
-            </div>             
+            </div>
             <div data-role="content">
                 <div id="main-petick-content" class="content-primary">
-                    <div id="petick_audio"></div>                    
+                    <div id="petick_audio"></div>
                     <br/>
                     <ul id="comment_list" data-role="listview"></ul>
                 </div>
