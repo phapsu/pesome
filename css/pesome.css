@@ -11,22 +11,61 @@
   src: local('Droid Sans Bold'), local('DroidSans-Bold'), url(font/droidsans-bold.woff) format('woff');
 }
 
-.ui-body-c{
-    font-family: 'Droid Sans', sans-serif;    
-}
-body,ul,li {
-	padding:0;
-	margin:0;
-	border:0;
-}
+
+/* Base Styles & Resets
+   No elements with IDs or classes should go in here.
+-------------------------------------------------------------------------------- */
+html, body, h1, h2, h3, a, p, ul {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    }
+
 
 body {
-	font-size:12px;
-	-webkit-user-select:none;
-    -webkit-text-size-adjust:none;
-	font-family: 'Droid Sans', sans-serif;    
-}
+    font: 1em/1.4 "Droid Sans", Helvetica, sans-serif;
+    color: #221919;
+    }
 
+html, body {
+    height: 100%;
+    }
+
+a {
+    text-decoration: none;
+    color: #221919;
+    }
+
+/* h2 { line-height: 1.2; } */
+
+/* This styles normal links like inline people names and pin sources.
+   It is being namespaced to not interfere with other links, like tappable and images.
+   `colorless` is a class given to pinmarklet attributions automatically by backend. */
+a.link:active,
+a.colorless:active,
+.pinner a.name:active
+ {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-border-radius: 8px;
+    -ms-border-radius: 8px;
+    border-radius: 8px;
+    margin-left: -4px;
+    background: #ddd;
+    padding: 4px;
+    }
+
+img {
+    border: none;
+    }
+
+img:active {
+    -webkit-tap-highlight-color: #C61D28;
+    }
+
+.ui-body-c{
+    font: 1em/1.4 "Droid Sans", Helvetica, sans-serif;
+}
 #header {
 	position:absolute; z-index:2;
 	top:0; left:0;
@@ -64,6 +103,7 @@ body {
 }
 
 /*Iscroll*/
+
 #wrapper {
 	position:absolute; z-index:1;
 	top:45px; bottom:0px; left:-9999px;
@@ -928,3 +968,58 @@ Header Category Menu
   background: grey url(../images/grey.gif);
 }
 
+
+/*iContact Popover*/
+#icontacts-popover-bound{
+  position:absolute;
+  z-index:2;
+  top:30px;
+  right:10px;
+  padding-top:4px;
+  width:350px;
+  height:400px;
+  display:none;
+}
+
+#icontacts-popover{
+  background-color: #fff;
+  /*border:7px solid #101B37;*/  
+  width:100%;
+  height:100%;
+  position:absolute;
+  -o-border-radius:8px;-ms-border-radius:8px;-moz-border-radius:8px;-khtml-border-radius:8px;-webkit-border-radius:8px;border-radius:8px;-o-box-shadow:0 5px 20px rgba(0, 0, 0, 0.5);-ms-box-shadow:0 5px 20px rgba(0, 0, 0, 0.5);-moz-box-shadow:0 5px 20px rgba(0, 0, 0, 0.5);-khtml-box-shadow:0 5px 20px rgba(0, 0, 0, 0.5);-webkit-box-shadow:0 5px 20px rgba(0, 0, 0, 0.5);box-shadow:0 5px 20px rgba(0, 0, 0, 0.5);-o-transition-property:opacity;-ms-transition-property:opacity;-moz-transition-property:opacity;-khtml-transition-property:opacity;-webkit-transition-property:opacity;transition-property:opacity;-o-transition-duration:0.25s;-ms-transition-duration:0.25s;-moz-transition-duration:0.25s;-khtml-transition-duration:0.25s;-webkit-transition-duration:0.25s;transition-duration:0.25s;-o-transition-timing-function:linear;-ms-transition-timing-function:linear;-moz-transition-timing-function:linear;-khtml-transition-timing-function:linear;-webkit-transition-timing-function:linear;transition-timing-function:linear;z-index:99999
+}
+.icontacts-popover{
+  /*background:url(../images/popover.png) no-repeat 250px top;*/
+  height:17px;
+}
+ul.icontacts{display:block;position:relative;list-style:none;padding:0;margin:0 auto;width: 100%;}
+ul.icontacts li a.title{border-top:1px solid #717D85;border-bottom:1px solid #989EA4;background-color:#A5B1BA;background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9ImcyNTIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMTAwJSIgeTE9IjEwMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgo8c3RvcCBzdG9wLWNvbG9yPSIjQTVCMUJBIiBvZmZzZXQ9IjAiLz48c3RvcCBzdG9wLWNvbG9yPSIjOTA5RkFBIiBvZmZzZXQ9IjMiLz48c3RvcCBzdG9wLWNvbG9yPSIjQjVCRkM2IiBvZmZzZXQ9IjkuNyIvPjxzdG9wIHN0b3AtY29sb3I9IiM5ODlFQTQiIG9mZnNldD0iMSIvPgo8L2xpbmVhckdyYWRpZW50Pgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2cyNTIpIiAvPgo8L3N2Zz4=');background-image:-o-linear-gradient(top, #A5B1BA, #909FAA 3%, #B5BFC6 97%, #989EA4);background-image:-ms-linear-gradient(top, #A5B1BA, #909FAA 3%, #B5BFC6 97%, #989EA4);background-image:-moz-linear-gradient(top, #A5B1BA, #909FAA 3%, #B5BFC6 97%, #989EA4);background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#A5B1BA),color-stop(3%,#909FAA),color-stop(97%,#B5BFC6),to(#989EA4));background-image:-webkit-linear-gradient(top, #A5B1BA, #909FAA 3%, #B5BFC6 97%, #989EA4);border-bottom:none !important;-o-box-shadow:inset 0 1px 0 rgba(255,255,255,0.4);-ms-box-shadow:inset 0 1px 0 rgba(255,255,255,0.4);-moz-box-shadow:inset 0 1px 0 rgba(255,255,255,0.4);-webkit-box-shadow:inset 0 1px 0 rgba(255,255,255,0.4);box-shadow:inset 0 1px 0 rgba(255,255,255,0.4);color:white;display:block;font-weight:bold;font-size:14px;height:22px !important;line-height:22px;text-shadow:gray 0 1px 0;text-transform:uppercase;text-indent:10px;width:100%}
+ul.icontacts li{padding:0;margin:0;border:0;}
+.icontacts li ul{list-style:none;margin:0;padding:0;}
+.icontacts li ul li{padding:0;margin:0;border:0;line-height:100%;border-bottom: 1px solid #E0E0E0;}
+.icontacts li ul li a{color:#667;display:block;padding:7px 10px;font-size:12px;text-transform:capitalize;text-decoration:none}
+.icontacts li ul li:last-child a{border: 0}
+.icontacts li ul li a:hover{background-color:#555;background-image:-o-linear-gradient(top, #555, #333);background-image:-ms-linear-gradient(top, #555, #333);background-image:-moz-linear-gradient(top, #555, #333);background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#555),to(#333));background-image:-webkit-linear-gradient(top, #555, #333);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#555555', endColorstr='#333333',GradientType=0);color:#FFF;zoom:1}
+#icontacts-popover-bound #contactsearch{
+  width:95%;
+  margin: 0 0 5px 6px;
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  border-radius: 2em;
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,.2);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.2);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.2);
+  outline: none;
+  font-weight: bold;
+  padding:5px 10px 4px 25px;
+}
+#icontacts-popover form{
+  margin-top:0px;
+  padding:5px 10px;
+  border-bottom: 1px solid #C8C5C5;
+}
+#icontacts-char {position: absolute; z-index:3; right: 5px;top: 45px; min-height: 250px;}
+#icontacts-char ul {list-style:none;padding:0;margin:0;font-size: 8pt;}
+#icontacts-char li a { padding: 3px 5px; line-height: 0.7em; text-align: center; color: #6A737D; font-weight: bold; display: block; text-transform: uppercase; cursor: pointer;text-decoration: none;}
+#icontacts-char li a:hover{color: #000;}

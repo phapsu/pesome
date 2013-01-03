@@ -1,13 +1,16 @@
 steal(
+    function(){
+      document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+    },
     /**
      * Petopic Paginate
      */
     function(){
         jQuery(document).ready(
             function() {
-                if ( $("#petopics").length > 0 ) {                  
+                if ( $("#petopics").length > 0 ) {
                     $data = {
-                        'url': $api_url.petopic(), 
+                        'url': $api_url.petopic(),
                         'current_page':1
                     }
                     iscroll.pagination($data, function(res){
@@ -30,7 +33,7 @@ steal(
                   $data = {'url': $api_url.petopic_getpeticks(petopic_id), 'current_page':1}
                   iscroll.pagination($data, function(res){
                       $obj = {'petopic_id':petopic_id, 'peticks':res};
-                      $("#petopic_peticks_list").append('//pesome/petopic_detail/peticks_list/views/peticks.ejs',$obj);                      
+                      $("#petopic_peticks_list").append('//pesome/petopic_detail/peticks_list/views/peticks.ejs',$obj);
                   });
                }
             }
@@ -46,7 +49,7 @@ steal(
                   var category_id = $urlUtility.getVars()["category_id"];
                   $data = {'url': $api_url.petopic()+"&category_id="+category_id, 'current_page':1}
                   iscroll.pagination($data, function(res){
-                      $("#select_category").append('//pesome/petopic/select_category/views/init.ejs',res).listview('refresh');                      
+                      $("#select_category").append('//pesome/petopic/select_category/views/init.ejs',res).listview('refresh');
                   });
                }
             }
@@ -61,7 +64,7 @@ steal(
                if ( $("#my_petopic").length > 0 ) {
                   $data = {'url': $api_url.petopic_mypetopic(), 'current_page':1}
                   iscroll.pagination($data, function(res){
-                      $("#my_petopic").append('//pesome/petopic/my_petopic/views/init.ejs',res).listview('refresh');                      
+                      $("#my_petopic").append('//pesome/petopic/my_petopic/views/init.ejs',res).listview('refresh');
                   });
                }
             }
@@ -76,7 +79,7 @@ steal(
                if ( $("#my_follow").length > 0 ) {
                   $data = {'url': $api_url.petopic_myfollow(), 'current_page':1}
                   iscroll.pagination($data, function(res){
-                      $("#my_follow").append('//pesome/petopic/my_follow/views/init.ejs',res).listview('refresh');                      
+                      $("#my_follow").append('//pesome/petopic/my_follow/views/init.ejs',res).listview('refresh');
                   });
                }
             }
@@ -91,7 +94,7 @@ steal(
                if ( $("#is_member").length > 0 ) {
                   $data = {'url': $api_url.petopic_ismember(), 'current_page':1}
                   iscroll.pagination($data, function(res){
-                      $("#is_member").append('//pesome/petopic/is_member/views/init.ejs',res).listview('refresh');                      
+                      $("#is_member").append('//pesome/petopic/is_member/views/init.ejs',res).listview('refresh');
                   });
                }
             }

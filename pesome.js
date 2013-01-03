@@ -18,7 +18,7 @@ steal(
         {
             src : './css/jquery.mobile.iscrollview.css',
             compress : true
-        },    
+        },
         './css/photoswipe.css',
         './css/audio.css',
         {
@@ -52,12 +52,12 @@ steal(
         {
             src : './js/iscroll.js',
             compress : true
-        },       
-             
+        },
+
         {
             src : './js/side_menu.js',
             compress : true
-        },        
+        },
         function(){
 //            $.mobile.loading( 'show', {
 //                    text: 'loading...',
@@ -69,9 +69,12 @@ steal(
 ).then(
     {
         src : './js/jquery.mobile.iscrollview.js',
-        compress : false
-    },       
-    './app_pagination.js',
+        compress : true
+    },
+    {
+        src : './app_pagination.js',
+        compress : true
+    },
     {
             src : './js/jquery.mobile.simpledialog2.min.js',
             compress : false
@@ -80,18 +83,49 @@ steal(
             src : './js/jquery.lazyload.min.js',
             compress : false
     }
-).then(     
+).then(
+    {
+        src : './js/jquery.icontacts.js',
+        compress : true
+    },
+    {
+        src : './js/slidernav.js',
+        compress : true
+    }
+).then(
     function(){
+        $(document).ready(function() {
+             if ( $("#icontacts-popover").length > 0 ) {
+                contactList = new iScroll('icontacts-popover',
+                        {
+                                zoom: true,
+                                onBeforeScrollStart:function(e){
+                                        var target = e.target;
+                                        while (target.nodeType != 1) target = target.parentNode;
+                                        if (target.tagName != 'BUTTON' && target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA') e.preventDefault();
+                                }
+                        }
+                );
 
+                $('.icontacts').iContacts('#contactsearch', {});
+                $('#category-button').click(function(e){
+                    $('#icontacts-popover-bound').toggle();
+                    contactList.refresh();
+                    e.stopPropagation();
+                });
+                $('#icontacts-popover-bound').click(function(e){
+                    e.stopPropagation();
+                });
+                $('body').click(function(){
+                    $('#icontacts-popover-bound').hide();
+                });
+                $('#icontacts-char').sliderNav();
+                $('#icontacts-char a').click(function(){
+                    target = ('#icontacts-popover ' + $(this).attr('alt'))
+                    contactList.scrollToElement(target, 500);
+                });
 
-//        $.mobile.loading('hide');
-
-//        $( "#popupPanel" ).on({
-//            popupbeforeposition: function() {
-//                var h = $( window ).height();
-//
-//                $( "#popupPanel" ).css( "height", h );
-//            }
-//        });
+            }
+        });
     }
 )
