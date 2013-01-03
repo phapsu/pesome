@@ -2,48 +2,7 @@
 <html lang="en">
     <head>
         <title>pesome</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <script type="text/javascript" charset="utf-8">
-
-            // Wait for PhoneGap to load
-            document.addEventListener("deviceready", onDeviceReady, false);
-
-            // PhoneGap is ready
-            function onDeviceReady() {
-                // Do cool things here...
-            }
-
-            function getVideo() {
-                // Retrieve image file location from specified source
-                navigator.camera.getPicture(getVideoUrl, function(message) {
-                    alert('get video failed');
-                },{
-                    quality: 50,
-                    destinationType: navigator.camera.DestinationType.FILE_URI,
-                    sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY,
-                    mediaType: navigator.camera.MediaType.ALLMEDIA
-                });
-            }
-
-            function getVideoUrl(videoURI){
-
-                $('#video_url').val(videoURI);
-                $('#video_url').show();
-            }
-
-            function win(r) {
-                console.log("'-------------------------------------'Code = " + r.responseCode);
-                console.log("'-------------------------------------'Response = " + r.response);
-                console.log("'-------------------------------------'Sent = " + r.bytesSent);
-                alert('--------------------------'+r.response+'-------------------------------------');
-                //window.location.href='petopic_detail.html?id='+r.petopic.id;
-
-            }
-
-            function fail(error) {
-                alert("An error has occurred: Code = "+ error.code);
-            }
-        </script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="viewport" content="initial-scale=1, maximum-scale=1">
     </head>
     <body>
         <!-- Home -->
