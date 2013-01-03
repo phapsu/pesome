@@ -13,6 +13,45 @@ var scrollRefresh = {
     }
 }
 
+var pesome_api = {
+    load : function(url, offset, callback){
+        l(url+'&page='+offset);
+        $.ajax({
+            url: url,
+            dataType: 'jsonp',
+            data:  {'page':offset, 'jsonp' : 'pesomeApiDataCallback'},
+            success: function(data){
+                if(data.length == 0){
+                      callback(0);
+                }else{                
+                    callback(data);                
+                }
+            }
+        });
+    }
+};
+
+
+var scroll = {
+    start : function(callback){
+            $(window).bind('scrollstart', function () {
+                    scrollRefresh.bottom(function(){
+                        callback();                        
+                    });
+            });
+    },
+    end : function(callback){
+            $(window).bind('scrollstop', function () {               
+                    setTimeout(function () {
+                        callback();
+                    }, 800);
+            });
+            
+    }
+    
+}
+
+/*
 var scroll = {
     pagination : function($data, callback){
         $url = $data.url, $currentPage = $data.current_page, emptyDataResponse = false;
@@ -53,3 +92,4 @@ var scroll = {
         });
     }
 }
+*/

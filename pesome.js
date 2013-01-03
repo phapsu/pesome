@@ -13,12 +13,15 @@ steal(
         src : './js/klass.min.js',
         compress : false
     }
-).then(
-        './css/pesome.css',
+).then(       
         {
-            src : './css/jquery.mobile.iscrollview.css',
+            src : './css/pesome.css',
             compress : true
         },
+//        {
+//            src : './css/jquery.mobile.iscrollview.css',
+//            compress : true
+//        },
         './css/photoswipe.css',
         './css/audio.css',
         {
@@ -45,14 +48,14 @@ steal(
             src : './js/jquery.scrolldown-pagination.js',
             compress : true
         },
-        {
-            src : './js/jquery.iscroll-pagination.js',
-            compress : true
-        },
-        {
-            src : './js/iscroll.js',
-            compress : true
-        },
+//        {
+//            src : './js/jquery.iscroll-pagination.js',
+//            compress : true
+//        },
+//        {
+//            src : './js/iscroll.js',
+//            compress : true
+//        },
 
         {
             src : './js/side_menu.js',
@@ -67,10 +70,10 @@ steal(
 //            });
         }
 ).then(
-    {
-        src : './js/jquery.mobile.iscrollview.js',
-        compress : true
-    },
+//    {
+//        src : './js/jquery.mobile.iscrollview.js',
+//        compress : true
+//    },
     {
         src : './app_pagination.js',
         compress : true
@@ -84,48 +87,48 @@ steal(
             compress : false
     }
 ).then(
-    {
-        src : './js/jquery.icontacts.js',
-        compress : true
-    },
-    {
-        src : './js/slidernav.js',
-        compress : true
-    }
+//    {
+//        src : './js/jquery.icontacts.js',
+//        compress : true
+//    },
+//    {
+//        src : './js/slidernav.js',
+//        compress : true
+//    }
 ).then(
     function(){
         $(document).ready(function() {
-             if ( $("#icontacts-popover").length > 0 ) {
-                contactList = new iScroll('icontacts-popover',
-                        {
-                                zoom: true,
-                                onBeforeScrollStart:function(e){
-                                        var target = e.target;
-                                        while (target.nodeType != 1) target = target.parentNode;
-                                        if (target.tagName != 'BUTTON' && target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA') e.preventDefault();
-                                }
-                        }
-                );
-
-                $('.icontacts').iContacts('#contactsearch', {});
-                $('#category-button').click(function(e){
-                    $('#icontacts-popover-bound').toggle();
-                    contactList.refresh();
-                    e.stopPropagation();
-                });
-                $('#icontacts-popover-bound').click(function(e){
-                    e.stopPropagation();
-                });
-                $('body').click(function(){
-                    $('#icontacts-popover-bound').hide();
-                });
-                $('#icontacts-char').sliderNav();
-                $('#icontacts-char a').click(function(){
-                    target = ('#icontacts-popover ' + $(this).attr('alt'))
-                    contactList.scrollToElement(target, 500);
-                });
-
-            }
+//             if ( $("#icontacts-popover").length > 0 ) {
+//                contactList = new iScroll('icontacts-popover',
+//                        {
+//                                zoom: true,
+//                                onBeforeScrollStart:function(e){
+//                                        var target = e.target;
+//                                        while (target.nodeType != 1) target = target.parentNode;
+//                                        if (target.tagName != 'BUTTON' && target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA') e.preventDefault();
+//                                }
+//                        }
+//                );
+//
+//                $('.icontacts').iContacts('#contactsearch', {});
+//                $('#category-button').click(function(e){
+//                    $('#icontacts-popover-bound').toggle();
+//                    contactList.refresh();
+//                    e.stopPropagation();
+//                });
+//                $('#icontacts-popover-bound').click(function(e){
+//                    e.stopPropagation();
+//                });
+//                $('body').click(function(){
+//                    $('#icontacts-popover-bound').hide();
+//                });
+//                $('#icontacts-char').sliderNav();
+//                $('#icontacts-char a').click(function(){
+//                    target = ('#icontacts-popover ' + $(this).attr('alt'))
+//                    contactList.scrollToElement(target, 500);
+//                });
+//
+//            }
         });
     }
 )
