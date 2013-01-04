@@ -3,7 +3,7 @@ var scrollRefresh = {
     previous: 0,
     bottom: function(callback) {
         var pBottom = $(window).height() + $(window).scrollTop() >= $(document).height();
-        if(!this.pastBottom && pBottom) {
+        if(!this.pastBottom && pBottom) {           
             callback($(window).height() + $(window).scrollTop());
             this.pastBottom = true;
         } else {
@@ -34,8 +34,9 @@ var pesome_api = {
 
 var scroll = {
     start : function(callback){
-            $(window).bind('scrollstart', function () {
-                    scrollRefresh.bottom(function(){
+            $(window).bind('scroll', function () {
+                    scrollRefresh.bottom(function(position){
+                        //console.log("Loading bottom. " + position);
                         callback();
                     });
             });
@@ -59,18 +60,18 @@ var scroll = {
             $page = 1;
 
 
-            scroll.start(function(){
-                $loader.addClass('loading');
-                $loader.find('.pullUpLabel').html('Loading...');
-                $page++;
+            scroll.start(function(){                      
+                    $loader.addClass('loading');
+                    $loader.find('.pullUpLabel').html('Loading...');
+                    $page++;
 
-                pesome_api.load($url,  $page, function(res){
-                    if(res == 0){
-                        $loader.removeClass('loading');
-                        $loader.find('.pullUpLabel').html('No data found...');
-                    }
-                    $response = res;
-                });
+                    pesome_api.load($url,  $page, function(res){
+                        if(res == 0){
+                            $loader.removeClass('loading');
+                            $loader.find('.pullUpLabel').html('No data found...');
+                        }
+                        $response = res;
+                    });
             });
 
             scroll.end(function(){
