@@ -23,8 +23,8 @@ var pesome_api = {
             success: function(data){
                 if(data.length == 0){
                     callback(0);
-                }else{                
-                    callback(data);                
+                }else{
+                    callback(data);
                 }
             }
         });
@@ -36,34 +36,34 @@ var scroll = {
     start : function(callback){
             $(window).bind('scrollstart', function () {
                     scrollRefresh.bottom(function(){
-                        callback();                        
+                        callback();
                     });
             });
     },
     end : function(callback){
-            $(window).bind('scrollstop', function () {               
+            $(window).bind('scrollstop', function () {
                     setTimeout(function () {
                         callback();
                     }, 800);
             });
-            
+
     },
-    
+
     paginate : function(data,callback){
-        
+
             $container = data.container;
             $loader = data.loader
             $url = data.url
-            
+
             $response = null;
             $page = 1;
 
 
             scroll.start(function(){
                 $loader.addClass('loading');
-                $loader.find('.pullUpLabel').html('Pull up to refresh...');
+                $loader.find('.pullUpLabel').html('Loading...');
                 $page++;
-                l($url)
+
                 pesome_api.load($url,  $page, function(res){
                     if(res == 0){
                         $loader.removeClass('loading');
@@ -75,18 +75,14 @@ var scroll = {
 
             scroll.end(function(){
                  if($($response).length > 0){
-                    callback($response); 
+                    $loader.removeClass('loading');
+                    $loader.find('.pullUpLabel').html('Pull up to refresh...');
+                    callback($response);
                     $response = null;
                  }
             });
-
-
-            $(function(){
-                    $loader.addClass('loading');
-                    $loader.find('.pullUpLabel').html('Waiting...');
-            });        
     }
-    
+
 }
 
 
