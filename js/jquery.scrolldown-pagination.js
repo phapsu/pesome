@@ -19,10 +19,10 @@ var pesome_api = {
         $.ajax({
             url: url,
             dataType: 'jsonp',
-            data:  {'page':offset, 'jsonp' : 'pesomeApiDataCallback'},
+            data:  {'page':offset},
             success: function(data){
                 if(data.length == 0){
-                      callback(0);
+                    callback(0);
                 }else{                
                     callback(data);                
                 }
@@ -47,9 +47,50 @@ var scroll = {
                     }, 800);
             });
             
+    },
+    
+    paginate : function(data,callback){
+        
+            $container = data.container;
+            $loader = data.loader
+            $url = data.url
+            
+            $response = null;
+            $page = 1;
+
+
+            scroll.start(function(){
+                $loader.addClass('loading');
+                $loader.find('.pullUpLabel').html('Pull up to refresh...');
+                $page++;
+                l($url)
+                pesome_api.load($url,  $page, function(res){
+                    if(res == 0){
+                        $loader.removeClass('loading');
+                        $loader.find('.pullUpLabel').html('No data found...');
+                    }
+                    $response = res;
+                });
+            });
+
+            scroll.end(function(){
+                 if($($response).length > 0){
+                    callback($response); 
+                    $response = null;
+                 }
+            });
+
+
+            $(function(){
+                    $loader.addClass('loading');
+                    $loader.find('.pullUpLabel').html('Waiting...');
+            });        
     }
     
 }
+
+
+
 
 /*
 var scroll = {

@@ -151,6 +151,9 @@ img:active {
 	font-size:14px;
 	color:#888;
 }
+#pullUp{
+    margin-top:20px;
+}
 #pullDown .pullDownIcon, #pullUp .pullUpIcon  {
 	display:block; float:left;
 	width:40px; height:40px;
