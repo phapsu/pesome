@@ -3,12 +3,15 @@ var scrollRefresh = {
     previous: 0,
     bottom: function(callback) {
         var pBottom = $(window).height() + $(window).scrollTop() >= $(document).height();
-        if(!this.pastBottom && pBottom) {           
+        if(pBottom){
             callback($(window).height() + $(window).scrollTop());
-            this.pastBottom = true;
-        } else {
-            if(!pBottom) this.pastBottom = false;
         }
+//        if(!this.pastBottom && pBottom) {           
+//            callback($(window).height() + $(window).scrollTop());
+//            this.pastBottom = true;
+//        } else {
+//            if(!pBottom) this.pastBottom = false;
+//        }
         this.previous = $(window).scrollTop();
     }
 }
@@ -60,7 +63,7 @@ var scroll = {
             $page = 1;
 
 
-            scroll.start(function(){                      
+            this.start(function(){                      
                     $loader.addClass('loading');
                     $loader.find('.pullUpLabel').html('Loading...');
                     $page++;
@@ -74,7 +77,7 @@ var scroll = {
                     });
             });
 
-            scroll.end(function(){
+            this.end(function(){
                  if($($response).length > 0){
                     $loader.removeClass('loading');
                     $loader.find('.pullUpLabel').html('Pull up to refresh...');
