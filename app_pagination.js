@@ -10,11 +10,30 @@ steal(
                     $loader = $("#pullUp");
                     $url = $api_url.petopic();
 
-                    scroll.paginate({'container' : $container, 'loader' : $loader, 'url' : $url}, function(res){
-                        $container.append('//pesome/petopic/list/views/init.ejs', res);
-                        $container.find("img").lazyload({effect : "fadeIn"});
-                        $container.listview('refresh');
+
+                    scroll.paginate({'container' : $container, 'loader' : $loader, 'url' : $url}, function(res){                       
+                        $container.append('//pesome/petopic/list/views/init.ejs', res, function(){
+                            $container.find('img.lazyload').parents('li').addClass('lazyhidden');
+                            $container.listview('refresh');
+                            $container.find('img.lazyload').lazy_image(function(){
+                                l('images loaded');
+                                $container.find('li.lazyhidden').removeClass('lazyhidden');
+                            })
+                            
+//                            $container.find('img.lazyload').lazyload(
+//                            {
+//                                load: function(element){
+//                                    console.log('-------------------------------');
+//                                    console.log(element);
+//                                    if(element==0){//last img load
+//                                        
+//                                    }
+//                                }
+//                            });
+                           
+                        });
                     });
+
                 }
         });
      },

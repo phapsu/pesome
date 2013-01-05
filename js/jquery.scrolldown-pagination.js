@@ -1,19 +1,13 @@
-var scrollRefresh = {
-    pastBottom: false,
-    previous: 0,
-    bottom: function(callback) {
-        var pBottom = $(window).height() + $(window).scrollTop() >= $(document).height();
-        if(pBottom){
-            callback($(window).height() + $(window).scrollTop());
-        }
-//        if(!this.pastBottom && pBottom) {           
-//            callback($(window).height() + $(window).scrollTop());
-//            this.pastBottom = true;
-//        } else {
-//            if(!pBottom) this.pastBottom = false;
-//        }
-        this.previous = $(window).scrollTop();
-    }
+$.fn.lazy_image = function(callback) {
+    $setOfImages = $(this);
+    count = $setOfImages.length;
+    $setOfImages.each(function() {
+        $(this).bind('load', function() {
+            l(count);
+           $(this).removeClass('lazyload');
+           if (!--count) callback();
+        });
+    });
 }
 
 var pesome_api = {
@@ -36,15 +30,7 @@ var pesome_api = {
 
 
 var scroll = {
-    start : function(callback){
-            $(window).bind('scroll', function () {
-                    scrollRefresh.bottom(function(position){
-                        //console.log("Loading bottom. " + position);
-                        callback();
-                    });
-            });
-    },
-    end : function(callback){
+    stop : function(callback){
             $(window).bind('scrollstop', function () {
                     setTimeout(function () {
                         callback();
@@ -58,33 +44,37 @@ var scroll = {
             $container = data.container;
             $loader = data.loader
             $url = data.url
+            
 
             $response = null;
             $page = 1;
 
+            
+                $(window).bind('scroll', function () {
+                    if($(window).scrollTop() + $(window).height() >= ($(document).height())){                  
+                        $loader.addClass('loading');
+                        $loader.find('.pullUpLabel').html('Loading...');
+                        $page++;
 
-            this.start(function(){                      
-                    $loader.addClass('loading');
-                    $loader.find('.pullUpLabel').html('Loading...');
-                    $page++;
+                        pesome_api.load($url,  $page, function(res){
+                            if(res == 0){
+                                $loader.removeClass('loading');
+                                $loader.find('.pullUpLabel').html('No data found...');
+                            }
+                            $response = res;
+                        });
+                    }
+                });
 
-                    pesome_api.load($url,  $page, function(res){
-                        if(res == 0){
-                            $loader.removeClass('loading');
-                            $loader.find('.pullUpLabel').html('No data found...');
-                        }
-                        $response = res;
-                    });
-            });
-
-            this.end(function(){
-                 if($($response).length > 0){
-                    $loader.removeClass('loading');
-                    $loader.find('.pullUpLabel').html('Pull up to refresh...');
-                    callback($response);
-                    $response = null;
-                 }
-            });
+                this.stop(function(){
+                     if($($response).length > 0){
+                        $loader.removeClass('loading');
+                        $loader.find('.pullUpLabel').html('Pull up to refresh...');
+                        callback($response);
+                        $response = null;
+                     }
+                });
+        
     }
 
 }

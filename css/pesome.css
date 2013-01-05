@@ -152,7 +152,7 @@ img:active {
 	color:#888;
 }
 #pullUp{
-    margin-top:20px;
+    /*margin-top:20px;*/
 }
 #pullDown .pullDownIcon, #pullUp .pullUpIcon  {
 	display:block; float:left;
@@ -970,7 +970,9 @@ Header Category Menu
   min-height: 50px;
   background: grey url(../images/grey.gif);
 }
-
+.lazyhidden{
+    display: none;
+}
 
 /*iContact Popover*/
 #icontacts-popover-bound{
